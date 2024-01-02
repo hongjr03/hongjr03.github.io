@@ -12,6 +12,6 @@ menu:
         weight: 4
         params:
             icon: link
-toc: false
+toc: true
 comments: false
 ---
