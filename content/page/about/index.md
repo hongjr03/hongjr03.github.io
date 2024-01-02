@@ -6,6 +6,8 @@ slug: "about"
 menu:
     main:
         weight: 5
+        params:
+            icon: user
 ---
 
 我是洪佳荣，来自福建厦门，是一名[中国海洋大学](https://www.ouc.edu.cn/)的本科生，目前就读于软件工程专业。
