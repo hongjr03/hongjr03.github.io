@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>串讲</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="772f1614-91d0-457b-bb70-3e098d8b6b60" class="page sans"><header><img class="page-cover-image" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/IMG_1895.jpeg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤫</span></div><h1 class="page-title">串讲</h1><p class="page-description"></p></header><div class="page-body"><nav id="cd080332-7805-4f94-8b8d-281b78f8f2fd" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ef028345-d7f3-4fbd-b4e5-c0fd758ee5ce">第一章</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d8373fd6-6232-47ba-b487-e1695eaf580e">冯·诺依曼结构</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#e15d2479-54f0-463a-9b8a-683926406eec">基本思想</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#989e7b07-b1d6-447a-bf07-f1913474b40b">程序的执行过程</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#aceb27ec-9991-40ab-988b-38ab8a6583a4">基本结构</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2e4b74e1-dc06-4914-b1f7-33ddb8e61d9e">程序设计语言</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#85c6b039-1df9-4427-87f2-cde8881986e1">翻译程序</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f1f581a8-9eab-45b1-93c4-543d86f732c4">从源程序到可执行文件</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e9c4354f-1c86-45cf-a787-2b78955c6870">计算机系统的层次结构</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6f963188-222b-47f8-b41a-9a87d6e1583d">第二章</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#58ff110b-9ff7-4eae-8f2a-113ce31420a7">R 进制数和十进制数相互转换</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#957234e0-fb1e-44b4-aa3e-0eaea29a3575">浮点数的表示（IEEE 754 标准）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4e7c3b2b-2066-4ea3-81e7-41ad82250ebf">数据类型的宽度  </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3fda843a-3ce3-4a97-933f-b2f9dcc0fcb9">数据的基本运算</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3a6b06ed-25d4-4340-889c-ad61f99e112d">左移和右移</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#52be20e2-32f3-40ac-8176-b06767568c0b">整数加减运算</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fe681d13-9161-46d2-b9e6-1f1893120c62">常量的乘除运算</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0a646c34-5de5-461e-a0c1-14453272b9f6">浮点数加减运算</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#68a5ea36-5dcb-4f5b-9b14-9128d5ac2e6a">浮点数乘除运算</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ce774b08-a13d-4b5b-acf3-f901bf03c0f4">需要注意的例题和课后题</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3fd78cbc-3d55-4f6d-a0df-182b4bb17e08">第三章</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#70ae5256-7094-43ad-9044-ff931e1cae91">数据类型及其格式  </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#33efbdc7-27be-44fe-aa66-acce6e8789d1">IA-32常用指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#09ede2f5-a4a2-4556-8d4e-c7e53ce234ad">通用数据传送指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#7b1e4df2-5ca2-4040-9236-b7fd0405b8cf">地址传送指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#de88e01f-8d5f-48a6-9861-e11d74b31452">定点算术运算指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2559d37d-ccc9-4d83-b247-26f27f463aaa">按位运算指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f3e804cd-73bc-4181-8f43-7c91df331476">移位指令</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#be2dd178-50b7-469a-bd01-15a3652ce399">控制转移指令</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ab9aafb1-7cfd-46d1-bca3-00afef8e26cb">C 语言程序的机器级表示</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#46cdf4e7-5a27-45f9-a5ad-bb10e088d13f">过程调用的执行步骤（P为调用者，Q为被调用者）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ffcd5a33-0c89-4a8c-87ba-992b7b542728">IA-32的寄存器使用约定</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#54e27f51-6362-469a-809e-3ef6f71a3470">栈、栈帧</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#06c02996-6276-4ba6-b430-6f1b2db99eb8">变量的作用域和生存期</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#14e9d031-d577-4c86-9047-7b77ddc3abc7">按值传递参数和按地址传递参数</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a3d8afc-6a35-4752-a4d5-7d32be4b1a8b">复杂数据类型的分配和访问</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d7b10b0-d612-49c8-b99c-350d9c2f3795">数组</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9b8265ab-7991-4a34-9a9c-c7a5213296d1">数组与指针</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d42cf4ec-215c-4770-ab43-de3c9df0b148">结构体</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#60d2fc03-3c22-4f1a-8b0b-1b3b2332b4cd">数据的对齐</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f3f0ee5a-497e-4acf-bbaf-7cc9f10b7d5c">x86-64</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#1b47c0f6-a842-4756-b5ce-4cf985110dfa">基本特点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#32893c16-94de-4303-b780-27baa91cb47d">需要注意的例题和课后题</a></div></nav><h1 id="ef028345-d7f3-4fbd-b4e5-c0fd758ee5ce" class="">第一章</h1><h2 id="d8373fd6-6232-47ba-b487-e1695eaf580e" class="">冯·诺依曼结构</h2><h3 id="e15d2479-54f0-463a-9b8a-683926406eec" class="">基本思想</h3><ol type="1" id="eeda0d76-f749-48be-9c01-c1082d8cee09" class="numbered-list" start="1"><li>采用&quot;存储程序&quot;工作方式<ol type="a" id="eb3d9ddc-45fc-42ee-b81c-d4ac876ce6e4" class="numbered-list" start="1"><li>任何要计算机完成的工作都要先被编写成程序，然后将程序和原始数据送入主存并启动执行。一旦程序被启动，计算机应能在不需操作人员干预下，自动完成逐条取出指令和执行指令的任务。</li></ol></li></ol><ol type="1" id="d157bf3f-abee-45ea-832b-dc344453f510" class="numbered-list" start="2"><li>由<code>运算器</code>,<code>控制器</code>,<code>存储器</code>,<code>输入设备</code>,<code>输出设备</code>五个基本部件组成</li></ol><ol type="1" id="4539e381-e5df-40f6-8b32-32f1ddbdb911" class="numbered-list" start="3"><li><strong>存储器</strong>不仅能放数据,还能放指令;形式上数据和指令没区别,但计算机能区分;<strong>控制器</strong>应能自动执行指令;<strong>运算器</strong>应能进行加减乘除四种基本算术运算,并且也能进行逻辑运算;操作人员通过<strong>输入/输出设备</strong>使用计算机</li></ol><ol type="1" id="6768ae6c-23ce-4bf0-9a33-955a1e5c0a44" class="numbered-list" start="4"><li>计算机内部以二进制形式表示指令和数据;每条指令由<code>操作码</code>和<code>地址码</code>两部分组成,<code>操作码</code>指出操作类型,<code>地址码</code>指出操作数地址;由一串<code>指令</code>组成<code>程序</code></li></ol><h3 id="989e7b07-b1d6-447a-bf07-f1913474b40b" class="">程序的执行过程</h3><ol type="1" id="a03665dd-10e9-44b4-8104-d3825b167c02" class="numbered-list" start="1"><li>根据 PC 取指令</li></ol><ol type="1" id="5180d669-da23-4c60-8ed7-4d9846d43890" class="numbered-list" start="2"><li>指令译码</li></ol><ol type="1" id="4487bb5f-1263-496f-a0ac-1790a27d864b" class="numbered-list" start="3"><li>取操作数并执行</li></ol><ol type="1" id="ea926786-0958-485b-8e7e-9331f4d2fccd" class="numbered-list" start="4"><li>回写结果</li></ol><ol type="1" id="4e5ca14d-a39e-4db2-8815-c7dc840c82c5" class="numbered-list" start="5"><li>PC增量</li></ol><h3 id="aceb27ec-9991-40ab-988b-38ab8a6583a4" class="">基本结构</h3><figure id="11c0a31d-e45e-4b19-8411-2d2c41e2c699" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled.png"><img style="width:2161px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled.png"/></a></figure><h2 id="2e4b74e1-dc06-4914-b1f7-33ddb8e61d9e" class="">程序设计语言</h2><ol type="1" id="09299bda-72ca-443d-8a0d-c9a93ec6e834" class="numbered-list" start="1"><li>机器级语言：都属于低级语言，每条指令都与特定的机器结构相关<ol type="a" id="0359e201-5b4a-45ad-aa77-ade298ef8889" class="numbered-list" start="1"><li>机器语言，机器代码：0/1序列，每条指令都由0/1组成</li></ol><ol type="a" id="9afde6da-67fc-4524-90b3-c50f10e8a893" class="numbered-list" start="2"><li>汇编语言：用英文符号和机器指令建立对应关系，源程序需要转换为机器语言程序才能被执行</li></ol></li></ol><ol type="1" id="fcb178b2-5e8a-4763-8f65-8f6eb23896fd" class="numbered-list" start="2"><li>高级程序设计语言，高级编程语言：面向算法设计，与具体的机器结构无关</li></ol><h2 id="85c6b039-1df9-4427-87f2-cde8881986e1" class="">翻译程序</h2><ol type="1" id="d2b66cdb-a2ae-4d47-9982-3a94fcd177e0" class="numbered-list" start="1"><li>汇编程序，汇编器：汇编语言源程序 → 机器语言目标程序</li></ol><ol type="1" id="15fe8f38-b96a-4802-87f3-9a36a32acc42" class="numbered-list" start="2"><li>解释程序，解释器：源程序逐条翻译成机器指令并立即执行</li></ol><ol type="1" id="7f8d8f13-bffb-4ec9-b076-993df683eefb" class="numbered-list" start="3"><li>编译程序，编译器：高级语言源程序 → 汇编 / 机器语言目标程序</li></ol><blockquote id="4252badb-34dd-48f7-b483-4e01844d4adb" class="">掌握等价转换？</blockquote><figure id="9ad88903-a7d0-4c9c-8b2f-de8a4ee1c56a" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%201.png"><img style="width:871px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%201.png"/></a></figure><h2 id="f1f581a8-9eab-45b1-93c4-543d86f732c4" class="">从源程序到可执行文件</h2><ol type="1" id="a63f5bbf-198c-41e3-b0d7-04157cc14308" class="numbered-list" start="1"><li>编译阶段：编译程序（<code>cc1</code>）对预处理后的源程序进行编译，生成一个汇编语言源程序，以 <code>.s</code> 为拓展名。</li></ol><ol type="1" id="b9e61795-905e-4ca4-ab95-80270f031a5a" class="numbered-list" start="2"><li>汇编阶段：汇编程序（<code>as</code>）对汇编语言源程序进行汇编，生成一个可重定位目标文件，以 <code>.o</code> 为拓展名，是二进制文件，不可读。</li></ol><figure id="4bc76169-d8af-42e8-a269-af2c54a76a0d" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%202.png"><img style="width:835px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%202.png"/></a></figure><h2 id="e9c4354f-1c86-45cf-a787-2b78955c6870" class="">计算机系统的层次结构</h2><ol type="1" id="f3635c5e-ffbd-464d-81ab-84f7dcb746f3" class="numbered-list" start="1"><li>指令集体系结构（ISA）：是软件和硬件之间接口的一个完整定义，对指令系统的一种规范。内容包括：指令集、寄存器结构、存储空间和编址方式、数据存放方式、寻址方式、指令控制等。<strong>定义了一台计算机可以执行的所有指令的集合。</strong></li></ol><figure id="06a83d57-a886-4df5-a3ec-ac24a864f859" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%203.png"><img style="width:691px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%203.png"/></a></figure><h1 id="6f963188-222b-47f8-b41a-9a87d6e1583d" class="">第二章</h1><h2 id="58ff110b-9ff7-4eae-8f2a-113ce31420a7" class="">R 进制数和十进制数相互转换</h2><ol type="1" id="405ab9f2-bd1f-4e3c-8eab-2a864e92f824" class="numbered-list" start="1"><li>→，按权展开；</li></ol><ol type="1" id="e559a13d-eebe-4770-b676-2f19a6a6d38d" class="numbered-list" start="2"><li>←，整数部分“除基取余”倒着写，小数部分“乘基取整”。</li></ol><h2 id="957234e0-fb1e-44b4-aa3e-0eaea29a3575" class="">浮点数的表示（IEEE 754 标准）</h2><p id="cf89f282-31bf-46fe-9755-2852a0d21873" class="">掌握真值和机器码的转换。</p><ol type="1" id="2e91f900-d686-4345-a248-b3071faf706c" class="numbered-list" start="1"><li>标准浮点数的表示：</li></ol><figure id="8b672f96-05c1-4d49-913f-5e205f324abd" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>s</mi></msup><mo>×</mo><mn>1.</mn><mi>f</mi><mo>×</mo><msup><mn>2</mn><mrow><mi>e</mi><mo>−</mo><mn>127</mn><mtext>(单精度), 或</mtext><mi>e</mi><mo>−</mo><mn>1023</mn><mtext>(双精度)</mtext></mrow></msup></mrow><annotation encoding="application/x-tex">(-1)^s \times 1.f \times2^{e-127 \text{(单精度), 或}e- 1023\text{(双精度)}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">s</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">1.</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.938em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mbin mtight">−</span><span class="mord mtight">127</span><span class="mord text mtight"><span class="mord mtight">(</span><span class="mord cjk_fallback mtight">单精度</span><span class="mord mtight">), </span><span class="mord cjk_fallback mtight">或</span></span><span class="mord mathnormal mtight">e</span><span class="mbin mtight">−</span><span class="mord mtight">1023</span><span class="mord text mtight"><span class="mord mtight">(</span><span class="mord cjk_fallback mtight">双精度</span><span class="mord mtight">)</span></span></span></span></span></span></span></span></span></span></span></span></span></span></div></figure><figure id="40c3a5f4-f05a-47f3-89e7-f8cff269d6d7" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%204.png"><img style="width:736px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%204.png"/></a></figure><figure id="fa27d9c3-08cf-4318-b85b-dfe162cf83d1" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%205.png"><img style="width:870px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%205.png"/></a></figure><h2 id="4e7c3b2b-2066-4ea3-81e7-41ad82250ebf" class="">数据类型的宽度  </h2><table id="4b1bd3ef-2c5e-48d4-938d-6865385366cf" class="simple-table"><tbody><tr id="111c3a3a-4346-453f-9ffa-51aa57099534"><td id="rbGs" class="">C 声明</td><td id="YWdh" class="">32位 (typ)</td><td id="BXCJ" class="">64位</td></tr><tr id="ed564d1b-255a-493a-95d6-07b5979fcd7e"><td id="rbGs" class="">char</td><td id="YWdh" class="">1</td><td id="BXCJ" class="">1</td></tr><tr id="8a9c1aac-ed0d-4b8c-8a2e-dce02036952d"><td id="rbGs" class="">short int</td><td id="YWdh" class="">2</td><td id="BXCJ" class="">2</td></tr><tr id="d3872c5c-0806-42dc-b668-fcdbfed60120"><td id="rbGs" class="">int</td><td id="YWdh" class="">4</td><td id="BXCJ" class="">4</td></tr><tr id="b9fbe73a-e91a-47c4-9fc3-83f771c58233"><td id="rbGs" class="">long int</td><td id="YWdh" class="">4</td><td id="BXCJ" class="">8</td></tr><tr id="3237ad92-6622-40d4-91d3-30bb2e0a2c0d"><td id="rbGs" class="">char*</td><td id="YWdh" class="">4</td><td id="BXCJ" class="">8</td></tr><tr id="de8edfad-b17c-4b16-8872-78e38fe233d5"><td id="rbGs" class="">float</td><td id="YWdh" class="">4</td><td id="BXCJ" class="">4</td></tr><tr id="8d93d9ca-1fad-4a0c-bd5e-223b8320978a"><td id="rbGs" class="">double</td><td id="YWdh" class="">8</td><td id="BXCJ" class="">8</td></tr></tbody></table><h2 id="3fda843a-3ce3-4a97-933f-b2f9dcc0fcb9" class="">数据的基本运算</h2><h3 id="3a6b06ed-25d4-4340-889c-ad61f99e112d" class="">左移和右移</h3><ol type="1" id="f9738ea8-87a5-48b1-97a9-fdd99b452414" class="numbered-list" start="1"><li>带符号使用算术移位，不考虑符号时使用逻辑移位。</li></ol><ol type="1" id="46028534-f093-4aa9-b3db-0605cb0bfd5b" class="numbered-list" start="2"><li>溢出：左移可能产生溢出。对于无符号数，如果左移移出了1，则溢出；对于有符号数，如果左移移出的位和新的符号位不同，则溢出。</li></ol><ol type="1" id="09d0136e-a1b2-4695-9abd-457859723d4c" class="numbered-list" start="3"><li>截断：右移可能发生有效数据丢失。 </li></ol><h3 id="52be20e2-32f3-40ac-8176-b06767568c0b" class="">整数加减运算</h3><ol type="1" id="d546c634-e33b-4b12-bb3d-85f665cbba22" class="numbered-list" start="1"><li>输出标志：（<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></span><span>﻿</span></span>表示进位输出，<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></span><span>﻿</span></span>是运算结果）<ol type="a" id="998c35a2-aff3-44ff-925a-af740df8fd37" class="numbered-list" start="1"><li>ZF，零标志：<code>ZF=1</code> 表示结果所有位都为0，否则为1；</li></ol><ol type="a" id="2f8afd06-159b-4dc4-8824-a965b976af4d" class="numbered-list" start="2"><li>OF，溢出标志：同号相加符号位不变，否则溢出。即<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><msub><mi>C</mi><mi>n</mi></msub><mo>⊕</mo><msub><mi>C</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mathrm{OF}=C_n \oplus C_{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">OF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>。</li></ol><ol type="a" id="556b57b7-87f2-47ce-9c22-12aa9dd43ad2" class="numbered-list" start="3"><li>SF，符号标志：即结果的符号位。</li></ol><ol type="a" id="73b479c4-095a-4422-a9f9-feb76c76d310" class="numbered-list" start="4"><li>CF，进 / 借位标志：加法若结果有进位，则为1；减法若不够减，则为1。即<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi></mrow><mo>⊕</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">\mathrm {CF} = \mathrm {Sub} \oplus C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">CF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathrm">Sub</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></span><span>﻿</span></span>。</li></ol></li></ol><h3 id="fe681d13-9161-46d2-b9e6-1f1893120c62" class="">常量的乘除运算</h3><ol type="1" id="d2868ea5-f467-442f-81e2-7c9018e80adc" class="numbered-list" start="1"><li>使用移位、加法和减法的运算代替乘法运算能省时钟周期。一次乘法运算需要10个左右时钟周期，一次除法运算需要30个或更多时钟周期。</li></ol><blockquote id="133e64a2-8773-4eeb-bf68-11dca35a3a99" class="">掌握计算省下了多少时钟周期？</blockquote><h3 id="0a646c34-5de5-461e-a0c1-14453272b9f6" class="">浮点数加减运算</h3><ol type="1" id="80fdf6b3-3486-48d5-8ecd-97f32057fdde" class="numbered-list" start="1"><li>对阶：阶小的数右移，隐含的1需要被移出，空出的位补0。移出的位不丢，参与运算，保证精度。</li></ol><ol type="1" id="0954207e-31f1-45ef-8c5a-b39aa501b957" class="numbered-list" start="2"><li>尾数加减：是原码运算，隐含的1和右移的附加位也参与运算。</li></ol><ol type="1" id="4f78cac6-bd31-4be3-99ce-9b00fc8a8e14" class="numbered-list" start="3"><li>尾数规格化</li></ol><ol type="1" id="a6a34592-679f-488a-9a74-722b86865959" class="numbered-list" start="4"><li>尾数舍入：中间结果右边至少保留两位。第一位为保护位，用于保护右移的位；第二位为舍入位，用于舍入。进一步提高计算精度，还引入粘位，只要舍入位右边还有数字，粘位被置1。（IEEE 754）<ol type="a" id="5b318475-9b1e-4410-8cc7-5ced1b3b5d78" class="numbered-list" start="1"><li>就近舍入到偶数（0舍1入）： <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.24...</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup><mo>→</mo><mn>1.24</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">1.24... \times 10^4 \rightarrow 1.24 \times 10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.24...</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.24</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="a" id="d2cc4846-0bb0-4798-a90e-8393df2d672d" class="numbered-list" start="2"><li>朝<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">+\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span></span><span>﻿</span></span>方向舍入。</li></ol><ol type="a" id="cc9e0655-efb8-4712-b5b1-dd8d78e1df90" class="numbered-list" start="3"><li>朝<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">-\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span></span><span>﻿</span></span>方向舍入。</li></ol><ol type="a" id="d3a8bb9c-46cc-4ba1-87e4-3402bfd385c7" class="numbered-list" start="4"><li>朝<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span><span>﻿</span></span>方向舍入。</li></ol></li></ol><ol type="1" id="2eafe36a-2700-4871-a841-b62f7aedb988" class="numbered-list" start="5"><li>阶码溢出判断：若右规后阶码全<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span>，则发生阶码上溢，产生异常或可能被置为<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">+\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span></span><span>﻿</span></span>或<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">-\infin</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span></span><span>﻿</span></span>；若左规后阶码全<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span><span>﻿</span></span>，则发生阶码下溢，结果为非规格化形式。</li></ol><h3 id="68a5ea36-5dcb-4f5b-9b14-9128d5ac2e6a" class="">浮点数乘除运算</h3><p id="1e9abd43-fe15-4d49-b3f5-b5e1d4f33179" class="">和加减类似，但在进行运算前需要保证操作数为两个正常的规格化浮点数，计算步骤中不需要对阶。</p><h2 id="ce774b08-a13d-4b5b-acf3-f901bf03c0f4" class="">需要注意的例题和课后题</h2><ul id="7836f364-6217-44d9-aec7-04f517939dcf" class="bulleted-list"><li style="list-style-type:disc">大端、小端，数据在内存中存放的方式</li></ul><ul id="debe95d9-d39f-4096-96a4-d956a9f18b62" class="bulleted-list"><li style="list-style-type:disc">P33，进制转换</li></ul><ul id="205ad9ec-5788-4533-b8a5-4e60f339ad85" class="bulleted-list"><li style="list-style-type:disc">P48，例2.23，例2.24</li></ul><ul id="7c935c8f-1e3e-4d05-9515-74cec156d3a7" class="bulleted-list"><li style="list-style-type:disc">P75，例2.36</li></ul><ul id="3448d16f-49e5-402c-b7a4-eea93f7d5603" class="bulleted-list"><li style="list-style-type:disc">课后题 9，23，24，28，34，35</li></ul><h1 id="3fd78cbc-3d55-4f6d-a0df-182b4bb17e08" class="">第三章</h1><p id="edc84510-6360-4264-8721-1bf8af9288a9" class="">课本的 RTL 规定：<code>R[r]</code> 表示寄存器的内容，<code>M[addr]</code> 表示存储单元<code>addr</code>的内容，寄存器<code>r</code>采用不带<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">%</span></span></span></span></span><span>﻿</span></span>的形式表示；<code>M[PC]</code>表示<code>PC</code>所指存储单元的内容；<code>M[R[r]]</code>表示寄存器<code>r</code>的内容所指的存储单元的内容。传送方向用←表示。</p><blockquote id="e3e622a3-2a0e-4fb5-80c4-0e23ce6c5b2d" class="">不是重点，怕看混了</blockquote><h2 id="70ae5256-7094-43ad-9044-ff931e1cae91" class="">数据类型及其格式  </h2><table id="3ee27500-6306-4a4c-8554-ec763646446c" class="simple-table"><tbody><tr id="7ac43462-e42c-4c27-ba72-d9859d4adaf2"><td id="rbGs" class="" style="width:167.4479217529297px">C 声明</td><td id="Dn:e" class="">Intel操作数类型</td><td id="YWdh" class="">汇编指令长度后缀</td><td id="BXCJ" class="">存储长度（位）<strong>（IA-32）</strong></td></tr><tr id="1800c137-ddff-445a-b50e-47952f025009"><td id="rbGs" class="" style="width:167.4479217529297px">(unsigned) char</td><td id="Dn:e" class="">整数/字节</td><td id="YWdh" class="">b</td><td id="BXCJ" class="">8</td></tr><tr id="f14f3d2f-a4d3-40e9-a961-85cb840d4a6e"><td id="rbGs" class="" style="width:167.4479217529297px">(unsigned) short</td><td id="Dn:e" class="">整数/字</td><td id="YWdh" class="">w</td><td id="BXCJ" class="">16</td></tr><tr id="3eada5c0-1201-4a0d-a58a-6af8f52f82b1"><td id="rbGs" class="" style="width:167.4479217529297px">(unsigned) int</td><td id="Dn:e" class="">整数/双字</td><td id="YWdh" class="">l</td><td id="BXCJ" class="">32</td></tr><tr id="84490bdc-06b7-4c7c-95fd-8a6a832c8cf7"><td id="rbGs" class="" style="width:167.4479217529297px">(unsigned) long int</td><td id="Dn:e" class="">整数/双字</td><td id="YWdh" class="">l</td><td id="BXCJ" class="">32</td></tr><tr id="5d460701-f7e2-4c78-9649-9fc8d5fdcf4e"><td id="rbGs" class="" style="width:167.4479217529297px">(unsigned) long long int</td><td id="Dn:e" class="">—</td><td id="YWdh" class="">—</td><td id="BXCJ" class="">2 × 32</td></tr><tr id="a079e33b-e5c4-44f9-89f8-85ca90c8e8e6"><td id="rbGs" class="" style="width:167.4479217529297px">char*</td><td id="Dn:e" class="">整数/双字</td><td id="YWdh" class="">4</td><td id="BXCJ" class="">32</td></tr><tr id="13d9618d-f162-4825-8b87-a193a99b8ab1"><td id="rbGs" class="" style="width:167.4479217529297px">float</td><td id="Dn:e" class="">单精度浮点数</td><td id="YWdh" class="">s</td><td id="BXCJ" class="">32</td></tr><tr id="d1158034-f687-4d7f-8c2b-425d7824d9c3"><td id="rbGs" class="" style="width:167.4479217529297px">double</td><td id="Dn:e" class="">双精度浮点数</td><td id="YWdh" class="">l</td><td id="BXCJ" class="">64</td></tr><tr id="3dcc8b74-bae2-4d25-bfad-b6c6fdf4a528"><td id="rbGs" class="" style="width:167.4479217529297px">long double</td><td id="Dn:e" class="">扩展精度浮点数</td><td id="YWdh" class="">t</td><td id="BXCJ" class="">80 / 96</td></tr></tbody></table><h2 id="33efbdc7-27be-44fe-aa66-acce6e8789d1" class="">IA-32常用指令</h2><h3 id="09ede2f5-a4a2-4556-8d4e-c7e53ce234ad" class="">通用数据传送指令</h3><p id="18d413b4-ccb2-4205-8d9c-e1dcc3a76065" class="">传送寄存器或存储器中的<strong>数据</strong>。</p><ul id="5554acd1-5e7a-4d29-9b53-2276cedd741a" class="bulleted-list"><li style="list-style-type:disc"><code>MOV</code> ：<code>movb</code>，<code>movw</code>，<code>movl</code></li></ul><ul id="fd6ff7da-5487-492d-99e1-dc6ae00897f9" class="bulleted-list"><li style="list-style-type:disc"><code>MOVS</code>：符号拓展传送指令，比如<code>movsbw</code> 表示符号拓展<code>s</code>一个字节<code>b</code> <strong>数据</strong>后传送到一个字<code>w</code><strong>地址</strong>中。</li></ul><ul id="845c5b29-ae80-4344-8269-018201dc7d4f" class="bulleted-list"><li style="list-style-type:disc"><code>MOVZ</code> ：零拓展传送指令。</li></ul><p id="61c48285-7bf1-4f15-b094-0e4743533eb6" class="">栈：高地址向低地址增长，使用 ESP 寄存器（stack pointer）指向栈顶。</p><ul id="2f9a9471-e685-44e0-b830-c135ce7c862d" class="bulleted-list"><li style="list-style-type:disc"><code>PUSH</code> ：先执行<code>R[sp] &lt;- R[sp] - 2</code> （字）或<code>R[esp] &lt;- R[esp] - 4</code> （双字），然后将一个字或者双字从指定寄存器送到 SP 或 ESP 指示的栈单元中。如<code>pushl</code> 表示双字压栈，<code>pushw</code> 表示字压栈。</li></ul><ul id="27e8750e-9d47-4367-a231-0555f19476e3" class="bulleted-list"><li style="list-style-type:disc"><code>POP</code> ：先将一个字或双字从 SP 或 ESP 指示的栈单元送到指定寄存器中，再执行<code>R[sp] &lt;- R[sp] + 2</code> （字）或<code>R[esp] &lt;- R[esp] + 4</code> （双字）。如<code>popl</code> 表示双字出栈，<code>popw</code> 表示字出栈。</li></ul><h3 id="7b1e4df2-5ca2-4040-9236-b7fd0405b8cf" class="">地址传送指令</h3><p id="38d560f4-7d2f-45ee-83a1-800314a7120a" class="">传送源操作数的<strong>地址</strong>，指定目的寄存器不能是段寄存器，且源操作数必须是存储器寻址方式。可以利用该指令进行运算。</p><ul id="d1ac8b72-a6db-4116-813d-567954dddc9e" class="bulleted-list"><li style="list-style-type:disc"><code>LEA</code> （load effective address） </li></ul><figure id="3f218a03-42da-4d81-ab61-1304c1bd233f" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%206.png"><img style="width:973px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%206.png"/></a></figure><h3 id="de88e01f-8d5f-48a6-9861-e11d74b31452" class="">定点算术运算指令</h3><ul id="c528d87b-3730-494b-823a-ac89af57d055" class="bulleted-list"><li style="list-style-type:disc"><code>CMP</code> ：目的操作数减源操作数（AT&amp;T右减左），只改变标志位</li></ul><blockquote id="73f65be6-9d63-4a09-a995-b1c79c280eb9" class="">下面这四条只是怕忘蒽…</blockquote><ul id="299a3c55-cf17-4208-9479-a3d506093855" class="bulleted-list"><li style="list-style-type:disc"><code>INC</code>：加1，包括<code>incb</code>、<code>incw</code>、<code>incl</code>等</li></ul><ul id="a545858a-f943-48f8-bfaf-51d776b90b3d" class="bulleted-list"><li style="list-style-type:disc"><code>DEC</code>：减1，包括<code>decb</code>、<code>decw</code>、<code>decl</code>等</li></ul><ul id="690fc3c5-02d2-4eb8-860b-1a8bdd5886f9" class="bulleted-list"><li style="list-style-type:disc"><code>MUL</code> / <code>IMUL</code>：无符号乘 / 带符号乘</li></ul><ul id="dcfed27e-6638-495d-83c2-620124ca200f" class="bulleted-list"><li style="list-style-type:disc"><code>DIV</code>/ <code>IDIV</code>：带无符号除 / 带符号除。指令中只明显指出除数，使用<code>AL / AX / EAX</code> 中的内容除以除数。</li></ul><h3 id="2559d37d-ccc9-4d83-b247-26f27f463aaa" class="">按位运算指令</h3><p id="27d1b30f-6615-4568-acc7-24116d679770" class="">仅<code>NOT</code> 不影响条件标志位，其余指令执行后，<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\mathrm{OF} = \mathrm{CF} = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">OF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">CF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span><span>﻿</span></span>，<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Z</mi><mi mathvariant="normal">F</mi></mrow><annotation encoding="application/x-tex">\mathrm{ZF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">ZF</span></span></span></span></span></span><span>﻿</span></span>和<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">F</mi></mrow><annotation encoding="application/x-tex">\mathrm{SF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">SF</span></span></span></span></span></span><span>﻿</span></span>根据结果设置。</p><ul id="cf7452e3-4d94-481a-a13f-4007fc9a3aa2" class="bulleted-list"><li style="list-style-type:disc"><code>TEST</code>：两操作数相与，不改变原操作数。</li></ul><h3 id="f3e804cd-73bc-4181-8f43-7c91df331476" class="">移位指令</h3><ul id="5995ed89-2f59-44d5-ab25-c44537ffbf6b" class="bulleted-list"><li style="list-style-type:disc"><code>SHL/SHR</code>:  逻辑左/右移（无符号），包括 <code>shlb</code>、<code>shrw</code>、<code>shrl</code>等</li></ul><ul id="af82a5fb-b0af-4625-9169-f1a0b3a1d176" class="bulleted-list"><li style="list-style-type:disc"><code>SAL/SAR</code>:   算术左/右移（带符号），左移判溢出，右移高位补符，包括 <code>salb</code>、<code>sarw</code>、<code>sarl</code>等（移位前、后符号位发生变化，则 <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">F</mi></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathrm {OF}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">OF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span> ）</li></ul><ul id="5568c00d-6b97-46b4-aaef-70e817c5aded" class="bulleted-list"><li style="list-style-type:disc"><code>ROL/ROR</code>：循环左/右移，包括 <code>rolb</code>、<code>rorw</code>、<code>roll</code>等</li></ul><ul id="522db80b-b8d0-4e16-bb6b-a2cfb8cfc1ed" class="bulleted-list"><li style="list-style-type:disc"><code>RCL/RCR</code>:   带进位循环左/右移，即：将<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">F</mi></mrow><annotation encoding="application/x-tex">\mathrm {CF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">CF</span></span></span></span></span></span><span>﻿</span></span>作为操作数一部分循环移位，包括 <code>rclb</code>、<code>rcrw</code>、<code>rcll</code>等</li></ul><h3 id="be2dd178-50b7-469a-bd01-15a3652ce399" class="">控制转移指令</h3><p id="69bce3be-1f2a-4491-a15a-173e2de6a375" class="">四个标志位<code>c</code>、<code>z</code>、<code>s</code>、<code>o</code>；相等<code>e</code>；无符号数<code>a</code>（above）、<code>b</code>（below）；有符号数<code>g</code>（greater）、<code>l</code>（less）。</p><figure id="087896d7-d18c-4f16-9c2a-42e3f1bddf78" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%207.png"><img style="width:928px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%207.png"/></a></figure><h2 id="ab9aafb1-7cfd-46d1-bca3-00afef8e26cb" class="">C 语言程序的机器级表示</h2><h3 id="46cdf4e7-5a27-45f9-a5ad-bb10e088d13f" class="">过程调用的执行步骤（P为调用者，Q为被调用者）</h3><p id="f4825296-df13-425c-865e-b2cf2f028bcb" class="">现场即通用寄存器的内容。</p><ol type="1" id="ff413f94-6c1a-4e1e-8a68-307b9f3270a1" class="numbered-list" start="1"><li>P保存现场（必要时）；</li></ol><ol type="1" id="4e087d20-efb3-46f9-8563-61f6b87d91f6" class="numbered-list" start="2"><li>将入口参数（实参）放到Q能访问到的地方；</li></ol><ol type="1" id="d8f1f629-850c-4ab5-9219-0783abeb5c2a" class="numbered-list" start="3"><li>P保存返回地址，然后将控制转移到Q；（<code>CALL</code>）</li></ol><p id="796ef3c9-1703-4475-a62b-cc89ffe8b20f" class="">以上三步为P栈帧。</p><ol type="1" id="fc201e6a-ce80-4f97-8cef-4ffa6ebc2d9a" class="numbered-list" start="4"><li>Q保存P的现场，并为自己的非静态局部变量分配空间；（准备阶段）</li></ol><ol type="1" id="1b6ec77a-b635-41a6-ad14-558aa2087c6f" class="numbered-list" start="5"><li>执行Q的过程体（函数体）；（处理阶段）</li></ol><ol type="1" id="84c9ff68-f50d-4ac8-8c74-638c2b728f94" class="numbered-list" start="6"><li>Q恢复P的现场，释放局部变量空间；</li></ol><ol type="1" id="e9e9a8a3-036a-4c76-be9f-b4233dc4ce7f" class="numbered-list" start="7"><li>Q取出返回地址，将控制转移到P。（<code>RET</code>）</li></ol><p id="14c1b64d-5cf4-4ff0-af12-a9b67d520c8a" class="">以上四步为Q栈帧。</p><h3 id="ffcd5a33-0c89-4a8c-87ba-992b7b542728" class="">IA-32的寄存器使用约定</h3><ul id="942ee9f3-18d0-4799-8b3f-c428383b8a16" class="bulleted-list"><li style="list-style-type:disc">调用者保存寄存器：<code>eax</code>，<code>edx</code>，<code>ecx</code><p id="2027d773-25b8-4a11-921c-93d85934ba24" class="">如果调用函数P调用完Q返回后，还需用到<code>eax</code>寄存器，则需要P在调用Q前保存。一般而言P调用Q之后不需要用到<code>eax</code>寄存器，所以一般会将操作数优先存在<code>eax</code>，<code>edx</code>，<code>ecx</code>这类寄存器，以</p></li></ul><ul id="6d34f3e9-7290-4913-9e96-a39c9928ad8c" class="bulleted-list"><li style="list-style-type:disc">被调用者保存寄存器：<code>ebx</code>，<code>esi</code>，<code>edi</code><p id="d4ccf8e6-6f37-495c-92a2-d78641b6166b" class="">如果被调用者Q需要用到<code>ebx</code>，则Q需要保存到栈中再使用。</p></li></ul><ul id="5efd9dfd-a0b1-4fed-a855-dfb1b69d23ab" class="bulleted-list"><li style="list-style-type:disc"><code>ebp</code>：帧指针寄存器，指向当前栈帧底部，高地址</li></ul><ul id="82a073bf-fa0f-4760-9c2b-3872c95d6afc" class="bulleted-list"><li style="list-style-type:disc"><code>esp</code>：栈指针寄存器，指向当前栈帧顶部，低地址。</li></ul><p id="68d31d8b-5b60-43d5-a9fa-f804619e7fb2" class="">为减少准备和结束阶段的开销，每个过程应先使用<code>eax</code>，<code>edx</code>，<code>ecx</code>寄存器。</p><h3 id="54e27f51-6362-469a-809e-3ef6f71a3470" class="">栈、栈帧</h3><p id="32cf6604-688f-472f-8047-67678bcee557" class=""> </p><figure id="7491995e-8526-4b44-9f84-8c4df960cb52" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic10.png"><img style="width:1130px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic10.png"/></a></figure><p id="bdb7995d-ea57-41b7-a5ac-fdbb82788ea5" class="">返回地址就是<code>call</code> 指令的下一条指令的地址。</p><figure id="8c5b4b3c-4a82-474c-abca-5c37a7d2e3d5" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic9.png"><img style="width:922px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic9.png"/></a></figure><h3 id="06c02996-6276-4ba6-b430-6f1b2db99eb8" class="">变量的作用域和生存期</h3><p id="33a5ab1d-b8f6-41c2-a87c-0dca3f15d629" class="">Q栈帧中保存的Q内部的非静态局部变量只在Q执行过程中有效。</p><blockquote id="b116ddb2-fa52-4815-b839-647085442e51" class="">结合栈的图</blockquote><figure id="2194dd8d-38d4-4153-9247-bdc47846e161" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic11.png"><img style="width:1192px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic11.png"/></a></figure><blockquote id="ca30c837-d38d-435e-be68-402bff5e07d2" class="">准备参数入口，将值再复制了一遍是为什么？<br/>假设回调函数为<br/><code>swap(&amp;t1,&amp;t2)</code>，要改变局部变量的之前是不是得先存起来，不然令<code>t1=t2</code>，t1 原来的值消失了怎么办。</blockquote><h3 id="14e9d031-d577-4c86-9047-7b77ddc3abc7" class="">按值传递参数和按地址传递参数</h3><figure id="2fb1ca10-063a-4fa8-a8fa-9a85d6c025f7" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%208.png"><img style="width:817px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%208.png"/></a></figure><p id="bd624f0c-2e1b-43e4-a9b6-80c4c7d4795b" class="">i386中栈数据按4字节对齐，所以入口参数地址是<code>R[ebp]+8</code> 、<code>R[ebp]+12</code> 、<code>R[ebp]+16</code> 等等。<code>R[ebp]+4</code> 是返回地址。</p><h2 id="1a3d8afc-6a35-4752-a4d5-7d32be4b1a8b" class="">复杂数据类型的分配和访问</h2><h3 id="2d7b10b0-d612-49c8-b99c-350d9c2f3795" class="">数组</h3><p id="268f0e2a-38f8-4096-83dd-e94c756decf3" class="">例如，<code>static short A[4];</code>要访问第<code>i</code>个元素，使用汇编指令<code>movw (%edx, %ecx, 2), %ax</code> 。由于是<code>short</code>类型，所以比例因子是2（2字节，1字）。其中，<code>ECX</code>为变址（索引）寄存器，在循环体中增量。</p><figure id="482ae2de-bdb3-403c-93c4-617b54b5d439" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%209.png"><img style="width:957px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%209.png"/></a></figure><h3 id="9b8265ab-7991-4a34-9a9c-c7a5213296d1" class="">数组与指针</h3><figure id="0927cf11-6890-4613-9103-59534c487d60" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2010.png"><img style="width:1089px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2010.png"/></a></figure><h3 id="d42cf4ec-215c-4770-ab43-de3c9df0b148" class="">结构体</h3><p id="15f6b785-2e1f-41b6-ae0e-5a333ebbd493" class="">结构型变量 <code>x</code> 各成员首址可用“基址加偏移量”的寻址方式。</p><figure id="6a52ea40-c5cc-424b-808f-f329bc37b1a0" class="image"><a href="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2011.png"><img style="width:987px" src="%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2011.png"/></a></figure><h3 id="60d2fc03-3c22-4f1a-8b0b-1b3b2332b4cd" class="">数据的对齐</h3><p id="62ee4c98-1caf-461b-b1a0-cda864140367" class="">最简单的对齐策略是，按其数据长度进行对齐，例如，<code>int</code>型地址是4的倍数，<code>short</code>型地址是2的倍数，<code>double</code>和<code>long long</code>型的是8的倍数，<code>float</code>型的是4的倍数，<code>char</code>不对齐。Windows采用该策略。</p><h2 id="f3f0ee5a-497e-4acf-bbaf-7cc9f10b7d5c" class="">x86-64</h2><h3 id="1b47c0f6-a842-4756-b5ce-4cf985110dfa" class="">基本特点</h3><ul id="79be6f80-ae77-43ec-8999-758340307573" class="bulleted-list"><li style="list-style-type:disc">字长从32位变为64位，64位（8B）数据被称为一个<strong>四字</strong>（<code>qw</code>: quadword）。指针（<code>char*</code>）和长整型（<code>long</code>）数据从32位拓展到64位。</li></ul><ul id="48be1dfa-ff0f-491c-8db6-54dbae723ba2" class="bulleted-list"><li style="list-style-type:disc"><code>long double</code>型数据虽然还采用80位（10B）扩展精度 格式，但所分配存储空间从 12B 扩展为 16B，即改为 16B 对齐方式，但不管是分配 12B 还是 16B，都只用到 低 10B。</li></ul><h2 id="32893c16-94de-4303-b780-27baa91cb47d" class="">需要注意的例题和课后题</h2><ul id="616ca6c6-fd8e-4881-beca-c04843a3a2ef" class="bulleted-list"><li style="list-style-type:disc">汇编实验</li></ul><ul id="7e30f4d0-8df9-4b05-ba48-f0d7f7087717" class="bulleted-list"><li style="list-style-type:disc">P105，例3.3</li></ul><ul id="16682b04-0e63-446a-b85d-ee3ebe1ee8c9" class="bulleted-list"><li style="list-style-type:disc">P122，7；P124，8</li></ul><ul id="a9a685f0-254f-4e95-9129-f2bdeaad6270" class="bulleted-list"><li style="list-style-type:disc">P150，例3.14</li></ul><ul id="92e98fa3-05f3-4d2b-b523-ea55012a734d" class="bulleted-list"><li style="list-style-type:disc">课后题，6，8，10，11，14，17，19，21，22，23，28</li></ul><p id="290008a5-b512-4040-925c-203661dfc697" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
