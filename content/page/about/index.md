@@ -5,7 +5,7 @@ layout: "about"
 slug: "about"
 menu:
     main:
-        weight: 2
+        weight: 5
 ---
 
 # 关于
