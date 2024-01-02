@@ -3,6 +3,7 @@ layout: post
 title: "TIP23 PUGAN: A Physics-Guided Generative Adversarial Network for Underwater Image Enhancement"
 date: 2023-12-04
 slug: "TIP23-PUGAN"
+image: cover.png
 tags: [TIP23, UIE, Physics-Guided]
 ---
 

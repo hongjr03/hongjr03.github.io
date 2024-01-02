@@ -4,7 +4,7 @@ title: "计算机系统基础 2023秋"
 slug: "ICS2023"
 date: 2023-12-31
 tags: [ICS, Course]
-image: imgs/IMG_1895.jpeg
+image: cover.png
 ---
 
 # 第一章
