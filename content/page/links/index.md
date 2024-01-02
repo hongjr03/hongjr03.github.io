@@ -12,6 +12,8 @@ menu:
         weight: 4
         params:
             icon: link
-toc: true
+
 comments: false
 ---
+
+跨越长城，走向世界。
