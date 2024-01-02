@@ -2,8 +2,7 @@
 baseurl = "https://jrhong.top"
 languageCode = "zh-cn"
 paginate = 5 # paginate是每页显示的文章数量
-title = "Did you know that there's a tunnel under Ocean Blvd?"
-description = "你知道洛杉矶海洋大道下有一个隧道吗？"
+title = "加绒"
 
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
