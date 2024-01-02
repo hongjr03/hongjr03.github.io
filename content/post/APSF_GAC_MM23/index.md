@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "ACMMM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution"
+title: "MM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution"
 date: 2023-10-22
-tags: [ACMMM23, Dehazing, Nighttime]
+tags: [MM23, Dehazing, Nighttime]
 ---
 
 [[Paper](https://arxiv.org/abs/2308.01738)] [[Code](https://github.com/jinyeying/nighttime_dehaze)]
