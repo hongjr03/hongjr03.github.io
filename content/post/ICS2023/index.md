@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "计算机系统基础 2023秋"
+slug: "ICS2023"
 date: 2023-12-31
+tags: [ICS, Course]
 ---
 
 # 第一章
