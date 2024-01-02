@@ -5,7 +5,7 @@ rssFullContent = true
 favicon = "/favicon.png"
 
 [footer]
-since = 2020
+since = 2023
 customText = ""
 
 [dateFormat]
@@ -22,7 +22,7 @@ local = true
 src = "img/avatar.png"
 
 [article]
-math = false
+math = true
 readingTime = true
 
 [article.license]
