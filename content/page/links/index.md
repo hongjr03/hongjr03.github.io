@@ -1,5 +1,7 @@
 ---
 title: "链接"
+slug: "links"
+layout: "links"
 links:
   - title: hongjr03 at GitHub
     description: My github profile.
@@ -13,6 +15,7 @@ menu:
 
 comments: false
 ---
+
 <!-- 
 To use this feature, add `links` section to frontmatter.
 
