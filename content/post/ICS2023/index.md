@@ -22,7 +22,7 @@ title: 计算机系统基础 2023秋
     4. 回写结果
     5. PC增量
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled.png)
+![Untitled](imgs/Untitled.png)
 
 ## 程序设计语言
 
@@ -40,20 +40,20 @@ title: 计算机系统基础 2023秋
 > 掌握等价转换？
 > 
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%201.png)
+![Untitled](imgs/Untitled%201.png)
 
 ## 从源程序到可执行文件
 
 1. 编译阶段：编译程序（`cc1`）对预处理后的源程序进行编译，生成一个汇编语言源程序，以 `.s` 为拓展名。
 2. 汇编阶段：汇编程序（`as`）对汇编语言源程序进行汇编，生成一个可重定位目标文件，以 `.o` 为拓展名，是二进制文件，不可读。
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%202.png)
+![Untitled](imgs/Untitled%202.png)
 
 ## 计算机系统的层次结构
 
 1. 指令集体系结构（ISA）：是软件和硬件之间接口的一个完整定义，对指令系统的一种规范。内容包括：指令集、寄存器结构、存储空间和编址方式、数据存放方式、寻址方式、指令控制等。**定义了一台计算机可以执行的所有指令的集合。**
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%203.png)
+![Untitled](imgs/Untitled%203.png)
 
 # 第二章
 
@@ -72,9 +72,9 @@ $$
 (-1)^s \times 1.f \times2^{e-127 \text{(单精度), 或}e- 1023\text{(双精度)}}
 $$
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%204.png)
+![Untitled](imgs/Untitled%204.png)
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%205.png)
+![Untitled](imgs/Untitled%205.png)
 
 ## 数据类型的宽度 [](https://www.notion.so/3ee2750063064a4c8554ec763646446c?pvs=21)
 
@@ -177,7 +177,7 @@ $$
 
 - `LEA` （load effective address）
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%206.png)
+![Untitled](imgs/Untitled%206.png)
 
 ### 定点算术运算指令
 
@@ -207,7 +207,7 @@ $$
 
 四个标志位`c`、`z`、`s`、`o`；相等`e`；无符号数`a`（above）、`b`（below）；有符号数`g`（greater）、`l`（less）。
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%207.png)
+![Untitled](imgs/Untitled%207.png)
 
 ## C 语言程序的机器级表示
 
@@ -247,11 +247,11 @@ $$
 
 [栈：高地址向低地址增长，使用 ESP 寄存器（stack pointer）指向栈顶。](https://www.notion.so/ESP-stack-pointer-61c482857bf14f15b0940e4743533eb6?pvs=21) 
 
-![pic10.png](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic10.png)
+![pic10.png](imgs/pic10.png)
 
 返回地址就是`call` 指令的下一条指令的地址。
 
-![pic9.png](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic9.png)
+![pic9.png](imgs/pic9.png)
 
 ### 变量的作用域和生存期
 
@@ -260,7 +260,7 @@ Q栈帧中保存的Q内部的非静态局部变量只在Q执行过程中有效�
 > 结合栈的图
 > 
 
-![pic11.png](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/pic11.png)
+![pic11.png](imgs/pic11.png)
 
 > 准备参数入口，将值再复制了一遍是为什么？
 假设回调函数为`swap(&t1,&t2)`，要改变局部变量的之前是不是得先存起来，不然令`t1=t2`，t1 原来的值消失了怎么办。
@@ -268,7 +268,7 @@ Q栈帧中保存的Q内部的非静态局部变量只在Q执行过程中有效�
 
 ### 按值传递参数和按地址传递参数
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%208.png)
+![Untitled](imgs/Untitled%208.png)
 
 i386中栈数据按4字节对齐，所以入口参数地址是`R[ebp]+8` 、`R[ebp]+12` 、`R[ebp]+16` 等等。`R[ebp]+4` 是返回地址。
 
@@ -278,17 +278,17 @@ i386中栈数据按4字节对齐，所以入口参数地址是`R[ebp]+8` 、`R[e
 
 例如，`static short A[4];`要访问第`i`个元素，使用汇编指令`movw (%edx, %ecx, 2), %ax` 。由于是`short`类型，所以比例因子是2（2字节，1字）。其中，`ECX`为变址（索引）寄存器，在循环体中增量。
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%209.png)
+![Untitled](imgs/Untitled%209.png)
 
 ### 数组与指针
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2010.png)
+![Untitled](imgs/Untitled%2010.png)
 
 ### 结构体
 
 结构型变量 `x` 各成员首址可用“基址加偏移量”的寻址方式。
 
-![Untitled](%E4%B8%B2%E8%AE%B2%20772f161491d0457bbb703e098d8b6b60/Untitled%2011.png)
+![Untitled](imgs/Untitled%2011.png)
 
 ### 数据的对齐
 
