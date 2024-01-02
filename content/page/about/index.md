@@ -6,8 +6,6 @@ slug: "about"
 menu:
     main:
         weight: 2
-        params: 
-            icon: about
 ---
 
 # 关于
