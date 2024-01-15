@@ -1,4 +1,10 @@
-# 离散数学
+---
+layout: post
+title: "离散数学Ⅱ 2023秋"
+slug: "DM2023"
+date: 2024-01-15
+tags: [DM, Course]
+---
 
 ## 第七章 图
 
@@ -52,7 +58,7 @@
 - Havel定理：每次删去图上度数最大的一个点，若删去后的图仍为可图化的且未出现负数度顶点，则继续，否则不可简单图化。
 - Erdös定理：
   
-    ![Untitled](imgs/Untitled.png)
+    ![](imgs/Untitled.png)
     
 - 同构：
 
@@ -63,9 +69,9 @@
 
 原路径$\Gamma_l$使用扩大路径法扩大后的极大路径$\Gamma_{l+k}$的两个端点不与路径外的顶点相邻。
 
-![Untitled](imgs/Untitled 1.png)
+![](imgs/1.png)
 
-![Untitled](imgs/Untitled 2.png)
+![](imgs/2.png)
 
 ### 割点、桥、点连通度、边连通度
 
@@ -84,37 +90,37 @@
 
 [邻域、顶点的度](https://www.notion.so/dfee0d816b8d4f26a651e01c3be1fc38?pvs=21) [握手定理](https://www.notion.so/a29e32a66fa94009a42792c06b113951?pvs=21) 
 
-![Untitled](imgs/Untitled 3.png)
+![](imgs/3.png)
 
 由边数得总度数为$2 \times 16 =32$，$32 - 3\times4-4\times3=8$，而其余顶点度数均小于$3$，则至少还有$8\div(3-1)=4$个顶点。图$G$中至少有$4+3+4=11$个顶点。
 
-![Untitled](imgs/Untitled 4.png)
+![](imgs/4.png)
 
 对多面体建模，设图共有$n$个面，各个面编号为$1,2,...,n$。令图$G=<V,W>$，其中点集$V=\{v_i|i是一个面\}$，边集$E=\{(v_i,v_j)|i与j有公共棱\}$。则多面体编号为$i$的面的棱的数量就是点$v_i$的度数$d(v_i)$。如果空间中存在有奇数个面且每个面均有奇数条棱的多面体，则$G$的总度数$\sum_{i=1}^nd(v_i)$为奇数。由握手定理，总度数必为偶数，则空间中不可能存在有奇数个面且每个面均有奇数条棱的多面体。
 
-![Untitled](imgs/Untitled 5.png)
+![](imgs/5.png)
 
-![Untitled](imgs/Untitled 6.png)
+![](imgs/6.png)
 
 设共有$n$个选手，若下过则连边。如果找不到两名下过盘数是相同的选手，说明所有选手的盘数各不相同。而一个选手至多下$n-1$盘，至少下$1$盘，此时至多只能满足$n-1$个选手的盘数各不相同。因此总能找到两名选手下过的盘数是相同的。
 
-![Untitled](imgs/Untitled 7.png)
+![](imgs/7.png)
 
 若$G$中两个奇数度顶点不连通，则$G$中的两个奇数度顶点分属两个连通分支$G_1$和$G_2$。此时$G_1$或$G_2$中都只有一个奇数度顶点，度数和为奇数，矛盾。
 
 [可简单图化、同构](https://www.notion.so/e76388046a4a4a8099d56bfab33a608a?pvs=21) 
 
-![Untitled](imgs/Untitled 8.png)
+![](imgs/8.png)
 
-![Untitled](imgs/Untitled 9.png)
+![](imgs/9.png)
 
 [极大路径](https://www.notion.so/32d74e6fde6349d2abf2c1f249cbfed7?pvs=21) 
 
-![Untitled](imgs/Untitled 10.png)
+![](imgs/10.png)
 
-![Untitled](imgs/Untitled 11.png)
+![](imgs/11.png)
 
-![Untitled](imgs/Untitled 12.png)
+![](imgs/12.png)
 
 ## 第八章 欧拉图与哈密顿图
 
@@ -177,7 +183,7 @@ $$
 > 
 - 定理7：若$n(\ge2)$阶无向简单图$G$中，任意不相邻的顶点$u$和$v$有$d(u)+d(v) \ge n-1$，则$G$中存在哈密顿通路。
   
-    ![Untitled](imgs/Untitled 13.png)
+    ![](imgs/13.png)
     
 - 定理7推论（哈密顿图判定）：若$n(\ge3)$阶无向简单图$G$中，任意不相邻的顶点$u$和$v$有$d(u)+d(v) \ge n$，则$G$是哈密顿图。
 
@@ -190,33 +196,33 @@ $$
 
 [欧拉图](https://www.notion.so/4d68e779ad7541a1a1e185e46da04ba4?pvs=21) 
 
-![Untitled](imgs/Untitled 14.png)
+![](imgs/14.png)
 
 欧拉图是若干个边不交的圈的并，至少拿掉2条边才能破坏其连通性。
 
 [哈密顿图](https://www.notion.so/4d9cc171849148c29732f3f23ffa545c?pvs=21) 
 
-![Untitled](imgs/Untitled 15.png)
+![](imgs/15.png)
 
 用这个定理[定理6（哈密顿图性质）：设无向图$G$是哈密顿图，则对任意$V_1 \in V$有$p(G-V_1) \le |V_1|$。](https://www.notion.so/6-G-V_1-in-V-p-G-V_1-le-V_1-17902cb88a044ed48b31825ea5b4633c?pvs=21) ，对于$(a)$拿掉$5$个$4$度顶点，此时产生了$7$个连通分支，不满足定理6。
 
-![Untitled](imgs/Untitled 16.png)
+![](imgs/16.png)
 
-![Untitled](imgs/Untitled 17.png)
+![](imgs/17.png)
 
-![Untitled](imgs/Untitled 18.png)
+![](imgs/18.png)
 
-![Untitled](imgs/Untitled 19.png)
+![](imgs/19.png)
 
 构造哈密顿回路，保证每个点都能有边。
 
-![Untitled](imgs/Untitled 20.png)
+![](imgs/20.png)
 
-![Untitled](imgs/Untitled 21.png)
+![](imgs/21.png)
 
-![Untitled](imgs/Untitled 22.png)
+![](imgs/22.png)
 
-![Untitled](imgs/Untitled 23.png)
+![](imgs/23.png)
 
 ## 第九章 树
 
@@ -258,7 +264,7 @@ $$
 2. 利用基本回路系统中的元素进行环合运算（参与运算的元素从$0$个开始到所有元素一起参与）
 - 维数：$m-n+1$
 
-![Untitled](imgs/Untitled 24.png)
+![](imgs/24.png)
 
 ### 基本割集系统、断集空间
 
@@ -268,7 +274,7 @@ $$
 2. 利用基本割集系统中的元素进行对称差运算
 - 维数：$n-1$
 
-![Untitled](imgs/Untitled 25.png)
+![](imgs/25.png)
 
 ### 根树
 
@@ -288,38 +294,38 @@ $$
 
 [树](https://www.notion.so/85f9fc89c5464ea1ba4b61cebe376296?pvs=21) [根树](https://www.notion.so/d0855f96fff8479db37191eef77db35d?pvs=21) 
 
-![Untitled](imgs/Untitled 26.png)
+![](imgs/26.png)
 
 $$
 \sum d = 9+3\times3+(n-9-3)\times4 =2\times(n-1) \\
 \Rightarrow n =14, n-9-3=2 \\
 $$
 
-![Untitled](imgs/Untitled 27.png)
+![](imgs/27.png)
 
-![Untitled](imgs/Untitled 28.png)
+![](imgs/28.png)
 
-![Untitled](imgs/Untitled 29.png)
+![](imgs/29.png)
 
-![Untitled](imgs/Untitled 30.png)
+![](imgs/30.png)
 
-![Untitled](imgs/Untitled 31.png)
+![](imgs/31.png)
 
-![Untitled](imgs/Untitled 32.png)
+![](imgs/32.png)
 
 [生成树](https://www.notion.so/f8f646e9bcaf47b497ae011f773afe3d?pvs=21) 
 
-![Untitled](imgs/Untitled 33.png)
+![](imgs/33.png)
 
 [基本回路系统、环路空间](https://www.notion.so/82190bb481834d5eb5ad683fba4ac62e?pvs=21) [基本割集系统、断集空间](https://www.notion.so/5d84b118482447838238179324846d2a?pvs=21) 
 
-![Untitled](imgs/Untitled 34.png)
+![](imgs/34.png)
 
-![Untitled](imgs/Untitled 35.png)
+![](imgs/35.png)
 
 [$r$叉树](https://www.notion.so/r-35ab6c0901b9441c97d086fe5f48c238?pvs=21) 
 
-![Untitled](imgs/Untitled 36.png)
+![](imgs/36.png)
 
 ## 第十章 图的矩阵表示
 
@@ -329,11 +335,11 @@ $$
 
 - 有向图：
   
-    ![Untitled](imgs/Untitled 37.png)
+    ![](imgs/37.png)
     
 - 无向图：
   
-    ![Untitled](imgs/Untitled 38.png)
+    ![](imgs/38.png)
     
 - 性质：
     - 平行边对应的列相同
@@ -347,18 +353,18 @@ $$
 
 - 有向图邻接矩阵：
   
-    ![Untitled](imgs/Untitled 39.png)
+    ![](imgs/39.png)
     
     - 每行和为出度，每列和为入度，主对角元表示环
 - 邻接矩阵求通路数：$a_{it} \cdot a_{tj}$即$v_i$经过$v_t$到$v_j$的边数
   
-    ![Untitled](imgs/Untitled 40.png)
+    ![](imgs/40.png)
     
-    ![Untitled](imgs/Untitled 41.png)
+    ![](imgs/41.png)
     
-    ![Untitled](imgs/Untitled 42.png)
+    ![](imgs/42.png)
     
-    ![Untitled](imgs/Untitled 43.png)
+    ![](imgs/43.png)
     
     - 对每个非$0$元和主对角元置$1$，即可得到可达矩阵。
 - 无向图相邻矩阵：是对称矩阵。
@@ -366,13 +372,13 @@ $$
 
 ### 重点习题
 
-![Untitled](imgs/Untitled 44.png)
+![](imgs/44.png)
 
-![Untitled](imgs/Untitled 45.png)
+![](imgs/45.png)
 
 使用基本关联矩阵法。
 
-![Untitled](imgs/Untitled 46.png)
+![](imgs/46.png)
 
 ## 第十一章 平面图
 
@@ -387,15 +393,15 @@ $$
     - 定理2：所有面的次数和为边数的两倍。（其实就是握手定理）
     - 定理8、定理9：
       
-        ![Untitled](imgs/Untitled 47.png)
+        ![](imgs/47.png)
         
     - 定理10：
       
-        ![Untitled](imgs/Untitled 48.png)
+        ![](imgs/48.png)
         
     - 定理11：
       
-        ![Untitled](imgs/Untitled 49.png)
+        ![](imgs/49.png)
         
     - 定理12：简单平面图$G$，$\delta(G)\le5$。
 - Kuratowski定理（平面图判定定理）
@@ -407,13 +413,13 @@ $$
     
     例题：
     
-    ![Untitled](imgs/Untitled 50.png)
+    ![](imgs/50.png)
     
-    ![Untitled](imgs/Untitled 51.png)
+    ![](imgs/51.png)
     
-    ![Untitled](imgs/Untitled 52.png)
+    ![](imgs/52.png)
     
-    ![Untitled](imgs/Untitled 53.png)
+    ![](imgs/53.png)
     
 
 ### 极大平面图
@@ -424,14 +430,14 @@ $$
     - 不含有割点和桥。如果含有割点，则一定可以加边。
     - 定理4：$n(≥3)阶简单连通平面图是极大平面图\Leftrightarrow\forall R, \deg(R)=3$
       
-        ![Untitled](imgs/Untitled 54.png)
+        ![](imgs/54.png)
         
-        ![Untitled](imgs/Untitled 55.png)
+        ![](imgs/55.png)
         
         > 我感觉这个地方说得不是太清楚，其实它这个$\exist R_i$指的就是外部面吧。
         > 
         
-        ![Untitled](imgs/Untitled 56.png)
+        ![](imgs/56.png)
         
 
 ### 欧拉公式
@@ -462,29 +468,29 @@ $$
 - 轮图$W_n$：阶数$n$，外圈$C_{n-1}$
     - $n \ge4$时，轮图$W_n$是自对偶图
     
-    ![Untitled](imgs/Untitled 57.png)
+    ![](imgs/57.png)
     
 
 ### 重点习题
 
 [平面图](https://www.notion.so/4333a031c3d742f4b538c329888eba86?pvs=21) 
 
-![Untitled](imgs/Untitled 58.png)
+![](imgs/58.png)
 
 只需构造其平面嵌入。
 
 > 证明**非**平面图时需要用[Kuratowski定理（平面图判定定理）](https://www.notion.so/Kuratowski-2891102e728e467b97af99ce483fe4f4?pvs=21) 。
 > 
 
-![Untitled](imgs/Untitled 59.png)
+![](imgs/59.png)
 
-![Untitled](imgs/Untitled 60.png)
+![](imgs/60.png)
 
 [欧拉公式](https://www.notion.so/d1437e58b77b460e8650a544fd908021?pvs=21) [对偶图、自对偶图](https://www.notion.so/97cfffe458504bd887ecd3f7c30a7f49?pvs=21) 
 
-![Untitled](imgs/Untitled 61.png)
+![](imgs/61.png)
 
-![Untitled](imgs/Untitled 62.png)
+![](imgs/62.png)
 
 平面图有$n-m+r=2$。
 
@@ -499,7 +505,7 @@ $$
 - 点色数$\chi(G)$
     - 特殊的点色数
     
-    ![Untitled](imgs/Untitled 63.png)
+    ![](imgs/63.png)
     
     - 定理5：$\chi(G) \le \Delta(G) +1$
     
@@ -524,62 +530,62 @@ $$
 
 - 定理15：任何平面图都可$6$-着色。
   
-    ![Untitled](imgs/Untitled 64.png)
+    ![](imgs/64.png)
     
 - 定理16：任何平面图都可$5$-着色。
   
-    ![Untitled](imgs/Untitled 65.png)
+    ![](imgs/65.png)
     
-    ![Untitled](imgs/Untitled 66.png)
+    ![](imgs/66.png)
     
-    ![Untitled](imgs/Untitled 67.png)
+    ![](imgs/67.png)
     
 
 ### 色数多项式
 
-![Untitled](imgs/Untitled 68.png)
+![](imgs/68.png)
 
-![Untitled](imgs/Untitled 69.png)
+![](imgs/69.png)
 
 ### 应用
 
-![Untitled](imgs/Untitled 70.png)
+![](imgs/70.png)
 
-![Untitled](imgs/Untitled 71.png)
+![](imgs/71.png)
 
-![Untitled](imgs/Untitled 72.png)
+![](imgs/72.png)
 
 - 同色边构成“边独立集”, 或“匹配”
 
-![Untitled](imgs/Untitled 73.png)
+![](imgs/73.png)
 
-![Untitled](imgs/Untitled 74.png)
+![](imgs/74.png)
 
-![Untitled](imgs/Untitled 75.png)
+![](imgs/75.png)
 
-![Untitled](imgs/Untitled 76.png)
+![](imgs/76.png)
 
 ### 重点习题
 
 [色数](https://www.notion.so/5fefed201fd54aa89852fda12ae4be3f?pvs=21) [色数多项式](https://www.notion.so/1c1f130e5a8a49daade7e0404047d913?pvs=21) 
 
-![Untitled](imgs/Untitled 77.png)
+![](imgs/77.png)
 
-![Untitled](imgs/Untitled 78.png)
+![](imgs/78.png)
 
-![Untitled](imgs/Untitled 79.png)
+![](imgs/79.png)
 
-![Untitled](imgs/Untitled 80.png)
+![](imgs/80.png)
 
-![Untitled](imgs/Untitled 81.png)
+![](imgs/81.png)
 
-![Untitled](imgs/Untitled 82.png)
+![](imgs/82.png)
 
 [应用](https://www.notion.so/a295a0ab64eb458080786b30a3ea2e93?pvs=21) 
 
-![Untitled](imgs/Untitled 83.png)
+![](imgs/83.png)
 
-![Untitled](imgs/Untitled 84.png)
+![](imgs/84.png)
 
 ## 第十三章 支配集、覆盖集、独立集与匹配集
 
@@ -616,19 +622,19 @@ $$
 > **逆命题不成立**
 > 
 > 
-> ![Untitled](imgs/Untitled 85.png)
+> ![](imgs/85.png)
 > 
 - 定理3：无向图$G$无孤立点，$V^*是点覆盖 \Leftrightarrow V-V^*是独立集$。
 - 定理3推论：$V^*是极(最)小点覆盖 \Leftrightarrow V-V^*是极(最)大独立集$，$\alpha_0+\beta_0=n$
   
-    ![Untitled](imgs/Untitled 86.png)
+    ![](imgs/86.png)
     
 
 ### 匹配（边独立集）
 
 - 匹配数$\beta_1$：$\beta_1(G)=|E^*|$，$E^*$是最大匹配
 
-![Untitled](imgs/Untitled 87.png)
+![](imgs/87.png)
 
 - 最大匹配：
     - 定理9（Berge定理）：$M是G中最大匹配⇔G中无M可增广路径$
@@ -640,7 +646,7 @@ $$
     - 定理12（t条件）：设$G=<V_1, V_2, E>$是二部图，若$V_1$中每个顶点至少关联$t(t≥1)$条边，而$V_2$中每个顶点至多关联$t$条边，则$G$中存在完备匹配。
     - $t条件⇒ ∃完备匹配 ⇔ \text{Hall}条件$
     
-    ![Untitled](imgs/Untitled 88.png)
+    ![](imgs/88.png)
     
 
 ### 团
@@ -652,12 +658,12 @@ $$
 
 ### 运算律（不知道有没有用）
 
-![Untitled](imgs/Untitled 89.png)
+![](imgs/89.png)
 
 ### 重点习题
 
-![Untitled](imgs/Untitled 90.png)
+![](imgs/90.png)
 
-![Untitled](imgs/Untitled 91.png)
+![](imgs/91.png)
 
-![Untitled](imgs/Untitled 92.png)
+![](imgs/92.png)
