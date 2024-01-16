@@ -89,6 +89,7 @@ adminLabel = ""
 repo="hongjr03/hongjr03.github.io"
 issue-term="title"
 theme="preferred-color-scheme"
+label="comment"
 crossorigin="anonymous"
 
 [comments.remark42]
