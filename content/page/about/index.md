@@ -12,14 +12,6 @@ menu:
 
 我是洪佳荣，来自福建厦门，是一名[中国海洋大学](https://www.ouc.edu.cn/)的本科生，目前就读于软件工程专业。
 
-## 不卷
+Me llamo Hong Jiarong, soy de Xiamen, Fujian, China. Soy un estudiante de la Universidad Oceánica de China, estudio en la especialidad de Ingeniería de Software.
 
-不卷，真不卷。平时是现充，有空就听歌看电影，音乐品味比较杂，主要聚焦在华语流行和欧美流行。
-
-## 菜但爱玩
-
-平时其实也不咋打游戏，可能主要原因还是打的游戏不算大主流？桌面端喜欢很多独立游戏，比如 Inside、《将军·对决》什么的，也打喜闻乐见的 Minecraft 和雀魂。手游就围绕着 Supercell 家的皇室战争和荒野乱斗，以及一些棋牌游戏。当然，这些要用脑子的游戏，没有例外，我都挺菜的。
-
-## tbc
-
-...
+Hi! I'm Hong Jiarong from Xiamen, Fujian, China. I'm an undergraduate student of Ocean University of China, majoring in Software Engineering. You can use *he/him* to refer to me.
