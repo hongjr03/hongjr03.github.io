@@ -6,7 +6,6 @@ date: 2024-01-15
 tags: [DM, Course]
 categories:
     - 课程笔记
-    - 离散数学Ⅱ
 image: cover.png
 description: "图论，供复习"
 ---

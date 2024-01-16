@@ -6,7 +6,6 @@ slug: "TIP23-PUGAN"
 image: cover.png
 tags: [TIP23, UIE, Physics-Guided]
 categories:
-    - 论文阅读
     - 计算机视觉
     - 水下图像增强
 ---
