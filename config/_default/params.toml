@@ -87,7 +87,7 @@ adminLabel = ""
 
 [comments.utterances]
 repo="hongjr03/hongjr03.github.io"
-issue-term="pathname"
+issue-term="title"
 theme="preferred-color-scheme"
 crossorigin="anonymous"
 
