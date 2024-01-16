@@ -59,7 +59,7 @@ site = ""
 card = "summary_large_image"
 
 [defaultImage.opengraph]
-enabled = false
+enabled = true
 local = false
 src = ""
 

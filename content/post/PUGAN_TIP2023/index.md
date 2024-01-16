@@ -6,8 +6,9 @@ slug: "TIP23-PUGAN"
 image: cover.png
 tags: [TIP23, UIE, Physics-Guided]
 categories:
-    - Paper Reading
-    - Computer Vision
+    - 论文阅读
+    - 计算机视觉
+    - 水下图像增强
 ---
 
 Runmin Cong, Senior Member, IEEE, Wenyu Yang, Wei Zhang, Senior Member, IEEE, Chongyi Li, Senior Member, IEEE, Chun-Le Guo, Qingming Huang, Fellow, IEEE, and Sam Kwong, Fellow, IEEE

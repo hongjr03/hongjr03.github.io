@@ -8,6 +8,7 @@ categories:
     - 课程笔记
     - 离散数学Ⅱ
 image: cover.png
+description: "图论，供复习"
 ---
 
 ## 第七章 图

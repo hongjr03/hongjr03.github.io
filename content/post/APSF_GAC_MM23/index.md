@@ -5,8 +5,9 @@ slug: "MM23-APSF_GAC"
 date: 2023-10-22
 tags: [MM23, Dehazing, Nighttime]
 categories:
-    - Paper Reading
-    - Computer Vision
+    - 论文阅读
+    - 计算机视觉
+    - 夜间图像增强
 ---
 
 [[Paper](https://arxiv.org/abs/2308.01738)] [[Code](https://github.com/jinyeying/nighttime_dehaze)]

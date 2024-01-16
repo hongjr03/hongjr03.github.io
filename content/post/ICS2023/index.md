@@ -8,6 +8,7 @@ categories:
     - 课程笔记
     - 计算机系统基础
 image: cover.png
+description: "供复习"
 ---
 
 ## 第一章
