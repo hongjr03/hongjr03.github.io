@@ -5,6 +5,9 @@ date: 2023-12-04
 slug: "TIP23-PUGAN"
 image: cover.png
 tags: [TIP23, UIE, Physics-Guided]
+categories:
+    - Paper Reading
+    - Computer Vision
 ---
 
 Runmin Cong, Senior Member, IEEE, Wenyu Yang, Wei Zhang, Senior Member, IEEE, Chongyi Li, Senior Member, IEEE, Chun-Le Guo, Qingming Huang, Fellow, IEEE, and Sam Kwong, Fellow, IEEE

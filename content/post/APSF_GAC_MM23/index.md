@@ -4,6 +4,9 @@ title: "MM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and
 slug: "MM23-APSF_GAC"
 date: 2023-10-22
 tags: [MM23, Dehazing, Nighttime]
+categories:
+    - Paper Reading
+    - Computer Vision
 ---
 
 [[Paper](https://arxiv.org/abs/2308.01738)] [[Code](https://github.com/jinyeying/nighttime_dehaze)]
