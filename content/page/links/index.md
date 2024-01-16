@@ -16,4 +16,7 @@ menu:
         params:
             icon: link
 comments: false
+license: false
+toc: false
+readingTime: false
 ---
