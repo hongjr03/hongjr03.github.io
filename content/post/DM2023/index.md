@@ -93,7 +93,7 @@ description: "图论，供复习"
 
 ### 重点习题
 
-[邻域、顶点的度](https://www.notion.so/dfee0d816b8d4f26a651e01c3be1fc38?pvs=21) [握手定理](https://www.notion.so/a29e32a66fa94009a42792c06b113951?pvs=21)
+[邻域、顶点的度](#邻域顶点的度) [握手定理](#握手定理)
 
 ![](imgs/3.png)
 
@@ -113,13 +113,13 @@ description: "图论，供复习"
 
 若$G$中两个奇数度顶点不连通，则$G$中的两个奇数度顶点分属两个连通分支$G_1$和$G_2$。此时$G_1$或$G_2$中都只有一个奇数度顶点，度数和为奇数，矛盾。
 
-[可简单图化、同构](https://www.notion.so/e76388046a4a4a8099d56bfab33a608a?pvs=21)
+[可简单图化、同构](#可简单图化同构)
 
 ![](imgs/8.png)
 
 ![](imgs/9.png)
 
-[极大路径](https://www.notion.so/32d74e6fde6349d2abf2c1f249cbfed7?pvs=21)
+[极大路径](#极大路径)
 
 ![](imgs/10.png)
 
@@ -136,7 +136,7 @@ description: "图论，供复习"
 - 欧拉图：有欧拉回路的图
 - 半欧拉图：有欧拉通路，无欧拉回路的图
 
-> 规定平凡图为欧拉图 [**辨别**：平凡图：$1$阶零图；空图：无点](https://www.notion.so/1-147e4097b882402088bbc55ed6e2096f?pvs=21)
+> 规定平凡图为欧拉图 [**辨别**：平凡图：$1$阶零图；空图：无点](#简单图零图-正则图)
 环不影响图的欧拉性
 >
 - 定理1：设$G$是无向连通图，则
@@ -199,17 +199,17 @@ $$
 
 ### 重点习题
 
-[欧拉图](https://www.notion.so/4d68e779ad7541a1a1e185e46da04ba4?pvs=21)
+[欧拉图](#欧拉图)
 
 ![](imgs/14.png)
 
 欧拉图是若干个边不交的圈的并，至少拿掉2条边才能破坏其连通性。
 
-[哈密顿图](https://www.notion.so/4d9cc171849148c29732f3f23ffa545c?pvs=21)
+[哈密顿图](#哈密顿图)
 
 ![](imgs/15.png)
 
-用这个定理[定理6（哈密顿图性质）：设无向图$G$是哈密顿图，则对任意$V_1 \in V$有$p(G-V_1) \le |V_1|$。](https://www.notion.so/6-G-V_1-in-V-p-G-V_1-le-V_1-17902cb88a044ed48b31825ea5b4633c?pvs=21) ，对于$(a)$拿掉$5$个$4$度顶点，此时产生了$7$个连通分支，不满足定理6。
+用这个定理[定理6（哈密顿图性质）：设无向图$G$是哈密顿图，则对任意$V_1 \in V$有$p(G-V_1) \le |V_1|$。](#哈密顿图) ，对于$(a)$拿掉$5$个$4$度顶点，此时产生了$7$个连通分支，不满足定理6。
 
 ![](imgs/16.png)
 
@@ -298,7 +298,7 @@ $$
 
 ### 重点习题
 
-[树](https://www.notion.so/85f9fc89c5464ea1ba4b61cebe376296?pvs=21) [根树](https://www.notion.so/d0855f96fff8479db37191eef77db35d?pvs=21)
+[树](#树) [根树](#根树)
 
 ![](imgs/26.png)
 
@@ -319,17 +319,17 @@ $$
 
 ![](imgs/32.png)
 
-[生成树](https://www.notion.so/f8f646e9bcaf47b497ae011f773afe3d?pvs=21)
+[生成树](#生成树)
 
 ![](imgs/33.png)
 
-[基本回路系统、环路空间](https://www.notion.so/82190bb481834d5eb5ad683fba4ac62e?pvs=21) [基本割集系统、断集空间](https://www.notion.so/5d84b118482447838238179324846d2a?pvs=21)
+[基本回路系统、环路空间](#基本回路系统环路空间) [基本割集系统、断集空间](#基本割集系统断集空间)
 
 ![](imgs/34.png)
 
 ![](imgs/35.png)
 
-[$r$叉树](https://www.notion.so/r-35ab6c0901b9441c97d086fe5f48c238?pvs=21)
+[$r$叉树](#叉树)
 
 ![](imgs/36.png)
 
@@ -477,20 +477,20 @@ $$
 
 ### 重点习题
 
-[平面图](https://www.notion.so/4333a031c3d742f4b538c329888eba86?pvs=21)
+[平面图](#平面图)
 
 ![](imgs/58.png)
 
 只需构造其平面嵌入。
 
-> 证明**非**平面图时需要用[Kuratowski定理（平面图判定定理）](https://www.notion.so/Kuratowski-2891102e728e467b97af99ce483fe4f4?pvs=21) 。
+> 证明**非**平面图时需要用[Kuratowski定理（平面图判定定理）](#平面图) 。
 >
 
 ![](imgs/59.png)
 
 ![](imgs/60.png)
 
-[欧拉公式](https://www.notion.so/d1437e58b77b460e8650a544fd908021?pvs=21) [对偶图、自对偶图](https://www.notion.so/97cfffe458504bd887ecd3f7c30a7f49?pvs=21)
+[欧拉公式](#欧拉公式) [对偶图、自对偶图](#对偶图自对偶图)
 
 ![](imgs/61.png)
 
@@ -570,7 +570,7 @@ $$
 
 ### 重点习题
 
-[色数](https://www.notion.so/5fefed201fd54aa89852fda12ae4be3f?pvs=21) [色数多项式](https://www.notion.so/1c1f130e5a8a49daade7e0404047d913?pvs=21)
+[色数](#色数) [色数多项式](#色数多项式)
 
 ![](imgs/77.png)
 
@@ -584,7 +584,7 @@ $$
 
 ![](imgs/82.png)
 
-[应用](https://www.notion.so/a295a0ab64eb458080786b30a3ea2e93?pvs=21)
+[应用](#应用)
 
 ![](imgs/83.png)
 
