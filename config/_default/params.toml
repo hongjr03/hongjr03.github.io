@@ -95,8 +95,8 @@ label="comment"
 repo="hongjr03/hongjr03.github.io"
 issue-term="pathname"
 issue-label="pathname"
-theme="preferred-color-scheme"
 label="comment"
+theme="preferred-color-scheme"
 
 [comments.remark42]
 host = ""
