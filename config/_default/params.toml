@@ -94,8 +94,6 @@ label="comment"
 [comments.beaudar]
 repo="hongjr03/hongjr03.github.io"
 issueTerm="pathname"
-issueLabel="pathname"
-label="comment"
 theme="preferred-color-scheme"
 
 [comments.remark42]
