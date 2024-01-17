@@ -39,6 +39,9 @@
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         message.theme = 'github-dark';
     }
+    else {
+        message.theme = 'github-light';
+    }
     const iframe = document.querySelector('iframe');
     iframe.contentWindow.postMessage(message, 'https://beaudar.lipk.org');
 </script>
