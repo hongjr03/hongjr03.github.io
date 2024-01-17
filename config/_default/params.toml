@@ -87,14 +87,14 @@ adminLabel = ""
 
 [comments.utterances]
 repo="hongjr03/hongjr03.github.io"
-issue-term="title"
+issueTerm="pathname"
 theme="preferred-color-scheme"
 label="comment"
 
 [comments.beaudar]
 repo="hongjr03/hongjr03.github.io"
-issue-term="pathname"
-issue-label="pathname"
+issueTerm="pathname"
+issueLabel="pathname"
 label="comment"
 theme="preferred-color-scheme"
 
