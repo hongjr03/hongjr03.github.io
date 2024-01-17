@@ -13,33 +13,62 @@
         max-width: unset;
     }
 </style>
-<!-- 
-<script>
-    /**
-     * @theme 可选：
-     * [
-     *   'icy-dark',
-     *   'dark-blue',
-     *   'photon-dark',
-     *   'github-dark',
-     *   'github-light',
-     *   'github-dark-orange',
-     *   'preferred-color-scheme'
-     *   ……
-     * ]
-     */
-    const message = {
-        type: 'set-theme',
-        theme: 'github-light'
-    };
-    
-    //使用iFrame修改theme，当页面为黑暗模式时，修改为dark
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        message.theme = 'github-dark';
+
+<!-- <script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
     }
-    else {
-        message.theme = 'github-light';
-    }
-    const iframe = document.querySelector('iframe');
-    iframe.contentWindow.postMessage(message, 'https://beaudar.lipk.org');
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        /// Called when Utterances is ready
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
 </script> -->
+
+<script>
+    let beaudarLoaded = false;
+
+    function setBeaudarTheme(theme) {
+        let beaudar = document.querySelector('.beaudar iframe');
+        if (beaudar) {
+            beaudar.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://beaudar.lipk.org'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://beaudar.lipk.org') return;
+        /// Called when Beaudar is ready
+        beaudarLoaded = true;
+        setBeaudarTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!beaudarLoaded) return;
+        setBeaudarTheme(e.detail)
+    })
+</script>
