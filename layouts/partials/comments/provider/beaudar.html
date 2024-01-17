@@ -15,3 +15,30 @@
         max-width: unset;
     }
 </style>
+
+<script>
+    /**
+     * @theme 可选：
+     * [
+     *   'icy-dark',
+     *   'dark-blue',
+     *   'photon-dark',
+     *   'github-dark',
+     *   'github-light',
+     *   'github-dark-orange',
+     *   'preferred-color-scheme'
+     *   ……
+     * ]
+     */
+    const message = {
+        type: 'set-theme',
+        theme: 'github-light'
+    };
+    
+    //使用iFrame修改theme，当页面为黑暗模式时，修改为dark
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        message.theme = 'github-dark';
+    }
+    const iframe = document.querySelector('iframe');
+    iframe.contentWindow.postMessage(message, 'https://beaudar.lipk.org');
+</script>
