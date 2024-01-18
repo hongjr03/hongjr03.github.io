@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "离散数学Ⅱ 2023秋"
-slug: "DM2023"
 date: 2024-01-15
-tags: [DM, Course]
+tags: [Computer Science, Course]
 categories:
     - 课程笔记
 image: cover.png

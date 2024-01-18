@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "西班牙语Ⅰ 2023秋"
-slug: "espanol2023"
 date: 2024-01-18
-tags: [language, Course]
+tags: [Language, Course]
 categories:
     - 课程笔记
 description: "供复习"
