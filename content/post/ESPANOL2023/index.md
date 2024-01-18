@@ -19,11 +19,11 @@ description: "供复习"
 3. 阅读短文，选择（$2\times5\times1'$）
 4. 阅读短文，回答问题（$2\times5\times2'$）
     - 类似第4、5课的形式
-    
+
     ![](imgs/Untitled.png)
-    
+
     ![](imgs/Untitled1.png)
-    
+
 5. 翻译句子（$2\times5\times2'$）
     - 中译西，西译中
 6. 作文，80~120词（$10'$）
@@ -36,63 +36,61 @@ description: "供复习"
 
 - 名词和形容词的阴阳性：注意特例
   
-    ### 名词阴阳性
-    
+  - 名词阴阳性
+
     - 阳性：以o结尾，amigo
     - 阴性：以a结尾，amiga
     - 无阴阳性：estudiante, joven
-    
-    ### 形容词的阴阳性
-    
+
+  - 形容词的阴阳性
+
     - 阳性：以o结尾，alto
     - 阴性：以a结尾，alta
     - 无阴阳性：grande，joven
 - 名词和形容词的单复数：可能需要增减重音符号**保持原有重音不变**
   
-    ### 名词单复数
-    
+  - 名词单复数
+
     - 元音结尾：+s，amigos
     - 辅音结尾，+es，señores
-    
-    ### 形容词的单复数
-    
+
+  - 形容词的单复数
+
     - 元音结尾：+s，altos
     - 辅音结尾，+es，trabajadores
-    
-    ### 名词单复数、阴阳性练习
-    
+
+  - 名词单复数、阴阳性练习
+
     ![](imgs/Untitled2.png)
-    
+
     ![](imgs/Untitled3.png)
-    
-    ### 名词和形容词性数一致练习
-    
+
+  - 名词和形容词性数一致练习
+
     - 高个子的先生 señor **A. alto** B. alta C. altos D.altas
     - 高个子的女士们 señoras A. alto B. alta C. altos **D.altas**
     - 勤劳的男医生 medico trabajador
     - 年轻的女护士们 enfermeras j**ó**venes
 - 指示形容词（指示代词）
   
-    ### 指示形容词
-    
-    书写时**不带**重音符号，放在修饰的名词**之前**，性数一致
-    
+  - 指示形容词：书写时**不带**重音符号，放在修饰的名词**之前**，性数一致
+
     |  | 单数 | 复数 |
     | --- | --- | --- |
     | 这个，这些 | este, a | estos, as |
     | 那个，那些 | ese, a | esos, as |
     | 那个，那些 | aquel, lla | aquellos, as |
-    
-    ### 指示代词
-    
+
+  - 指示代词
+
     |  | 单数 | 复数 |
     | --- | --- | --- |
     | 这个，这些 | éste, a | éstos, as |
     | 那个，那些 | ése, a | ésos, as |
     | 那个，那些 | aquél, lla | aquéllos, as |
-    
-    ### 职业表达练习
-    
+
+  - 职业表达练习
+
     - 这位先生是马努埃尔。是西班牙语专业的学生。
     Este señor es Manuel. Es un estudiante de español.
     - 这位先生是戴维。是企业家。是中国人。
@@ -108,39 +106,31 @@ description: "供复习"
     - 我叫李欣。我是中国人。我是秘书。我和贝贝还有巴科是好朋友。
     Me llamo Li Xin. Soy china. Soy secretaria. Pepe, Paco y yo somos amigos.
 - 冠词
-  
-    ### 冠词
-    
+
     |  | 定冠词 | 不定冠词 |
     | --- | --- | --- |
     | 单数 | el / la | un / una |
     | 复数 | los / las | unos / unas |
-    - de el → del
-    - a el → al
+  - de el → del
+  - a el → al
 - 冠词（数词）、名词和形容词的性数一致
-  
-    ### 冠词、名词和形容词的性数一致练习
-    
-    - 一位高个子的先生 un señor alto
-    - 一些高个子的女士们 unas señoras altas
-    - 那位勤劳的男医生 el doctor trabajador
-    - 那些年轻的女护士们 **las** enfermeras jóvenes
+
+  - 一位高个子的先生 un señor alto
+  - 一些高个子的女士们 unas señoras altas
+  - 那位勤劳的男医生 el doctor trabajador
+  - 那些年轻的女护士们 **las** enfermeras jóvenes
 
 ### 动词变位
 
 - 主格人称代词
-  
-    ### 主格人称代词
-    
+
     |  | 单数 | 复数 |
     | --- | --- | --- |
     | 第一人称 | yo | nosotros, as |
     | 第二人称 | tú | vosotros, as |
     | 第三人称 | él / ella / usted | ellos, as / ustedes |
 - 非重读物主形容词
-  
-    ### 非重读物主形容词
-    
+
     |  | 单数 | 复数 |
     | --- | --- | --- |
     | 第一人称 | mi, mis | nuestro, a / nuestros, as |
@@ -148,89 +138,81 @@ description: "供复习"
     | 第三人称 | su, sus | su, sus |
 - 动词变位
   
-    ### 规则动词变位
-    
+  - 规则动词变位
+
     - -ar
-      
-      
+
         |  | 单数 | 复数 |
         | --- | --- | --- |
         | 第一人称 | -o | -amos |
         | 第二人称 | -as | -áis |
         | 第三人称 | -a | -an |
-        
+
         estudiar, hablar, trabajar, descansar（休息）
-        
+
     - -er
-      
-      
+
         |  | 单数 | 复数 |
         | --- | --- | --- |
         | 第一人称 | -o | -emos |
         | 第二人称 | -es | -éis |
         | 第三人称 | -e | -en |
-        
+
         aprender（学习某种技能）, leer, beber, comprender（理解）
-        
+
     - -ir
-      
-      
+
         |  | 单数 | 复数 |
         | --- | --- | --- |
         | 第一人称 | -o | -imos |
         | 第二人称 | -es | -ís |
         | 第三人称 | -e | -en |
-        
+
         vivir（生活，居住）, discutir（讨论）, escribir, abrir（打开）
-        
-    
-    ### 不规则动词变位（汇总）
-    
+
+  - 不规则动词变位（汇总）
+
     |  | 第一人称 | 第二人称 | 第三人称 |
     | --- | --- | --- | --- |
     | ser | soy / somos | eres / sois | es / son |
     | estar | estoy / estamos | estás / estáis | está / están |
     | tener | tengo / tenemos | tienes / tenéis | tiene / tienen |
     | haber | / | / | hay |
-    
-    ### ser的现在时变位
-    
+
+  - ser：系动词，是
+
     | 单数人称 | 变位 | 复数人称 | 变位 |
     | --- | --- | --- | --- |
     | yo | soy | nosotros, as | somos |
     | tú | eres | vosotros, as | sois |
     | él / ella / usted | es | ellos / ellas / ustedes | son |
-    
-    ### llamarse的变位
-    
+
+  - llamarse：叫做，称呼
+
     | yo | me llamo | nosotros, tras | nos llamamos |
     | --- | --- | --- | --- |
     | tú | te llamas | vosotros, tras | os llamáis |
     | él / ella / usted | se llama | ellos / ellas / ustedes | se llaman |
-    
-    ### estar的动词变位
-    
-    表示位置、处所或者状态。
-    
+
+  - estar：表示位置、处所或者状态。
+
     | yo | estoy | nosotros, tras | estamos |
     | --- | --- | --- | --- |
     | tú | estás | vosotros, tras | estáis |
     | él / ella / usted | está | ellos, ellas, ustedes | están |
-    
+
     ser 表示主语所固有的某种**特质**，estar则表示主语所处某种**暂时的状态**。
-    
+
     > Es alto 他的个子很高 Está alto 他长高了
     Es guapa 她很漂亮 Está guapa 她打扮得很漂亮
-    
-    ### tener的动词变位
-    
-    tener，拥有。
-    
+
+  - tener：拥有。
+
     | yo | tengo | nosotros, tras | tenemos |
     | --- | --- | --- | --- |
     | tú | tienes | vosotros, tras | tenéis |
     | él / ella / usted | tiene | ellos / ellas / ustedes | tienen |
-    
+
     > Tengo veinticinco años. 我二十岁。
 
 ## 句型
@@ -255,7 +237,7 @@ description: "供复习"
 - ¡Encantado (da)! 很高兴认识你
   
     > 这里的 encantado / da 是形容词，形容**我**很高兴，所以阴阳性和说话人保持一致。
-    > 
+    >
 - ¡Buenos días! 早上好
 ¡Buenas tardes! 下午好
 ¡Buenas noches! 晚上好
@@ -263,11 +245,16 @@ description: "供复习"
 ### 作文1 Mi Familia
 
 - 课文原文
-Ésta es la foto de mi familia. Somos siete: mi abuelo, mis padres, mis tres hermanos y yo.
-Estamos en la habitación de mi hermana. La habitación está limpia y ordenada. Mi hermana es cantante. Tiene veinticinco años. 
-El hombre moreno es mi padre. Es taxista. Tiene cincuenta años. Es alto, fuerte y alegre.
-La mujer rubia y de blusa roja es mi madre. Es peluquera. Tiene también cincuenta años.
-Mi abuelo es mayor. Tiene ochenta años.
+
+    Ésta es la foto de mi familia. Somos siete: mi abuelo, mis padres, mis tres hermanos y yo.
+
+    Estamos en la habitación de mi hermana. La habitación está limpia y ordenada. Mi hermana es cantante. Tiene veinticinco años.
+
+    El hombre moreno es mi padre. Es taxista. Tiene cincuenta años. Es alto, fuerte y alegre.
+
+    La mujer rubia y de blusa roja es mi madre. Es peluquera. Tiene también cincuenta años.
+
+    Mi abuelo es mayor. Tiene ochenta años.
 
 ### 描述地点
 
@@ -275,21 +262,39 @@ Mi abuelo es mayor. Tiene ochenta años.
   
     > En la sala hay **una** mesa y dos sofás.
     注意：名词前使用的不定冠词un, una
-    > 
+    >
 - 单数名词 + está + en + 地点：某物在某地
   复数名词 + están + en + 地点：某物在某地
   
     > La oficina de mi esposa está en el centro de la ciudad.
     注意：名词前使用的定冠词el, la
-    > 
+    >
 
 ### 作文2 Mi Casa
 
 - 课文原文
-Ésta es mi casa. En ella hay una sala,una cocina y tres dormitorios. En la sala hay una mesa y dos sofás.
-Este dormitorio es de mis hijos. En él hay dos camas. Aquél es de nosotros dos, mi esposa y yo.
-Mi esposa es funcionaria. Su oficina está en el centro de la ciudad. Está cerca de mi casa.
-Yo soy mecánico. Nuestra fábrica está en las afueras de la ciudad. Hay muchos empleados en la fábrica.
+
+    Ésta es mi casa. En ella hay una sala,una cocina y tres dormitorios. En la sala hay una mesa y dos sofás.
+
+    Este dormitorio es de mis hijos. En él hay dos camas. Aquél es de nosotros dos, mi esposa y yo.
+
+    Mi esposa es funcionaria. Su oficina está en el centro de la ciudad. Está cerca de mi casa.
+
+    Yo soy mecánico. Nuestra fábrica está en las afueras de la ciudad. Hay muchos empleados en la fábrica.
+
+- 练习
+
+    Ésta es mi casa. En ella hay una sala, una cocina, dos dormitorios, un balcón, un comedor y un baño. En la sala hay una mesa y tres sofás.
+
+    Este dormitorio es de mis padres. En él hay una cama. Nuestros descansamos en él. Aquél es de nosotros dos, mi hermana y yo. Yo leo libros en mi dormitorio.
+
+    Mi padre es funcionario. Su oficina está en el centro de la ciudad. Esta lejos de mi casa.
+
+    Mi madre es enfermera. Su hospital está en las afueras de la ciudad. En el hospital hay muchos medicos y enfermeros.
+
+    Mi hermana es empresaria. Ella trabaja en nuestro casa.
+
+    Soy estudiante. Nuestra universidad está en Qingdao.
 
 ## 生词
 
@@ -306,7 +311,7 @@ Yo soy mecánico. Nuestra fábrica está en las afueras de la ciudad. Hay muchos
 - [ ]  mecánico, a 机械师
 - [ ]  empleado, da 职工
 - [ ]  ciudad 城市
-- [ ]  afueras 郊外
+- [ ]  afueras 郊外（复数）
 - [ ]  escuela 学校
 - [ ]  oficina 办公室
 - [ ]  sala 客厅
