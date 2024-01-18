@@ -339,7 +339,7 @@ description: "供复习"
 - [ ]  cerca de 在…附近
 - [ ]  lejos de 离…远
 
-## 没学过但出现了的生词
+### 没学过但出现了的生词
 
 - [ ]  mejor bueno的比较级，加定冠词（mi el …）变最高级
 - [ ]  quiero 想
@@ -356,7 +356,7 @@ description: "供复习"
 - [ ]  blanco 白色的
 - [ ]  bonito 漂亮的
 
-## 数字
+### 数字
 
 - [ ]  uno
 - [ ]  dos
