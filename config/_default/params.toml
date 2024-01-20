@@ -18,8 +18,8 @@ subtitle = "跳动的世界里找你的频率"
 
 [sidebar.avatar]
 enabled = true
-local = true
-src = "img/avatar.png"
+local = false
+src = "https://avatars.githubusercontent.com/u/64763790"
 
 [article]
 math = true
