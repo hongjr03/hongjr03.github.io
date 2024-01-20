@@ -5,7 +5,6 @@ date: 2023-10-22
 tags: [MM, Dehazing, Nighttime]
 categories:
     - 计算机视觉
-    - 夜间图像增强
 ---
 
 [[Paper](https://arxiv.org/abs/2308.01738)] [[Code](https://github.com/jinyeying/nighttime_dehaze)]

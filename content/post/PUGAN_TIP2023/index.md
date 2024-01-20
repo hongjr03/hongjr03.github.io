@@ -6,7 +6,6 @@ image: cover.png
 tags: [TIP, UIE, Physics-Guided]
 categories:
     - 计算机视觉
-    - 水下图像增强
 ---
 
 Runmin Cong, Senior Member, IEEE, Wenyu Yang, Wei Zhang, Senior Member, IEEE, Chongyi Li, Senior Member, IEEE, Chun-Le Guo, Qingming Huang, Fellow, IEEE, and Sam Kwong, Fellow, IEEE
