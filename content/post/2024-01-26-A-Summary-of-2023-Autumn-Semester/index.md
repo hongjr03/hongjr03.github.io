@@ -10,10 +10,12 @@ categories:
 
 ## 课程
 
-[大学西班牙语Ⅰ 2023秋](/p/2023/ESPANOL)
+[大学西班牙语Ⅰ 2023秋](https://jrhim.com/p/2023/espanol/)
 
-[离散数学Ⅱ 2023秋](/p/2023/DM)
+[离散数学Ⅱ 2023秋](https://jrhim.com/p/2023/dm/)
 
-[计算机系统基础 2023秋](/p/2023/ICS)
+[计算机系统基础 2023秋](https://jrhim.com/p/2023/ics/)
 
 [马克思主义基本原理 2023秋]()
+
+[大学物理Ⅲ-2 2023秋](https://jrhim.com/p/2023/physics/)

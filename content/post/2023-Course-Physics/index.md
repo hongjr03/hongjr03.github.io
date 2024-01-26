@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "大学物理Ⅲ-2 2023秋"
-slug: "2023/ICS"
+slug: "2023/physics"
 date: 2024-01-26
 tags: [Course]
 categories:
