@@ -5,7 +5,7 @@ slug: "2023/DM"
 date: 2024-01-15
 tags: [Computer Science, Course]
 categories:
-    - 课程笔记
+    - 课程
 image: cover.png
 description: "图论，供复习"
 hidden: true

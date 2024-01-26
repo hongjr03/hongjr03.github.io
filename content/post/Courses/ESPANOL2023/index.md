@@ -5,7 +5,7 @@ slug: "2023/ESPANOL"
 date: 2024-01-18
 tags: [Language, Course]
 categories:
-    - 课程笔记
+    - 课程
 description: "供复习"
 hidden: true
 ---

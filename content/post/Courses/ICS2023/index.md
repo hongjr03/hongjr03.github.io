@@ -5,7 +5,7 @@ slug: "2023/ICS"
 date: 2023-12-31
 tags: [Computer Science, Course]
 categories:
-    - 课程笔记
+    - 课程
 image: cover.png
 description: "供复习"
 hidden: true
