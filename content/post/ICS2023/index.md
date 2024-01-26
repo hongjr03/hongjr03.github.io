@@ -7,6 +7,7 @@ categories:
     - 课程笔记
 image: cover.png
 description: "供复习"
+hidden: true
 ---
 
 ## 第一章
