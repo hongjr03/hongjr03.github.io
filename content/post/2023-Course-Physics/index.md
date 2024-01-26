@@ -10,6 +10,8 @@ description: "供复习"
 hidden: true
 ---
 
+<embed src="https://github.com/hongjr03/hongjr03.github.io/tree/7c8a838eb6248fdc890242d2813042f682762d87/content/page/files/2023-Course-Physics/静电场%20127c72a497c24774b3d4ee91348c4536.pdf">
+
 [静电场](https://github.com/hongjr03/hongjr03.github.io/tree/7c8a838eb6248fdc890242d2813042f682762d87/content/page/files/2023-Course-Physics/静电场%20127c72a497c24774b3d4ee91348c4536.pdf)
 
 [稳恒磁场](https://github.com/hongjr03/hongjr03.github.io/tree/7c8a838eb6248fdc890242d2813042f682762d87/content/page/files/2023-Course-Physics/%E7%A8%B3%E6%81%92%E7%A3%81%E5%9C%BA%20f1b5d644bd034f2084165e2b66ad75e8.pdf)
