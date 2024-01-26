@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "西班牙语Ⅰ 2023秋"
+slug: "2023/ESPANOL"
 date: 2024-01-18
 tags: [Language, Course]
 categories:

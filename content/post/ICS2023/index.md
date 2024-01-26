@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "计算机系统基础 2023秋"
+slug: "2023/ICS"
 date: 2023-12-31
 tags: [Computer Science, Course]
 categories:
