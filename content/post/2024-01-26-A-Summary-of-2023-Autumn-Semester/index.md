@@ -16,6 +16,6 @@ categories:
 
 [计算机系统基础 2023秋](https://jrhim.com/p/2023/ics/)
 
-[马克思主义基本原理 2023秋]()
+[马克思主义基本原理 2023秋](https://jrhim.com/p/2023/marx/)
 
 [大学物理Ⅲ-2 2023秋](https://jrhim.com/p/2023/physics/)
