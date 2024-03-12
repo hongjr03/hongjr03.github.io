@@ -10,12 +10,12 @@ categories:
 
 ## 课程
 
-{{< inblog "2023-Course-DM" style="compact">}}
+{{< inblog "2023-Course-DM" compact>}}
 
-{{< inblog "2023-Course-ICS" style="compact">}}
+{{< inblog "2023-Course-ICS" compact>}}
 
-{{< inblog "2023-Course-Marx" style="tile">}}
+{{< inblog "2023-Course-Marx" tile>}}
 
-{{< inblog "2023-Course-Physics" style="default">}}
+{{< inblog "2023-Course-Physics" default>}}
 
-{{< inblog "2023-Course-Español" style="default">}}
+{{< inblog "2023-Course-Español" default>}}

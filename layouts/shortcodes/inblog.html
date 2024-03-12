@@ -1,5 +1,5 @@
 {{ $page := .Site.GetPage (.Get 0) }}
-{{ $style := .Get "style" | default "default" }} 
+{{ $style := .Get 1 | default "default" }} 
 {{ if $page }}
     <section class="article-list">
         {{ if eq $style "default" }}
