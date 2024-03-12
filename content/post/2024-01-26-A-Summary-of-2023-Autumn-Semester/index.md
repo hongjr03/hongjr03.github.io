@@ -10,7 +10,15 @@ categories:
 
 ## 课程
 
-{{< inblog "p/2023/espanol/" >}}
+{{< inblog "2023-Course-DM">}}
+
+{{< inblog "2023-Course-ICS">}}
+
+{{< inblog "2023-Course-Marx">}}
+
+{{< inblog "2023-Course-Physics">}}
+
+{{< inblog "2023-Course-Español">}}
 
 [大学西班牙语Ⅰ 2023 秋](https://jrhim.com/p/2023/espanol/)
 
