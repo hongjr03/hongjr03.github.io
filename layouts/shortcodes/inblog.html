@@ -1,3 +1,7 @@
-<div class="article-list--compact">
-  {{ partial "article-list/compact" . }}
-</div>
+{{- $permalink := .Get "src" | default (.Get 0) -}}
+
+<!-- 根据 permalink 找到页面 -->
+{{- $page := .Site.GetPage $permalink -}}
+
+<!-- 传入参数是 Page -->
+{{ partial "article-list/compact" $page -}}
