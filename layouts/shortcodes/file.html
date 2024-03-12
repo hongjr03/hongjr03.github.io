@@ -1,12 +1,12 @@
 {{ $url := (.Get 1) }}
-{{ $file-name := (.Get 0) }}
+{{ $file_name := (.Get 0) }}
 {{ if $page }}
 <div class="article-list--tile">
         <a href="{{ $url }}" class="article-link">
     
             <div class="article-details">
                 <h2 class="article-title">
-                    {{- $file-name -}}
+                    {{- $file_name -}}
                 </h2>
             </div>
         </a>
