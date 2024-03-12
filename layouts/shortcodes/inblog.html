@@ -1,6 +1,7 @@
-{{ $image := partialCached "helper/image" (dict "Context" .context "Type" .Type) .context.RelPermalink .Type }}
+{{ $permlink := (.Get 0) }}
+{{ $image := partialCached "helper/image" (dict "Context" .context "Type" .Type) $permlink .Type }}
 <article class="{{ if $image.exists }}has-image{{ end }}">
-    <a href="{{ .context.RelPermalink }}">
+    <a href="{{ $permlink }}">
         
         {{ if $image.exists }}
             <div class="article-image">
