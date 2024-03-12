@@ -31,8 +31,7 @@
                         height="{{ $Height }}" 
                         alt="{{ .Title }}"
                         loading="lazy"
-                        style="object-fit: cover;"
-                        style="backdrop-filter: blur(10px);"
+                        style="object-fit: cover; backdrop-filter: blur(10px) brightness(0.8);"
                     />
                 {{ else }}
                     <img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" />
