@@ -1,7 +1,7 @@
 {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
 <article>
     <a href="{{ .RelPermalink }}">
-        <div class="article-details--inblog">
+        <div class="article-details">
             <div class="article-title">
                 {{- .Title -}}
             </div>
