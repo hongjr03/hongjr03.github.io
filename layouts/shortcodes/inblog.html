@@ -1,9 +1,8 @@
-{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-{{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
-{{ $filtered := ($pages | intersect $notHidden) }}
-
-<section class="article-list">
-    {{ range $index, $element := $filtered }}
-        {{ partial "article-list/default" . }}
-    {{ end }}
-</section>
+{{ $page := .Site.GetPage "/post/my-post" }}
+{{ if $page }}
+    <section class="article-list">
+        {{ partial "article-list/default" $page }}
+    </section>
+{{ else }}
+    <p>Page not found.</p>
+{{ end }}
