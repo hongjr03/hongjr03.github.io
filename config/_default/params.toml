@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "beaudar"
+provider = "giscus"
 
 [comments.disqusjs]
 shortname = ""
@@ -133,11 +133,11 @@ serverName = "cactus.chat"
 siteName = ""
 
 [comments.giscus]
-repo = ""
-repoID = ""
-category = ""
-categoryID = ""
-mapping = ""
+repo = "hongjr03/hongjr03.github.io"
+repoID = "R_kgDOK_vbTw"
+category = "Comments"
+categoryID = "DIC_kwDOK_vbT84Cd52G"
+mapping = "pathname"
 lightTheme = ""
 darkTheme = ""
 reactionsEnabled = 1
