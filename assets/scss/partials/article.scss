@@ -278,3 +278,64 @@
         }
     }
 }
+
+/* Inblog style article list (card-link) */
+.article-list--inblog {
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    background-color: var(--card-background);
+    backdrop-filter: blur(10px);
+    --image-size: 50px;
+
+    @include respond(md) {
+        --image-size: 60px;
+    }
+
+    article {
+        & > a {
+            display: flex;
+            align-items: center;
+            padding: var(--small-card-padding);
+            gap: 15px;
+        }
+
+        &:not(:last-of-type) {
+            border-bottom: 1.5px solid var(--card-separator-color);
+        }
+
+        .article-details {
+            flex-grow: 1;
+            padding: 0;
+            min-height: var(--image-size);
+            gap: 10px;
+        }
+
+        .article-title {
+            margin: 0;
+            font-size: 5.6rem;
+
+            @include respond(md) {
+                font-size: 1.8rem;
+            }
+        }
+
+        .article-image {
+            img {
+                width: var(--image-size);
+                height: var(--image-size);
+                object-fit: cover;
+            }
+        }
+
+        .article-time {
+            font-size: 1.4rem;
+        }
+
+        .article-preview {
+            font-size: 1.4rem;
+            color: var(--card-text-color-tertiary);
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+    }
+}

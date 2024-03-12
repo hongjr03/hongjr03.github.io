@@ -1,7 +1,7 @@
 {{ $page := .Site.GetPage (.Get 0) }}
 {{ if $page }}
     <section class="article-list">
-        {{ partial "article-list/tile" $page }}
+        {{ partial "article-list/inblog" $page }}
     </section>
 {{ end }}
 <p></p>
