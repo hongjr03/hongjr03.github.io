@@ -1,5 +1,5 @@
 {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
-<article style="background-image: url('{{ $image.permalink }}'); backdrop-filter: brightness(0.8); background-size: cover; background-position: center; backdrop-filter: blur(15px);">
+<article style="background-image: url('{{ $image.permalink }}'); backdrop-filter: brightness(0.8); backdrop-filter: blur(15px);">
     <a href="{{ .RelPermalink }}">
         <div class="article-details">
             <div class="article-title">
