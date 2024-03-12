@@ -19,3 +19,5 @@ categories:
 {{< inblog "2023-Course-Physics" default>}}
 
 {{< inblog "2023-Course-Español" default>}}
+
+{{< link-card link="https://www.notion.so/>"}}
