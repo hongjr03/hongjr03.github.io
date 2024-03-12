@@ -10,6 +10,9 @@ categories:
 
 ## 课程
 
+{{< link-card name="大学西班牙语Ⅰ" desc="2023 秋" link="https://jrhim.com/p/2023/espanol/" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" >}}
+
+
 [大学西班牙语Ⅰ 2023 秋](https://jrhim.com/p/2023/espanol/)
 
 [离散数学Ⅱ 2023 秋](https://jrhim.com/p/2023/dm/)

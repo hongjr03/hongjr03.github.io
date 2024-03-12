@@ -1,0 +1,152 @@
+{{- $link := .Get "link" -}}{{- $img := .Get "img" -}}
+<a1 href="{{ $link }}" target="_blank">
+    <div class="zhengti">
+        <a href="{{ $link }}">
+            <div class="wenzi">
+                <div class="linkk">
+                    <div class="namee">{{- .Get "name" -}}</div>
+                    {{- if (.Get "desc") -}}
+                    <div class="descc">{{- .Get "desc" -}}</div>
+                    {{- end -}}
+                </div>
+        </a>
+        {{- if (.Get "link") -}}
+        <div class="linktext">{{- .Get "link" -}}</div>
+
+        </div>
+        <!-- <div class="daimg">
+            {{- if (.Get "img") -}}
+            <img class="link-card-img" loading="lazy" src="{{- $img -}}" alt="" /> {{ else }}
+            <img class="link-card-img" loading="lazy" src="https://api.thumbnail.ws/api/ab41148c7048bd95441b7b09816cbd5db1ed220134d3/thumbnail/get?width=720&url={{ $link }}" alt="" /> {{- end -}}{{- end -}}
+        </div> -->
+
+    </div>
+</a1>
+
+<style>
+    a1 {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .zhengti {
+        margin: auto;
+        padding-top: 4%;
+        padding-right: 4%;
+        padding-bottom: 4%;
+        padding-left: 4%;
+        width: 100%;
+        display: flex;
+        align-items: left;
+        flex-direction: row;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        background-color: #ffffff;
+        transition: border 0.3s ease-in-out;
+        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
+    }
+    
+    .wenzi {
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        flex: 2;
+    }
+    
+    .zhengti:hover {
+        transform: scale(1.03);
+        box-shadow: 2px 4px 16px rgba(0, 0, 0, .05);
+    }
+    
+    .linkk {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .iconn {
+        display: flex;
+        align-items: center;
+    }
+    
+    .iconn1 {
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 0.5em;
+        margin-bottom: 0.2em;
+    }
+    
+    .namee {
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--card-text-color-main);
+    }
+    
+    .descc {
+        font-size: 1.3rem;
+        color: #9ca3af;
+        margin-bottom: 0.5rem;
+    }
+    
+    .linktext {
+        font-size: 0.9rem;
+        color: #9ca3af;
+    }
+    /* 图标样式 */
+    
+    .link-card-icoon {
+        width: 16px;
+        height: 16px;
+        margin-right: 0.5rem;
+    }
+    /* 图片样式 */
+    
+    .daimg {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-self: right;
+    }
+    
+    .link-card-img {
+        display: block;
+        height: auto;
+        max-height: 200px;
+        width: 100%;
+        /* 宽度充满容器 */
+        object-fit: cover;
+        max-width: 50%;
+        margin-right: 2px;
+        border-radius: 0.25rem;
+    }
+    
+    a1:hover {
+        background-color: var(--color-zoom-bg);
+        border: 1px solid var(--theme);
+    }
+    
+    @media (max-width:900px) {
+        a1 {
+            max-height: 25em;
+            overflow-y: auto;
+            padding-right: 4%;
+        }
+        .zhengti {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    [data-scheme="dark"] {
+        .zhengti {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .descc {
+            color: #9ca3af;
+        }
+        .linktext {
+            color: #9ca3af;
+        }
+    }
+</style>
