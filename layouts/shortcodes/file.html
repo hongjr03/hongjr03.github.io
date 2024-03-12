@@ -1,8 +1,7 @@
 {{ $url := (.Get 1) }} {{ $file_name := (.Get 0) }}
 <div class="subsection-list">
-  <div class="article-list--tile">
-    <article>
-        <a href="{{ $url }}" class="article-link">
+  <div class="article-list--tile" href="{{ $url }}">
+        <a class="article-link">
     
             <div class="article-details">
                 <a class="article-title">
@@ -10,7 +9,6 @@
                 </a>
             </div>
         </a>
-    </article>
   </div>
 </div>
 <p></p>
