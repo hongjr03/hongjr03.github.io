@@ -1,4 +1,4 @@
-{{ $page := .Site.GetPage "/post/my-post" }}
+{{ $page := .Site.GetPage .Get "perma-link" | default (.Get 0) }}
 {{ if $page }}
     <section class="article-list">
         {{ partial "article-list/default" $page }}
