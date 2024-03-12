@@ -1,6 +1,7 @@
-{{ $url := (.Get 1) }}
-{{ $file-name := (.Get 0) }}
-<div class="article-list--tile">
-        {{ partial "article/components/file" (dict "url" $url "Type" $file-name) }}
+{{ $url := (.Get 1) }} {{ $file-name := (.Get 0) }}
+<div class="subsection-list">
+  <div class="article-list--tile">
+    {{ partial "article/components/file" (dict "url" $url "Type" $file-name) }}
+  </div>
 </div>
 <p></p>
