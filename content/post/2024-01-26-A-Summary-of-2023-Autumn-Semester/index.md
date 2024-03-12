@@ -14,7 +14,7 @@ categories:
 
 {{< inblog "2023-Course-ICS" compact>}}
 
-{{< inblog "2023-Course-Marx" tile>}}
+{{< inblog "2023-Course-Marx" compact>}}
 
 {{< inblog "2023-Course-Physics" default>}}
 

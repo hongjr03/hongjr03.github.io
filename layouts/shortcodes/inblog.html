@@ -6,8 +6,6 @@
             {{ partial "article-list/default" $page }}
         {{ else if eq $style "compact" }}
             {{ partial "article-list/compact" $page }}
-        {{ else if eq $style "tile" }}
-            {{ partial "article-list/tile" $page }}
         {{ end }}
     </section>
 {{ end }}
