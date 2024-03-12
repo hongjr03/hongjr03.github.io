@@ -285,9 +285,7 @@
     box-shadow: var(--shadow-l1);
     background-color: var(--card-background);
     backdrop-filter: blur(10px);
-    --image-size: 50px;
-    width: 60%;
-
+    
     @include respond(md) {
         --image-size: 60px;
     }
@@ -319,13 +317,14 @@
                 font-size: 1.8rem;
             }
         }
-
+        
+        // 使用图片作为背景
         .article-image {
-            img {
-                width: var(--image-size);
-                height: var(--image-size);
-                object-fit: cover; // 保持图片比例
-            }
+            width: var(--image-size);
+            height: var(--image-size);
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--card-border-radius);
         }
 
         .article-time {
