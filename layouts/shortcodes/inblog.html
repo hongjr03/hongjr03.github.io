@@ -1,11 +1,7 @@
 {{ $page := .Site.GetPage (.Get 0) }}
-{{ $style := .Get 1 | default "default" }} 
 {{ if $page }}
     <section class="article-list">
-        {{ if eq $style "default" }}
-            {{ partial "article-list/default" $page }}
-        {{ else if eq $style "compact" }}
-            {{ partial "article-list/compact" $page }}
-        {{ end }}
+        {{ partial "article-list/default" $page }}
     </section>
 {{ end }}
+<p></p>
