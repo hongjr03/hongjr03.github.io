@@ -1,6 +1,6 @@
-{{- $image := partialCached "helper/image" (dict "Context" . "Type"
-"articleList") .RelPermalink "articleList" -}} {{ if $image.exists }}
-<article class="article-list inblog" style="background-image: url({{ $image.permalink }})">
+{{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
+{{ if $image.exists }}
+<article class="article-list inblog" style="background-image: url('{{ $image.permalink }}');">
     {{ else }}
     <article class="article-list inblog">
         {{ end }}
@@ -9,8 +9,7 @@
                 <div class="article-title">{{- .Title -}}</div>
                 <footer class="article-time">
                     <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                        {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02,
-                        2006") -}}
+                        {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
                     </time>
                 </footer>
             </div>
