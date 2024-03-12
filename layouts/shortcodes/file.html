@@ -1,8 +1,7 @@
 {{ $url := (.Get 1) }} {{ $file_name := (.Get 0) }}
 
 <div class="article-list--tile">
-  {{ $image := partialCached "helper/image" (dict "Context" .context "Type" .Type) .context.RelPermalink .Type }}
-  <article class="{{ if $image.exists }}has-image{{ end }}">
+  <article class="">
     <a href="{{ $url }}">
       <div class="article-details">
         <a class="article-title"> {{- $file_name -}} </a>
