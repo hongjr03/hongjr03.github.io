@@ -321,10 +321,14 @@
         }
 
         .article-image {
+            background-image: url('{{ $image.permalink }}');
+            background-size: cover;
+            background-position: center;
             img {
                 width: var(--image-size);
                 height: var(--image-size);
                 object-fit: cover; // 保持图片比例
+                visibility: hidden;
             }
         }
 
@@ -337,73 +341,6 @@
             color: var(--card-text-color-tertiary);
             margin-top: 10px;
             line-height: 1.5;
-        }
-    }
-}
-/* Tile style article list */
-.article-list--tile {
-    article {
-        border-radius: var(--card-border-radius);
-        overflow: hidden;
-        position: relative;
-        height: 350px;
-        width: 250px;
-        box-shadow: var(--shadow-l1);
-        transition: box-shadow 0.3s ease;
-        background-color: var(--card-background);
-        backdrop-filter: blur(10px);
-        &:hover {
-            box-shadow: var(--shadow-l2);
-        }
-
-        &.has-image {
-            .article-details {
-                background-color: rgba(#000, 0.25);
-            }
-
-            .article-title {
-                color: #fff;
-            }
-        }
-
-        .article-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-
-        .article-details {
-            border-radius: var(--card-border-radius);
-            position: relative;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            z-index: 2;
-            padding: 15px;
-
-            @include respond(sm) {
-                padding: 20px;
-            }
-        }
-
-        .article-title {
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--card-text-color-main);
-
-            @include respond(sm) {
-                font-size: 2.2rem;
-            }
         }
     }
 }
