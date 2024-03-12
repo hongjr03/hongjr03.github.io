@@ -2,11 +2,10 @@
 {{ $file_name := (.Get 0) }}
 <div class="article-list--tile">
         <a href="{{ $url }}" class="article-link">
-    
             <div class="article-details">
-                <h2 class="article-title">
+                <a class="article-title">
                     {{- $file_name -}}
-                </h2>
+                </a>
             </div>
         </a>
 </div>
