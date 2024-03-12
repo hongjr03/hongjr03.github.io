@@ -283,7 +283,7 @@
 .article-list--inblog {
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
-    background-color: var(--card-background);
+    background-image: url('{{ $image.permalink }}');
     backdrop-filter: blur(10px);
     --image-size: 50px;
     width: 60%;
@@ -321,14 +321,10 @@
         }
 
         .article-image {
-            background-image: url('{{ $image.permalink }}');
-            background-size: cover;
-            background-position: center;
             img {
                 width: var(--image-size);
                 height: var(--image-size);
                 object-fit: cover; // 保持图片比例
-                visibility: hidden;
             }
         }
 
