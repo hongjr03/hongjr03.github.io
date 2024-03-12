@@ -1,6 +1,8 @@
 {{ $url := (.Get 1) }} {{ $file_name := (.Get 0) }}
+
 <div class="article-list--tile">
-  <article>
+    {{ $image := partialCached "helper/image"}}
+    <article class="{{ if $image.exists }}has-image{{ end }}">
     <a href="{{ $url }}">
       <div class="article-details">
         <a class="article-title"> {{- $file_name -}} </a>
