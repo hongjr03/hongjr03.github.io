@@ -2,7 +2,14 @@
 {{ $file-name := (.Get 0) }}
 {{ if $page }}
 <div class="article-list--tile">
-        {{ partial "article/components/file" (dict "url" $url "Type" $file-name) }}
+        <a href="{{ $url }}" class="article-link">
+    
+            <div class="article-details">
+                <h2 class="article-title">
+                    {{- $file-name -}}
+                </h2>
+            </div>
+        </a>
 </div>
 {{ end }}
 <p></p>

@@ -1,11 +1,2 @@
 {{ $image := partialCached "helper/image" (dict "url" $url "Type" $file-name)}}
-<article class="{{ if $image.exists }}has-image{{ end }}">
-    <a href="{{ $url }}" class="article-link">
 
-        <div class="article-details">
-            <h2 class="article-title">
-                {{- $file-name -}}
-            </h2>
-        </div>
-    </a>
-</article>
