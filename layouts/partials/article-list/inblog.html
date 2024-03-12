@@ -1,17 +1,17 @@
 {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
 {{ if $image.exists }}
-<article class="article-list inblog" style="background-image: url('{{ $image.resource.RelPermalink }}');">
-    {{ else }}
-    <article class="article-list inblog">
-        {{ end }}
-        <a href="{{ .RelPermalink }}">
-            <div class="article-details">
-                <div class="article-title">{{- .Title -}}</div>
-                <footer class="article-time">
-                    <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                        {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
-                    </time>
-                </footer>
-            </div>
-        </a>
+<article class="article-list inblog" style="background-image: url('{{ $image.resource.RelPermalink }}'); background-blend-mode: lighten;">
+{{ else }}
+<article class="article-list inblog">
+{{ end }}
+    <a href="{{ .RelPermalink }}">
+        <div class="article-details">
+            <div class="article-title">{{- .Title -}}</div>
+            <footer class="article-time">
+                <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+                    {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                </time>
+            </footer>
+        </div>
+    </a>
 </article>
