@@ -1,0 +1,8 @@
+{{ $url := (.Get 1) }}
+{{ $file-name := (.Get 0) }}
+{{ if $page }}
+<div class="article-list--tile">
+        {{ partial "article/components/file" (dict "url" $url "Type" $file-name) }}
+</div>
+{{ end }}
+<p></p>
