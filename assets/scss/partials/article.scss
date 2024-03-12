@@ -283,7 +283,7 @@
 .article-list--inblog {
     border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
-    background-image: url('{{ $image.permalink }}');
+    background-color: var(--card-background);
     backdrop-filter: blur(10px);
     --image-size: 50px;
     width: 60%;
