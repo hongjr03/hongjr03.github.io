@@ -1,10 +1,9 @@
 {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
 {{ $filtered := ($pages | intersect $notHidden) }}
-{{ $pag := .Paginate ($filtered) }}
 
 <section class="article-list">
-    {{ range $index, $element := $pag.Pages }}
+    {{ range $index, $element := $filtered }}
         {{ partial "article-list/default" . }}
     {{ end }}
 </section>
