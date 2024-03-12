@@ -1,5 +1,5 @@
 {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
-<article style="background-image: url('{{ $image.permalink }}'); background-size: cover; background-position: center; backdrop-filter: blur(15px);">
+<article>
     <a href="{{ .RelPermalink }}">
         <div class="article-details">
             <div class="article-title">
@@ -25,12 +25,15 @@
                         {{- $Width = $thumbnail.Width -}}
                         {{- $Height = $thumbnail.Height -}}
                     {{- end -}} -->
-<!--                     
+                    
                     <img src="{{ $Permalink }}" 
                         width="{{ $Width }}"
                         height="{{ $Height }}" 
                         alt="{{ .Title }}"
-                        loading="lazy"> -->
+                        loading="lazy"
+                        style="object-fit: cover;"
+                        style="backdrop-filter: blur(10px);"
+                    />
                 {{ else }}
                     <img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" />
                 {{ end }}
