@@ -10,14 +10,14 @@ categories:
 
 ## 课程
 
-{{< inblog "2023-Course-DM" compact>}}
+{{< inblog "2023-Course-DM">}}
 
-{{< inblog "2023-Course-ICS" compact>}}
+{{< inblog "2023-Course-ICS">}}
 
-{{< inblog "2023-Course-Marx" compact>}}
+{{< inblog "2023-Course-Marx">}}
 
-{{< inblog "2023-Course-Physics" default>}}
+{{< inblog "2023-Course-Physics">}}
 
-{{< inblog "2023-Course-Español" default>}}
+{{< inblog "2023-Course-Español">}}
 
-{{< link-card link="https://www.notion.so/>"}}
+{{< link-card link="https://www.notion.so/">}}
