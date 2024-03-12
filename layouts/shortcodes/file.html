@@ -1,7 +1,16 @@
-{{ $url := (.Get 1) }} {{ $file-name := (.Get 0) }}
+{{ $url := (.Get 1) }} {{ $file_name := (.Get 0) }}
 <div class="subsection-list">
   <div class="article-list--tile">
-    {{ partial "article/components/file" (dict "url" $url "Type" $file-name) }}
+    <article class="{{ if $image.exists }}has-image{{ end }}">
+        <a href="{{ $url }}" class="article-link">
+    
+            <div class="article-details">
+                <h2 class="article-title">
+                    {{- $file_name -}}
+                </h2>
+            </div>
+        </a>
+    </article>
   </div>
 </div>
 <p></p>
