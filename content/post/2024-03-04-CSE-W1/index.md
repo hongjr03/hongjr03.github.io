@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Worse is Better | CSE"
+title: "Worse is Better"
 slug: "2024/cse/worse-is-better"
 date: 2024-03-04
 tags: [Course]
@@ -10,7 +10,7 @@ categories:
 
 ## Text
 
-> [The Rise of Worse is Better](https://www.dreamsongs.com/RiseOfWorseIsBetter.html)
+{{<hlink "The Rise of Worse is Better" "https://www.dreamsongs.com/RiseOfWorseIsBetter.html">}}
 
 <div align="center">
     <h2>“更差即更好”的提出</h2>
