@@ -3,6 +3,7 @@ layout: post
 title: "一个自用的 Typst 作业报告模板"
 slug: "a-typst-template"
 date: 2024-03-17
+image: image.jpg
 tags: [Template, Typst, 课程]
 categories:
     - Typst
