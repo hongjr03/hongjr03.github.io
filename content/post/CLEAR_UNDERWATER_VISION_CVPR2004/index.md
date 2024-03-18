@@ -46,7 +46,7 @@ $$
 有许多模型可以用来给出水下 PSF 的形式。由于 PSF 取决于悬浮在水中的水溶胶，因此模型通常采用各种经验常数作为参数。比如在这篇文献中[^1]的形式是这样的：
 
 $$
-g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} \left\{ G_z \right\}, \\
+g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} \{ G_z \}, \\
 \text{其中} G_z = e^{-Kz\omega}
 $$
 
