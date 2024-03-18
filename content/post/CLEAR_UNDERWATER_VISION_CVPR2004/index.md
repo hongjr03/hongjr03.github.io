@@ -7,7 +7,7 @@ categories:
     - 计算机视觉
 ---
 
-~~妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04~~
+> ~~妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04~~
 
 {{<hlink "Clear underwater vision" "https://ieeexplore.ieee.org/abstract/document/1315078">}}
 
@@ -38,7 +38,7 @@ $$
 前向散射的组成与直接透射类似。不过，它代表的是相对于观察视角的小角度前向散射光。这就造成了图像模糊，其卷积结果为
 
 $$
-F = D * g_z
+F = D \ast g_z
 $$
 
 其中，$D$ 由[直接透射](#直接透射)得到。$g_z$ 是受距离 $z$ 影响的点扩散函数 (PSF)，也就是说物体越远，模糊核就越大。
@@ -46,7 +46,8 @@ $$
 有许多模型可以用来给出水下 PSF 的形式。由于 PSF 取决于悬浮在水中的水溶胶，因此模型通常采用各种经验常数作为参数。比如在这篇文献中[^1]的形式是这样的：
 
 $$
-g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} \left\{ G_z \right\}, 其中 G_z = e^{-Kz\omega}
+g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} \left\{ G_z \right\}, \\
+\text{其中} G_z = e^{-Kz\omega}
 $$
 
 其中，$K>0$ 和 $\gamma>0$ 是经验常数。$\mathcal{F}^{-1}$ 是傅里叶逆变换，$\omega$ 是图像层面的空间频率。滤波器 $G_z$ 是一个低通滤波器，它的频率响应随着距离 $z$ 的增加而减小。这反映了水下图像的模糊程度随着距离的增加而增加。常数 $\gamma$ 被限制为 $|\gamma| \le \eta$。请注意，根据经验和数值模拟 所得到的 PSF 模型在光沿 $z$ 方向传播时并不保存能量。因此，前向散射是一个模糊和衰减的 $D$。
@@ -62,7 +63,7 @@ $$
 我们将有效物体辐射度 $L^\text{effective}_\text{object}$ 定义为
 
 $$
-L^\text{effective}_\text{object} = L_\text{object} + L_\text{object}*g_z
+L^\text{effective}_\text{object} = L_\text{object} + L_\text{object} \ast g_z
 $$
 
 这是 $L$ 物体的模糊版本。结合上述两式，信号 $S$ 可以写成
@@ -84,7 +85,7 @@ $$
 > tbc...
 > 有一说一，看到这感觉就和之前的那篇 APSF 连上了。
 
-{{inblog "APSF_GAC_MM23"}}
+{{<inblog "APSF_GAC_MM23">}}
 
 [^1]: [B. L. McGlamery, "A computer model for underwater camera system," Proc. SPIE 208, 221-231 (1979).](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0208/0000/A-Computer-Model-For-Underwater-Camera-Systems/10.1117/12.958279.short)
 
