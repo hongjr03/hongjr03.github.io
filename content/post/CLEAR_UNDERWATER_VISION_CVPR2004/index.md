@@ -62,9 +62,9 @@ $$
 
 我们将有效物体辐射度 $L^\text{effective}_\text{object}$ 定义为
 
-<div>$$
+$$
 L^\text{effective}_\text{object} = L_\text{object} + L_\text{object} \ast g_z
-$$</div>
+$$
 
 这是 $L$ 物体的模糊版本。结合上述两式，信号 $S$ 可以写成
 
