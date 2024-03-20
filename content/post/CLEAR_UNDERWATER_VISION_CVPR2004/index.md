@@ -62,9 +62,9 @@ $$
 
 我们将有效物体辐射度 $L^\text{effective}_\text{object}$ 定义为
 
-$$
+<div>$$
 L^\text{effective}_\text{object} = L_\text{object} + L_\text{object} \ast g_z
-$$
+$$</div>
 
 这是 $L$ 物体的模糊版本。结合上述两式，信号 $S$ 可以写成
 
@@ -82,10 +82,11 @@ $$
 
 其中，$f$ 是摄像机的焦距，$l_0$ 是镜头与 underwater housing window 的距离。这个积分考虑了在一定距离 $l$ 处散射到物体表面，然后衰减直到到达相机的情况。它还通过 $f/(l+l_0)$ 考虑了辐照度的几何投影。
 
-> tbc...
 > 有一说一，看到这感觉就和之前的那篇 APSF 连上了。
 
 {{<inblog "APSF_GAC_MM23">}}
+
+
 
 [^1]: [B. L. McGlamery, "A computer model for underwater camera system," Proc. SPIE 208, 221-231 (1979).](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0208/0000/A-Computer-Model-For-Underwater-Camera-Systems/10.1117/12.958279.short)
 
