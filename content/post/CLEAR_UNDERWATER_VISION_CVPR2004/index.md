@@ -9,7 +9,7 @@ categories:
 
 > ~~妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04~~
 
-{{<hlink "Clear underwater vision" "<https://ieeexplore.ieee.org/abstract/document/1315078">}}>
+{{<hlink "Clear underwater vision" "https://ieeexplore.ieee.org/abstract/document/1315078">}}
 
 ## 物理模型
 
