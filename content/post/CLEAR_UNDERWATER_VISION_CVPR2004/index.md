@@ -9,7 +9,7 @@ categories:
 
 > ~~妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04~~
 
-{{<hlink "Clear underwater vision" "https://ieeexplore.ieee.org/abstract/document/1315078">}}
+{{<hlink "Clear underwater vision" "<https://ieeexplore.ieee.org/abstract/document/1315078">}}>
 
 ## 物理模型
 
@@ -82,14 +82,40 @@ $$
 
 其中，$f$ 是摄像机的焦距，$l_0$ 是镜头与 underwater housing window 的距离。这个积分考虑了在一定距离 $l$ 处散射到物体表面，然后衰减直到到达相机的情况。它还通过 $f/(l+l_0)$ 考虑了辐照度的几何投影。
 
+上式可以改写成
+
+$$
+B(r) = B_\infty(r)(1-e^{-\eta z}),
+$$
+
+其中，
+
+$$
+B_\infty(r) \equiv \kappa I^\text{source}(r) \beta(\theta)/\eta
+$$
+
+表示延伸到水中无限远处的光源的后向散射光。将所有方向的光源的后向散射光加起来，总的后向散射光是
+
+<div>$$
+B = \int_{r} B(r) dr = B_\infty(1-e^{-\eta z}),
+$$</div>
+
+其中
+
+<div>$$
+B_\infty = \int_{r} B_\infty(r) dr
+$$</div>
+
+是一个与 $\lambda$ 有关的标量。
+
+以上推导的前提是光线是水平的，此时光照沿光源到物体的方向传播的变化可以忽略。
+
 > 有一说一，看到这感觉就和之前的那篇 APSF 连上了。
 
 {{<inblog "APSF_GAC_MM23">}}
 
-
+###
 
 [^1]: [B. L. McGlamery, "A computer model for underwater camera system," Proc. SPIE 208, 221-231 (1979).](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0208/0000/A-Computer-Model-For-Underwater-Camera-Systems/10.1117/12.958279.short)
 
 [^2]: [J. S. Jaffe, "Computer modeling and the design of optimal underwater imaging systems," IEEE J. Oceanic Engin. 15, 101-111 (1990).](https://ieeexplore.ieee.org/abstract/document/100051)
-
-
