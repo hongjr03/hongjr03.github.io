@@ -120,15 +120,18 @@ Kubelka-Munk 理论对灰度图像很有效，但在色彩的解释上有一定�
 
 $$
 \begin{bmatrix}
-  \hat{E}(x,y)\\
-  \hat{E}^\lambda(x,y)\\
-  \hat{E}^{\lambda\lambda}(x,y)\\
-  \end{bmatrix}
-  \!=\!
-  \mathcal{W}
-  \begin{bmatrix}
-  R(x,y)\\G(x,y)\\B(x,y)
-  \end{bmatrix}\text{,}\tag{12}
+\hat{E}(x,y) \newline
+\hat{E}^\lambda(x,y) \newline
+\hat{E}^{\lambda\lambda}(x,y) \newline
+\end{bmatrix}
+=
+\mathcal{W}
+\begin{bmatrix}
+R(x,y) \newline
+G(x,y) \newline
+B(x,y)
+\end{bmatrix}
+\text{,}\tag{12}
 $$
 
 其中，$x$ 和 $y$ 分别表示图像中的位置，$\mathcal{W}$ 是 $3\times 3$ 的矩阵。在 [^2] [^3] 中，$\mathcal{W}$ 是手动设计的，而我们用我们的先验到图像框架通过自然图像的分布来学习它。
