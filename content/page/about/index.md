@@ -1,6 +1,6 @@
 ---
 title: "关于我"
-date: 2024-01-02
+date: 2024-03-25
 layout: "about"
 slug: "about"
 menu:
@@ -10,8 +10,36 @@ menu:
             icon: user
 ---
 
-我是洪佳荣，来自福建厦门，是一名[中国海洋大学](https://www.ouc.edu.cn/)的本科生，目前就读于软件工程专业。
+洪佳荣，海大 2022 级软件工程本科大二在读。菜狗正在学习计算机视觉和深度学习捏。
 
-Me llamo Hong Jiarong, soy de Xiamen, Fujian, China. Soy un estudiante de la Universidad Oceánica de China, estudio en la especialidad de Ingeniería de Software.
+喜欢音乐。
 
-Hi! I'm Hong Jiarong from Xiamen, Fujian, China. I'm an undergraduate student of Ocean University of China, majoring in Software Engineering. You can use *he/him* to refer to me.
+![](imgs/0E7259D796F33F93BF3DD2631CE34991.png)
+![](imgs/104FAA14FF60201F735F1A05F458810F.png)
+![](imgs/6EB10CC417B1165803434D6D12441CC4.png)
+
+喜欢旅游。
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV1im4y1H7rQ&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+当然，也喜欢为了音乐节 / 演唱会而旅游。更喜欢跟朋友一起唱歌。见过苏打绿了！
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV1524y1M7M6&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+喜欢无脑打游戏。
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV1rN4y1n76o&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+喜欢看电影刷剧。
+
+![Stranger Things](imgs/6787BF04A0F5D7F0E379A2D211A07743.png)
+
+喜欢摄影，有一台 Nikon F60 胶片机。
+
+![](imgs/Untitled107.jpg)
+
+有一个博客。
+
+{{<hlink "JrHimself" "https://jrhim.com">}}
+
+很高兴认识你！
