@@ -120,17 +120,8 @@ Kubelka-Munk 理论对灰度图像很有效，但在色彩的解释上有一定�
 
 $$
 \begin{bmatrix}
-\hat{E}(x,y) \newline
-\hat{E}^\lambda(x,y) \newline
-\hat{E}^{\lambda\lambda}(x,y) \newline
-\end{bmatrix}
-=
-\mathcal{W}
-\begin{bmatrix}
-R(x,y) \newline
-G(x,y) \newline
-B(x,y)
-\end{bmatrix}
+\hat{E}(x,y) \newline \hat{E}^\lambda(x,y) \newline \hat{E}^{\lambda\lambda}(x,y) \newline \end{bmatrix} = \mathcal{W}
+\begin{bmatrix} R(x,y) \newline G(x,y) \newline B(x,y) \end{bmatrix}
 \text{,}\tag{12}
 $$
 
