@@ -3,6 +3,7 @@ layout: post
 title: "CVPR24 Zero-Reference Low-Light Enhancement via Physical Quadruple Priors"
 date: 2024-03-25
 tags: [CVPR, LLE, Physics-Guided]
+image: cover.png
 categories:
   - 计算机视觉
 ---
