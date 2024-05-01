@@ -11,6 +11,10 @@ links:
     description: 友链
     website: https://songqikong.github.io/
     image: https://avatars.githubusercontent.com/u/48835128
+  - title: BroMikey
+    description: 友链
+    website: https://bromikey.github.io/
+    image: https://avatars.githubusercontent.com/u/150149971
 menu:
     main: 
         weight: 4
