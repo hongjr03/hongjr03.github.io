@@ -1,4 +1,15 @@
 # Configure main menu and social menu
+
+[menu]
+[[menu.main]]
+    name = "cv"
+    url = "/"
+    weight = 10
+    identifier = "cv"
+    [menu.main.params]
+        icon = "file"
+        newTab = true
+
 #[[main]]
 #identifier = "home"
 #name = "Home"
