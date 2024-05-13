@@ -3,7 +3,7 @@
 [[main]]
 identifier = "cv"
 name = "简历"
-url = "/"
+url = "https://raw.githubusercontent.com/hongjr03/hongjr03.github.io/master/content/page/files/cv/cv_Jiarong.pdf"
 [main.params]
 icon = "file"
 newtab = true
