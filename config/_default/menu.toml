@@ -4,13 +4,14 @@
 identifier = "cv"
 name = "简历"
 url = "https://raw.githubusercontent.com/hongjr03/hongjr03.github.io/master/content/page/files/cv/cv_Jiarong.pdf"
+
 [main.params]
 icon = "file"
 newtab = true
 
 [[social]]
 identifier = "github"
-name = "GitHub"
+name = "@hongjr03"
 url = "https://github.com/hongjr03"
 
 [social.params]
@@ -18,7 +19,7 @@ icon = "brand-github"
 
 [[social]]
 identifier = "bilibili"
-name = "bilibili"
+name = "西西里阿西弗斯"
 url = "https://space.bilibili.com/18763596"
 
 [social.params]
