@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Underwater Vision on JrHimself</title><link>https://jrhim.com/tags/underwater-vision/</link><description>Recent content in Underwater Vision on JrHimself</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jrhim.com/tags/underwater-vision/index.xml" rel="self" type="application/rss+xml"/><item><title>CVPR04 Clear Underwater Vision</title><link>https://jrhim.com/p/cvpr04-clear-underwater-vision/</link><pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/cvpr04-clear-underwater-vision/</guid><description>&lt;blockquote>
+&lt;p>&lt;del>妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04&lt;/del>&lt;/p>
+&lt;/blockquote>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://ieeexplore.ieee.org/abstract/document/1315078">
+&lt;div class="article-details">
+&lt;div class="article-title">Clear underwater vision&lt;/div>
+&lt;div class="article-preview">https://ieeexplore.ieee.org/abstract/document/1315078&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;h2 id="物理模型">物理模型
+&lt;/h2>&lt;h3 id="光信号模型">光信号模型
+&lt;/h3>&lt;h4 id="直接透射">直接透射
+&lt;/h4>&lt;p>光信号由直接透射和前向散射两部分组成。当光线从物体射向摄像机时，部分能量会因散射和吸收而损失。到达相机的部分是直接透射。&lt;/p>
+&lt;p>$$
+D = L_{object}e^{-\eta z}
+$$&lt;/p>
+&lt;p>其中，$\eta$ 是光在水中的衰减系数。这里的 $L$ 指的是物体无散射、吸收介质下我们本应观察到的光强。$z$ 是物体到相机的距离。&lt;/p>
+&lt;p>衰减系数是 $\eta = \alpha + \beta$，其中 $\alpha$ 是吸收系数，$\beta$ 是散射系数。散射系数 $\beta$ 表示无限小的水体向所有方向散射能量的能力。可以对所有固体角度 $\Theta$ 积分得到 $\beta$。&lt;/p>
+&lt;p>$$
+\beta = \int_{\Theta} \beta(\Theta) d\Omega= 2\pi \int_{0}^{\pi} \beta(\theta) \sin(\theta) d\theta
+$$&lt;/p>
+&lt;p>其中，$\theta$ 是相对于光传播方向的散射角，$\beta(\theta)$ 是角散射系数。$\alpha$, $\beta$, $\eta$ 和 $L_{object}$ 都是与波长 $\lambda$ 有关的。&lt;/p>
+&lt;h4 id="前向散射">前向散射
+&lt;/h4>&lt;p>前向散射的组成与直接透射类似。不过，它代表的是相对于观察视角的小角度前向散射光。这就造成了图像模糊，其卷积结果为&lt;/p>
+&lt;p>$$
+F = D \ast g_z
+$$&lt;/p>
+&lt;p>其中，$D$ 由&lt;a class="link" href="#%e7%9b%b4%e6%8e%a5%e9%80%8f%e5%b0%84" >直接透射&lt;/a>得到。$g_z$ 是受距离 $z$ 影响的点扩散函数 (PSF)，也就是说物体越远，模糊核就越大。&lt;/p>
+&lt;p>有许多模型可以用来给出水下 PSF 的形式。由于 PSF 取决于悬浮在水中的水溶胶，因此模型通常采用各种经验常数作为参数。比如在这篇文献中&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>的形式是这样的：&lt;/p>
+&lt;p>$$
+g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} { G_z }, \
+\text{其中} G_z = e^{-Kz\omega}
+$$&lt;/p>
+&lt;p>其中，$K&amp;gt;0$ 和 $\gamma&amp;gt;0$ 是经验常数。$\mathcal{F}^{-1}$ 是傅里叶逆变换，$\omega$ 是图像层面的空间频率。滤波器 $G_z$ 是一个低通滤波器，它的频率响应随着距离 $z$ 的增加而减小。这反映了水下图像的模糊程度随着距离的增加而增加。常数 $\gamma$ 被限制为 $|\gamma| \le \eta$。请注意，根据经验和数值模拟 所得到的 PSF 模型在光沿 $z$ 方向传播时并不保存能量。因此，前向散射是一个模糊和衰减的 $D$。&lt;/p>
+&lt;blockquote>
+&lt;p>思路：PSF&lt;/p>
+&lt;/blockquote>
+&lt;p>同时考虑直接透射和前向散射，我们可以得到&lt;/p>
+&lt;p>$$
+S = D + F
+$$&lt;/p>
+&lt;p>我们将有效物体辐射度 $L^\text{effective}_\text{object}$ 定义为&lt;/p>
+&lt;div>$$
+L^\text{effective}_\text{object} = L_\text{object} + L_\text{object} \ast g_z
+$$&lt;/div>
+&lt;p>这是 $L$ 物体的模糊版本。结合上述两式，信号 $S$ 可以写成&lt;/p>
+&lt;p>$$
+S = e^{-\eta z}L^\text{effective}_\text{object}
+$$&lt;/p>
+&lt;h3 id="后向散射光">后向散射光
+&lt;/h3>&lt;p>后向散射光并非源于我们观察的物体，反之，它是由光源被水体散射后到达相机的光。在综合分析所有照明的影响之前，先分析单个远处光源的影响。这里的光源从相对于观察方向的角度 $r=(\theta,\eta)$照射到物体上，它的光强是 $L_{source}$。光源到物体的距离是 $z_s$。根据&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>和&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，这个光源对后向散射的贡献是：&lt;/p>
+&lt;p>$$
+B(r) = \int_0^z \beta(\theta) I^\text{source}(r) e^{-\eta l} [1-f/(l+l_0)]^2 dl
+$$&lt;/p>
+&lt;p>其中，$f$ 是摄像机的焦距，$l_0$ 是镜头与 underwater housing window 的距离。这个积分考虑了在一定距离 $l$ 处散射到物体表面，然后衰减直到到达相机的情况。它还通过 $f/(l+l_0)$ 考虑了辐照度的几何投影。&lt;/p>
+&lt;p>上式可以改写成&lt;/p>
+&lt;p>$$
+B(r) = B_\infty(r)(1-e^{-\eta z}),
+$$&lt;/p>
+&lt;p>其中，&lt;/p>
+&lt;p>$$
+B_\infty(r) \equiv \kappa I^\text{source}(r) \beta(\theta)/\eta
+$$&lt;/p>
+&lt;p>表示延伸到水中无限远处的光源的后向散射光。将所有方向的光源的后向散射光加起来，总的后向散射光是&lt;/p>
+&lt;div>$$
+B = \int_{r} B(r) dr = B_\infty(1-e^{-\eta z}),
+$$&lt;/div>
+&lt;p>其中&lt;/p>
+&lt;div>$$
+B_\infty = \int_{r} B_\infty(r) dr
+$$&lt;/div>
+&lt;p>是一个与 $\lambda$ 有关的标量。&lt;/p>
+&lt;p>以上推导的前提是光线是水平的，此时光照沿光源到物体的方向传播的变化可以忽略。&lt;/p>
+&lt;blockquote>
+&lt;p>有一说一，看到这感觉就和之前的那篇 APSF 连上了。&lt;/p>
+&lt;/blockquote>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/mm23-enhancing-visibility-in-nighttime-haze-images-using-guided-apsf-and-gradient-adaptive-convolution/">
+&lt;div class="article-details">
+&lt;div class="article-title">MM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2023-10-22T00:00:00Z'>Oct 22, 2023&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;h3 id="heading">
+&lt;/h3>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0208/0000/A-Computer-Model-For-Underwater-Camera-Systems/10.1117/12.958279.short" target="_blank" rel="noopener"
+>B. L. McGlamery, &amp;ldquo;A computer model for underwater camera system,&amp;rdquo; Proc. SPIE 208, 221-231 (1979).&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://ieeexplore.ieee.org/abstract/document/100051" target="_blank" rel="noopener"
+>J. S. Jaffe, &amp;ldquo;Computer modeling and the design of optimal underwater imaging systems,&amp;rdquo; IEEE J. Oceanic Engin. 15, 101-111 (1990).&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

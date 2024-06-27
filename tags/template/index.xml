@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Template on JrHimself</title><link>https://jrhim.com/tags/template/</link><description>Recent content in Template on JrHimself</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jrhim.com/tags/template/index.xml" rel="self" type="application/rss+xml"/><item><title>一个自用的 Typst 作业报告模板</title><link>https://jrhim.com/p/a-typst-template/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/a-typst-template/</guid><description>&lt;img src="https://jrhim.com/p/a-typst-template/image.jpg" alt="Featured image of post 一个自用的 Typst 作业报告模板" />&lt;p>第一次用 Typst 写作业报告，感觉还不错，编译速度比 $\LaTeX$ 不知道高到哪里去了。然而&lt;a class="link" href="https://github.com/gRox167/typst-assignment-template" target="_blank" rel="noopener"
+>原模板&lt;/a>不支持中文，所以我稍微按我自己的习惯改了一下。&lt;/p>
+&lt;p>这是一个自用的 Typst 作业报告模板，适用于各种作业报告。&lt;/p>
+&lt;h2 id="预览">预览
+&lt;/h2>&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1_hu54d91a2bab3bb3210b563591de8feb7d_186266_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1_hu54d91a2bab3bb3210b563591de8feb7d_186266_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="1"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2_hu54d91a2bab3bb3210b563591de8feb7d_193615_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2_hu54d91a2bab3bb3210b563591de8feb7d_193615_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="2"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3_hu54d91a2bab3bb3210b563591de8feb7d_199091_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3_hu54d91a2bab3bb3210b563591de8feb7d_199091_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="3"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4_hu54d91a2bab3bb3210b563591de8feb7d_239997_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4_hu54d91a2bab3bb3210b563591de8feb7d_239997_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="4"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;h2 id="repo">Repo
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://github.com/hongjr03/typst-assignment-template">
+&lt;div class="article-details">
+&lt;div class="article-title">我的修改&lt;/div>
+&lt;div class="article-preview">https://github.com/hongjr03/typst-assignment-template&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://github.com/gRox167/typst-assignment-template">
+&lt;div class="article-details">
+&lt;div class="article-title">原模板 by gRox167&lt;/div>
+&lt;div class="article-preview">https://github.com/gRox167/typst-assignment-template&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech on JrHimself</title><link>https://jrhim.com/tags/tech/</link><description>Recent content in Tech on JrHimself</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jrhim.com/tags/tech/index.xml" rel="self" type="application/rss+xml"/><item><title>C编译体系</title><link>https://jrhim.com/p/c-compile-system/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/c-compile-system/</guid><description>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1J14y1D7Sw"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="gcc的常用编译选项">gcc的常用编译选项
+&lt;/h2>&lt;p>gcc的参数组合比较随意，比如&lt;code>-Wall&lt;/code> 其实就是&lt;code>-W all&lt;/code> ，有时候空格等号和粘连的写法都是等价的，但像&lt;code>-O1&lt;/code> 就不能分开写。&lt;/p>
+&lt;p>&lt;code>-E&lt;/code> 预处理&lt;/p>
+&lt;p>&lt;code>-v&lt;/code> 打印输出信息（默认quiet）&lt;/p>
+&lt;p>&lt;code>-&lt;/code> 从stdio中读取输入&lt;/p>
+&lt;h2 id="多文件编译和第三方库">多文件编译和第三方库
+&lt;/h2>&lt;p>用makefile举例。先生成目标文件（&lt;code>.o&lt;/code>）再链接成可执行文件，相较于直接使用两个源文件编译成可执行文件，能够避免未修改的文件也要重新编译的开销。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">main&lt;/span>.&lt;span class="n">o&lt;/span> &lt;span class="n">a&lt;/span>.&lt;span class="n">o&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gcc $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gcc -c $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>makefile能够简化成上面这么写，而不需要展开写所有的文件。&lt;code>$^&lt;/code> 就代表上面所有的依赖，&lt;code>$@&lt;/code> 指的就是冒号前面这个要输出的文件，&lt;code>%&lt;/code> 是个模式的匹配。&lt;/p>
+&lt;p>更好地，还可以提取出所有的变量。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>有时，文件目录嵌套了非常多层，要包含头文件时就需要写很多次的&lt;code>&amp;quot;..&amp;quot;&lt;/code> ，既不简洁也不优雅。gcc中可以使用&lt;code>-I&lt;/code> 这个编译选项来指定include目录，而不需要相对引用。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">INCLUDE_PATH&lt;/span> &lt;span class="o">=&lt;/span> -Ifolder/ -Iinclude1 -I include2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>INCLUDE_PATH&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用第三方库的时候，在Linux上&lt;code>apt&lt;/code> 安装后只需要加入几个&lt;code>-l&lt;/code> 选项就可以使用了。如果说修改了源码，想要用修改后的自己的库，那就要自己引入&lt;code>INCLUDE_PATH&lt;/code> 和&lt;code>LIBRARY_PATH&lt;/code> ，通常情况下程序会优先使用动态链接库（&lt;code>.a&lt;/code> 或&lt;code>.la&lt;/code> 结尾）以减小体积。&lt;code>apt&lt;/code> 安装库时，把可执行文件放在&lt;code>/usr/bin&lt;/code> ，头文件放在&lt;code>/usr/include&lt;/code> ，库文件放在&lt;code>/usr/lib&lt;/code> ，gcc就能默认从这几个路径下搜索包含。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">INCLUDE_PATH&lt;/span> &lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LDFLAGS&lt;/span> &lt;span class="o">=&lt;/span> -lgvs -lcgraph -lcdt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ &lt;span class="k">$(&lt;/span>LDFLAGS&lt;span class="k">)&lt;/span> -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>INCLUDE_PATH&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>pkg-config是一个能根据package自动补全include和library路径的工具，这样只需要提供CFLAGS和LDFLAGS就可以了。下面使用的 &lt;code>ˋ&lt;/code>在shell中会先执行，然后用返回的值替代。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CFLAGS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sb">`&lt;/span>pkg-config libgvc --cflags&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># -I/usr/include/graphviz
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">LDFLAGS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sb">`&lt;/span>pkg-config libgvc --libs&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># -lgvs -lcgraph -lcdt
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>CFLAGS&lt;span class="k">)&lt;/span> $^ &lt;span class="k">$(&lt;/span>LDFLAGS&lt;span class="k">)&lt;/span> -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>CFLAGS&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://jrhim.com/p/c-compile-system/imgs/0.png"
+width="2519"
+height="823"
+srcset="https://jrhim.com/p/c-compile-system/imgs/0_hu2c8a620da51b30903a774c9b6925a8b0_677291_480x0_resize_box_3.png 480w, https://jrhim.com/p/c-compile-system/imgs/0_hu2c8a620da51b30903a774c9b6925a8b0_677291_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="crl和triplet"
+class="gallery-image"
+data-flex-grow="306"
+data-flex-basis="734px"
+>&lt;/p>
+&lt;h2 id="跨平台和交叉编译">跨平台和交叉编译
+&lt;/h2>&lt;p>编译出来的文件会有一个可执行的&lt;code>configure&lt;/code> 文件，这和gnu的构建三件套GNU build system（automake，autoconf和libtools）有关。主要目的就是简化跨平台软件的构建过程。但最好用cmake来构建跨平台应用。&lt;/p>
+&lt;p>API是应用程序接口，ABI指的是应用程序二进制接口，和硬件、操作系统、编译器等等有关系。&lt;/p>
+&lt;p>出现一个新架构之后，如何将已有的编译器引入新架构？使用加拿大编译。&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/c-compile-system/imgs/1.png"
+width="2407"
+height="1305"
+srcset="https://jrhim.com/p/c-compile-system/imgs/1_hud187a7a06fdb8bdeac4f82b007be8690_592152_480x0_resize_box_3.png 480w, https://jrhim.com/p/c-compile-system/imgs/1_hud187a7a06fdb8bdeac4f82b007be8690_592152_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Canadian Cross"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="442px"
+>&lt;/p>
+&lt;p>3阶段实现自举。&lt;/p></description></item></channel></rss>

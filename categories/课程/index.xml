@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>课程 on JrHimself</title><link>https://jrhim.com/categories/%E8%AF%BE%E7%A8%8B/</link><description>Recent content in 课程 on JrHimself</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 23 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jrhim.com/categories/%E8%AF%BE%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>汇总 | 2024 春</title><link>https://jrhim.com/p/2024s/summary/</link><pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2024s/summary/</guid><description>&lt;h2 id="课程">课程
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://www.jrhim.com/shiroa-page/">
+&lt;div class="article-details">
+&lt;div class="article-title">2024 春&lt;/div>
+&lt;div class="article-preview">https://www.jrhim.com/shiroa-page/&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p></description></item><item><title>Worse is Better</title><link>https://jrhim.com/p/2024/cse/worse-is-better/</link><pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2024/cse/worse-is-better/</guid><description>&lt;h2 id="text">Text
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://www.dreamsongs.com/RiseOfWorseIsBetter.html">
+&lt;div class="article-details">
+&lt;div class="article-title">The Rise of Worse is Better&lt;/div>
+&lt;div class="article-preview">https://www.dreamsongs.com/RiseOfWorseIsBetter.html&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;div align="center">
+&lt;h2>“更差即更好”的提出&lt;/h2>
+Richard P. Gabriel
+&lt;/div>
+&lt;p>我和几乎所有的 Common Lisp 和 CLOS 的设计者都深受 MIT/Stanford 风格的设计的影响。这种风格的本质可以用&lt;em>正确的东西&lt;/em>这个词来概括。对于这样的设计者来说，重要的是要把以下所有的特性都做对：&lt;/p>
+&lt;ul>
+&lt;li>简洁 &amp;ndash; 无论是实现还是接口，设计都必须简洁。而且接口比实现更需要简洁。&lt;/li>
+&lt;li>正确 &amp;ndash; 在所有观察得到的方面，设计都必须是正确的。当然，不能出错。&lt;/li>
+&lt;li>一致 &amp;ndash; 设计不能不一致。设计可以稍微不那么简洁和完整以实现一致。一致性和正确性一样重要。&lt;/li>
+&lt;li>完整 &amp;ndash; 设计必须覆盖尽可能多的重要情况。所有合理预期的情况都必须被覆盖。不能为了简洁而过度减少完整性。&lt;/li>
+&lt;/ul>
+&lt;p>我相信大多数人都会同意这些是好的特性。我将这种设计哲学的使用称为&lt;em>MIT 方法&lt;/em>。Common Lisp（和 CLOS）和 Scheme 代表了设计和实现的 MIT 方法。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>的哲学只是略有不同：&lt;/p>
+&lt;ul>
+&lt;li>简洁 &amp;ndash; 无论是实现还是接口，设计都必须简洁。而且接口比实现更需要简洁。简洁是设计中最需要考虑的。&lt;/li>
+&lt;li>正确 &amp;ndash; 在所有观察得到的方面，设计都必须是正确的。简洁比正确更好一点。&lt;/li>
+&lt;li>一致 &amp;ndash; 设计不能太不一致。在某些情况下，一致性可以为简洁而牺牲，但是最好是放弃那些处理不太常见情况的设计的部分，而不是引入复杂或者不一致的实现。&lt;/li>
+&lt;li>完整 &amp;ndash; 设计必须覆盖尽可能多的重要情况。所有合理预期的情况都应该被覆盖。完整性可以为了其他任何质量而牺牲。实际上，只要实现不够简洁的时候，就必须对完整性作出取舍。如果是为了更简洁，要更完整可以不那么一致；而特别没必要的是接口的一致性。&lt;/li>
+&lt;/ul>
+&lt;p>早期的 Unix 和 C 是这种设计方法的例子，我将这种设计策略的使用称为&lt;em>新泽西&lt;/em>方法。我有意贬低了&lt;em>更差即更好&lt;/em>，来说服你，这显然是一种很烂的设计模式，新泽西方法也是一种糟糕的方法。&lt;/p>
+&lt;p>让我先对你讲个故事，来证明 MIT/新泽西方法的区别是实实在在的，而且谁也说服不了对方。&lt;/p>
+&lt;p>故事从两个著名的人开始，一个来自 MIT，另一个来自伯克利（但是在 Unix 里工作）。他们曾经会面讨论操作系统问题。来自 MIT 的人对 ITS（MIT 人工智能实验室的操作系统）很了解，并且一直在阅读 Unix 的源代码。他对 Unix 是如何解决 PC loser-ing 问题很感兴趣。PC loser-ing 问题发生在用户程序调用系统例程执行一个可能有重要状态的长时间操作时，比如 IO 缓冲区。如果在操作过程中发生中断，用户程序的状态必须被保存。因为调用系统例程通常是一个单指令，用户程序的 PC 不能充分地捕获进程的状态。系统例程必须要么回退，要么继续。正确的做法是回退，并将用户程序的 PC 恢复到调用系统例程的指令，这样才能够在中断后恢复用户程序，例如，重新进入系统例程。它被称为 PC &lt;em>loser-ing&lt;/em>，因为 PC 被强制进入&lt;em>loser 模式&lt;/em>，在 MIT，loser 是对用户的昵称。&lt;/p>
+&lt;p>MIT 的人没有看到任何处理这种情况的代码，于是问新泽西的人这个问题是如何处理的。新泽西的人说 Unix 的人意识到了这个问题，但是解决办法是系统例程总是完成，但有时会返回一个错误代码，表明系统例程未能完成它的动作。这样，一个合理的用户程序必须检查错误代码，以确定是否要再次尝试系统例程。MIT 的人不喜欢这个解决办法，因为这不是正确的东西。&lt;/p>
+&lt;p>新泽西的人说 Unix 的解决办法是正确的，因为 Unix 的设计哲学是简洁，而正确的东西太复杂了。此外，程序员可以很容易地插入这个额外的测试和循环。MIT 的人指出，实现是简单的，但是功能的接口是复杂的。新泽西的人说，在 Unix 中选择了正确的权衡，即实现的简单性比接口的简单性更重要。&lt;/p>
+&lt;p>然后 MIT 的人嘟囔着说，有时候硬汉才能做出鲜嫩的鸡肉，但新泽西的人不明白他什么意思（我也不确定我明白）。&lt;/p>
+&lt;p>讲完这个故事，我来证明&lt;em>更差即更好&lt;/em>是更好的。C 是一种为编写 Unix 而设计的编程语言，它是使用新泽西方法设计的。因此，C 是一种编程语言，很容易写出一个像样的编译器，并且它要求程序员写出对编译器来说容易解释的文本。有人称 C 为一种高级汇编语言。早期的 Unix 和 C 编译器都有简单的结构，易于移植，只需要很少的机器资源就能运行，并且提供了大约 50%-80% 的操作系统和编程语言所需的功能。&lt;/p>
+&lt;p>任何时候存在的计算机中有一半是比中位数差的（更小或更慢）。Unix 和 C 在它们上面运行得很好。&lt;em>更差即更好&lt;/em>的哲学意味着实现的简单性是最重要的，这意味着 Unix 和 C 很容易在这样的机器上移植。因此，人们就会作出期望，如果 Unix 和 C 支持的 50% 的功能是令人满意的，它们将开始出现在任何地方。它们确实出现了，不是吗？&lt;/p>
+&lt;p>Unix 和 C 是终极计算机病毒。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>的哲学的另一个好处是，程序员学着去牺牲一些安全性、便利性和麻烦，以获得良好的性能和适度的资源使用。使用新泽西方法编写的程序在小型机器和大型机器上都能很好地工作，而且代码是可移植的，因为它是在一个病毒之上编写的。&lt;/p>
+&lt;p>重要的是要记住，最初的病毒必须基本上是好的。如果是这样，只要病毒便于携带，就能确保病毒的传播。病毒一旦传播开来，就会有改进的压力，可能会将其功能提高到接近 90%，但用户已经习惯于接受比正确的东西更差的东西。因此，&lt;em>更差即更好&lt;/em>的软件首先会得到接受，其次会让用户习惯于期望更少，第三才会改进到接近正确的成都。具体来说，尽管 1987 年的 Lisp 编译器和 C 编译器一样好，但是想让 C 语言编译器变得更好的编译器专家比想让 Lisp 编译器变得更好的专家要多得多。&lt;/p>
+&lt;p>好消息是，到 1995 年，我们将拥有一个好的操作系统和编程语言；坏消息是，它们是 Unix 和 C++。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>还有一个好处。由于新泽西语言和系统的功能不足以构建复杂的单体软件，大型系统的设计必须重用组件。因此，集成传统应运而生。&lt;/p>
+&lt;p>那么&lt;em>正确的东西&lt;/em>是怎么样的呢？有两种基本的情景：&lt;em>大型复杂系统&lt;/em>情景和&lt;em>钻石般的宝石&lt;/em>情景。&lt;/p>
+&lt;p>&lt;em>大型复杂系统&lt;/em>情景是这样的：&lt;/p>
+&lt;p>首先，需要设计正确的东西。然后需要设计它的实现。最后实现它。因为它是正确的东西，它几乎有 100% 的期望功能，而实现的简单性从来不是一个问题，所以实现它需要很长时间。它又大又复杂。使用它需要复杂的工具。最后的 20% 需要 80% 的努力，所以正确的东西需要很长时间才能出来，而且只能在最复杂的硬件上运行得令人满意。&lt;/p>
+&lt;p>&lt;em>钻石般的宝石&lt;/em>情景是这样的：&lt;/p>
+&lt;p>正确的东西需要很长时间来设计，但设计过程中的每一个环节都非常小。要实现快速运行，要么是不可能的，要么是超出了大多数实现者的能力范围。&lt;/p>
+&lt;p>这两种情景对应于 Common Lisp 和 Scheme。&lt;/p>
+&lt;p>第一种情景也是经典人工智能软件的情景。&lt;/p>
+&lt;p>正确的东西往往是一个单一的软件，但原因无他，因为正确的东西往往是单一设计的。也就是说，这种特性是一种偶然。&lt;/p>
+&lt;p>从中得到的教训是，先做正确的东西往往是不可取的。最好的办法是，先让这个东西有一半是正确的就够了，这样它就会像病毒一样传播开来。一旦人们迷上了它，就花时间将其改进为 90% 的正确事物。&lt;/p>
+&lt;p>错误的教训是，将寓言理解为字面意思，并得出结论，C 是人工智能软件的正确载体。50% 的解决方案是要基本正确的，但在这种情况下并不是。&lt;/p>
+&lt;p>但是，我们只能得出这样的结论，即 Lisp 社区需要认真重新考虑 Lisp 设计的立场。我之后会再说。&lt;/p>
+&lt;h2 id="task">Task
+&lt;/h2>&lt;h3 id="mit-派和新泽西派的差别主要是什么">MIT 派和新泽西派的差别主要是什么？
+&lt;/h3>&lt;p>MIT 派要求设计正确、一致且完整，最后才是简单，而且接口的简单比实现的简单更重要。而新泽西派将简单置于首位，为了简单可以让设计有一点不正确、不一致，最后才是完整；而如果保证了简单，要更完整一些，也可以不那么一致。所以，它们的差别主要在于设计简单的地位。&lt;/p>
+&lt;p>这也反映了两派对软件质量的不同评估方式。对于一款软件而言，使用 MIT 派的设计更有一种程序设计者的偏执和完美主义所在，他们更看重产品本身的质量如何；而新泽西派的设计则从实用主义的角度出发，更侧重于其能否以其活力而被用户和市场所接纳。&lt;/p>
+&lt;h3 id="两个派别有什么代表性的学者或工程师">两个派别有什么代表性的学者或工程师？
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>MIT 派：Common Lisp 开发者 Scott Fahlman 和本文作者 Richard P. Gabriel（不过显然在提出本文的时候已经改变想法了），BasisTech 的首席科学家 Simson Garfinkel（&lt;em>The UNIX-HATERS Handbook&lt;/em>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>作者），哈佛大学首席技术官、前 Sun Microsystems(Oracle) 杰出工程师 Jim Waldo（&lt;em>Worse is Worse&lt;/em>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>作者）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>新泽西派：C 的创造者 Dennis Ritchie，C++ 的创造者 Bjarne Stroustrup，Unix 创建者 Ken Thompson 和 Dennis Ritchie，负责 Linux 内核中 ext2、ext3 与 ext4 文件系统开发与维护的曹子德（Theodore Ts&amp;rsquo;o），&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="讨论的系统调用遇中断两派的考虑和做法分别是什么">讨论的&amp;quot;系统调用遇中断&amp;quot;，两派的考虑和做法分别是什么？
+&lt;/h3>&lt;p>MIT 派希望接口尽可能简单（把用户当 loser 来设计系统），所以他们认为当系统例程执行中断时，应该回退到调用系统例程的指令，以确保在中断后可以恢复用户程序的状态。而新泽西派则认为实现简单更重要，所以 Unix 的解决方案是让系统例程始终完成，但通过返回错误代码来表明操作未能成功完成，用户程序需要检查错误代码并决定是否重试系统例程。&lt;/p>
+&lt;h3 id="结论或讨论">结论或讨论
+&lt;/h3>&lt;p>作者认为&amp;quot;更差即更好&amp;quot;是出于效率考虑的，如果能尽快做出一个让用户基本满意、让开发者简单实现的软件，其效益显然是大于开发一个几近完美的软件的。诚然，这样的开发有益于用户、社区和开发者的交流和相互促进。但是正如文中举的系统调用遇中断的例子，这样的开发设计模式有益于开发者更高效地开发，却给用户徒增了使用成本。过了足够久的时间之后，这些&amp;quot;浪费&amp;quot;的用户的时间成本甚至复杂度变高之后的开发成本终会膨胀，导致无法达到其降本增效的目的。但同时也不可否认，the-right-thing 设计模式难度、复杂度也相当高，一味追求显得死板。&lt;/p>
+&lt;p>在这两者之间权衡，我觉得更好的设计模式应该是确定一套最小的规范，在这套最小的规范上保证有 the-right-thing 的面面俱到，而又因为规模小而不至于不简单。然后后续工作都基于这套最小规范发展，有点像面向对象的思想，对其进行组合、派生，保证其高度的灵活性，又能有在模块层面上的简单。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;em>The UNIX-HATERS Handbook&lt;/em>:
+&lt;code>https://en.wikipedia.org/wiki/The_UNIX-HATERS_Handbook&lt;/code>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;em>Worse is Worse&lt;/em>:
+&lt;code>https://www.artima.com/weblogs/viewpost.jsp?thread=24807&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>汇总 | 2023 秋</title><link>https://jrhim.com/p/2023/summary/</link><pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2023/summary/</guid><description>&lt;h2 id="课程">课程
+&lt;/h2>
+&lt;section class="article-list">
+&lt;article class="article-list" style="background-image: url('/p/2023/dm/cover.png'); background-blend-mode: lighten;">
+&lt;a href="https://jrhim.com/p/2023/dm/">
+&lt;div class="article-details">
+&lt;div class="article-title">离散数学Ⅱ 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-15T00:00:00Z'>Jan 15, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list" style="background-image: url('/p/2023/ics/cover.png'); background-blend-mode: lighten;">
+&lt;a href="https://jrhim.com/p/2023/ics/">
+&lt;div class="article-details">
+&lt;div class="article-title">计算机系统基础 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2023-12-31T00:00:00Z'>Dec 31, 2023&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/marx/">
+&lt;div class="article-details">
+&lt;div class="article-title">马克思主义基本原理 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-26T00:00:00Z'>Jan 26, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/physics/">
+&lt;div class="article-details">
+&lt;div class="article-title">大学物理Ⅲ-2 2023 秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-26T00:00:00Z'>Jan 26, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/espanol/">
+&lt;div class="article-details">
+&lt;div class="article-title">西班牙语Ⅰ 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-18T00:00:00Z'>Jan 18, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p></description></item></channel></rss>

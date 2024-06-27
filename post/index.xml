@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on JrHimself</title><link>https://jrhim.com/post/</link><description>Recent content in Posts on JrHimself</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 23 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://jrhim.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>汇总 | 2024 春</title><link>https://jrhim.com/p/2024s/summary/</link><pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2024s/summary/</guid><description>&lt;h2 id="课程">课程
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://www.jrhim.com/shiroa-page/">
+&lt;div class="article-details">
+&lt;div class="article-title">2024 春&lt;/div>
+&lt;div class="article-preview">https://www.jrhim.com/shiroa-page/&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p></description></item><item><title>C编译体系</title><link>https://jrhim.com/p/c-compile-system/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/c-compile-system/</guid><description>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1J14y1D7Sw"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="gcc的常用编译选项">gcc的常用编译选项
+&lt;/h2>&lt;p>gcc的参数组合比较随意，比如&lt;code>-Wall&lt;/code> 其实就是&lt;code>-W all&lt;/code> ，有时候空格等号和粘连的写法都是等价的，但像&lt;code>-O1&lt;/code> 就不能分开写。&lt;/p>
+&lt;p>&lt;code>-E&lt;/code> 预处理&lt;/p>
+&lt;p>&lt;code>-v&lt;/code> 打印输出信息（默认quiet）&lt;/p>
+&lt;p>&lt;code>-&lt;/code> 从stdio中读取输入&lt;/p>
+&lt;h2 id="多文件编译和第三方库">多文件编译和第三方库
+&lt;/h2>&lt;p>用makefile举例。先生成目标文件（&lt;code>.o&lt;/code>）再链接成可执行文件，相较于直接使用两个源文件编译成可执行文件，能够避免未修改的文件也要重新编译的开销。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">main&lt;/span>.&lt;span class="n">o&lt;/span> &lt;span class="n">a&lt;/span>.&lt;span class="n">o&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gcc $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gcc -c $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>makefile能够简化成上面这么写，而不需要展开写所有的文件。&lt;code>$^&lt;/code> 就代表上面所有的依赖，&lt;code>$@&lt;/code> 指的就是冒号前面这个要输出的文件，&lt;code>%&lt;/code> 是个模式的匹配。&lt;/p>
+&lt;p>更好地，还可以提取出所有的变量。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>有时，文件目录嵌套了非常多层，要包含头文件时就需要写很多次的&lt;code>&amp;quot;..&amp;quot;&lt;/code> ，既不简洁也不优雅。gcc中可以使用&lt;code>-I&lt;/code> 这个编译选项来指定include目录，而不需要相对引用。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">INCLUDE_PATH&lt;/span> &lt;span class="o">=&lt;/span> -Ifolder/ -Iinclude1 -I include2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>INCLUDE_PATH&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用第三方库的时候，在Linux上&lt;code>apt&lt;/code> 安装后只需要加入几个&lt;code>-l&lt;/code> 选项就可以使用了。如果说修改了源码，想要用修改后的自己的库，那就要自己引入&lt;code>INCLUDE_PATH&lt;/code> 和&lt;code>LIBRARY_PATH&lt;/code> ，通常情况下程序会优先使用动态链接库（&lt;code>.a&lt;/code> 或&lt;code>.la&lt;/code> 结尾）以减小体积。&lt;code>apt&lt;/code> 安装库时，把可执行文件放在&lt;code>/usr/bin&lt;/code> ，头文件放在&lt;code>/usr/include&lt;/code> ，库文件放在&lt;code>/usr/lib&lt;/code> ，gcc就能默认从这几个路径下搜索包含。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">INCLUDE_PATH&lt;/span> &lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LDFLAGS&lt;/span> &lt;span class="o">=&lt;/span> -lgvs -lcgraph -lcdt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> $^ &lt;span class="k">$(&lt;/span>LDFLAGS&lt;span class="k">)&lt;/span> -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>INCLUDE_PATH&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>pkg-config是一个能根据package自动补全include和library路径的工具，这样只需要提供CFLAGS和LDFLAGS就可以了。下面使用的 &lt;code>ˋ&lt;/code>在shell中会先执行，然后用返回的值替代。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CC&lt;/span> &lt;span class="o">=&lt;/span> gcc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">SRC&lt;/span> &lt;span class="o">=&lt;/span> main.c a.c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">OBJ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">$(&lt;/span>SRC:.c&lt;span class="o">=&lt;/span>.o&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">CFLAGS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sb">`&lt;/span>pkg-config libgvc --cflags&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># -I/usr/include/graphviz
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">LDFLAGS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sb">`&lt;/span>pkg-config libgvc --libs&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># -lgvs -lcgraph -lcdt
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">main&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nv">OBJ&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> &lt;span class="k">$(&lt;/span>CFLAGS&lt;span class="k">)&lt;/span> $^ &lt;span class="k">$(&lt;/span>LDFLAGS&lt;span class="k">)&lt;/span> -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">%.o&lt;/span>&lt;span class="o">:&lt;/span> %.&lt;span class="n">c&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">$(&lt;/span>CC&lt;span class="k">)&lt;/span> -c &lt;span class="k">$(&lt;/span>CFLAGS&lt;span class="k">)&lt;/span> $^ -o &lt;span class="nv">$@&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://jrhim.com/p/c-compile-system/imgs/0.png"
+width="2519"
+height="823"
+srcset="https://jrhim.com/p/c-compile-system/imgs/0_hu2c8a620da51b30903a774c9b6925a8b0_677291_480x0_resize_box_3.png 480w, https://jrhim.com/p/c-compile-system/imgs/0_hu2c8a620da51b30903a774c9b6925a8b0_677291_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="crl和triplet"
+class="gallery-image"
+data-flex-grow="306"
+data-flex-basis="734px"
+>&lt;/p>
+&lt;h2 id="跨平台和交叉编译">跨平台和交叉编译
+&lt;/h2>&lt;p>编译出来的文件会有一个可执行的&lt;code>configure&lt;/code> 文件，这和gnu的构建三件套GNU build system（automake，autoconf和libtools）有关。主要目的就是简化跨平台软件的构建过程。但最好用cmake来构建跨平台应用。&lt;/p>
+&lt;p>API是应用程序接口，ABI指的是应用程序二进制接口，和硬件、操作系统、编译器等等有关系。&lt;/p>
+&lt;p>出现一个新架构之后，如何将已有的编译器引入新架构？使用加拿大编译。&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/c-compile-system/imgs/1.png"
+width="2407"
+height="1305"
+srcset="https://jrhim.com/p/c-compile-system/imgs/1_hud187a7a06fdb8bdeac4f82b007be8690_592152_480x0_resize_box_3.png 480w, https://jrhim.com/p/c-compile-system/imgs/1_hud187a7a06fdb8bdeac4f82b007be8690_592152_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Canadian Cross"
+class="gallery-image"
+data-flex-grow="184"
+data-flex-basis="442px"
+>&lt;/p>
+&lt;p>3阶段实现自举。&lt;/p></description></item><item><title>CVPR24 Zero-Reference Low-Light Enhancement via Physical Quadruple Priors</title><link>https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/</link><pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/</guid><description>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/cover.png" alt="Featured image of post CVPR24 Zero-Reference Low-Light Enhancement via Physical Quadruple Priors" />
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://daooshee.github.io/QuadPrior-Website/">
+&lt;div class="article-details">
+&lt;div class="article-title">QuadPrior Homepage&lt;/div>
+&lt;div class="article-preview">https://daooshee.github.io/QuadPrior-Website/&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://arxiv.org/abs/2403.12933">
+&lt;div class="article-details">
+&lt;div class="article-title">arXiv&lt;/div>
+&lt;div class="article-preview">https://arxiv.org/abs/2403.12933&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;p>作者：&lt;a class="link" href="https://daooshee.github.io/website/" target="_blank" rel="noopener"
+>Wenjing Wang&lt;/a>, &lt;a class="link" href="https://hyang0511.github.io/" target="_blank" rel="noopener"
+>Huan Yang&lt;/a>, &lt;a class="link" href="https://www.microsoft.com/en-us/research/people/jianf/" target="_blank" rel="noopener"
+>Jianlong Fu&lt;/a>, &lt;a class="link" href="http://www.wict.pku.edu.cn/struct/people/liujiaying.html" target="_blank" rel="noopener"
+>Jiaying Liu&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Comp1.png"
+width="4267"
+height="1714"
+srcset="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Comp1_hu390c9e17af459cb9dc8cc10e037022b4_7632152_480x0_resize_box_3.png 480w, https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Comp1_hu390c9e17af459cb9dc8cc10e037022b4_7632152_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Comp"
+class="gallery-image"
+data-flex-grow="248"
+data-flex-basis="597px"
+>&lt;/p>
+&lt;h2 id="摘要">摘要
+&lt;/h2>&lt;p>在弱光环境下，理解光照和减少监督需求是一项重大挑战。目前的方法对训练过程中的数据使用和特定光照的超参数高度敏感，限制了它们处理未知场景的能力。在本文中，我们提出了一种新的零参考低照度增强框架，该框架可仅使用正常光照下的图像进行训练。为此，我们从物理光传递理论中汲取灵感，设计了一种光照不变先验。这个先验值是连接正常光线图像和弱光图像的桥梁。然后，我们开发了一个先验图像框架，在没有弱光数据的情况下进行训练。在测试过程中，该框架能够将我们的光照不变先验恢复到图像中，自动实现弱光增强。在这一框架内，我们利用预训练生成扩散模型来提高模型能力，引入旁路解码器来处理细节失真，并提供一个轻量级版本以提高实用性。广泛的实验证明了我们的框架在各种情况下的优越性，以及良好的可解释性、鲁棒性和效率。&lt;/p>
+&lt;h2 id="贡献点">贡献点
+&lt;/h2>&lt;p>开发了一个光照不变先验，源于 Kubelka-Munk 理论，将其作为低照度和正常光照图像之间的桥梁。训练时，仅使用正常光照图像，模型从图像分布中学习明亮照明的概念；在测试时，模型会自动提取低照度图像与光照无关的特征，然后转移到正常光照的图像中。这样，无需任何低照度图像、或者与照度有关的超参数，模型就能够在未知场景中进行低照度增强。&lt;/p>
+&lt;p>总结：&lt;/p>
+&lt;ul>
+&lt;li>我们提出了一种零参考低照度增强模型，该模型利用照度不变先验作为不同照度之间的中介。我们的模型无需依赖任何特定的低照度数据，就能在各种低照度场景中表现出卓越的性能。&lt;/li>
+&lt;li>我们建立了物理四重先验，这是一种新颖的可学习的光照不变先验，源自光传递理论。该先验捕捉到了不同光照条件下成像的本质，使弱光增强摆脱了对参考样本或人为设置的超参数的依赖。&lt;/li>
+&lt;li>我们开发了一种有效的先验 - 图像映射系统，将先验作为控制预训练大规模生成扩散模型的条件。我们引入了一个旁路解码器来解决失真问题，并证明我们的模型可以提炼成一个轻量级版本以用于实际应用。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Overall.png"
+width="3277"
+height="2471"
+srcset="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Overall_hu27511af975c69d138a42b76b037f7c6d_1734430_480x0_resize_box_3.png 480w, https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Overall_hu27511af975c69d138a42b76b037f7c6d_1734430_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="QUAD_PRIOR_CVPR24"
+class="gallery-image"
+data-flex-grow="132"
+data-flex-basis="318px"
+>&lt;/p>
+&lt;h2 id="基于物理先验的图像复原">基于物理先验的图像复原
+&lt;/h2>&lt;h3 id="可学习的照明不变先验">可学习的照明不变先验
+&lt;/h3>&lt;h4 id="物理四重先验">物理四重先验
+&lt;/h4>&lt;p>从光传递的 Kubelka-Munk 理论出发。给定波长 $\lambda$，图像平面上位于空间位置 $\mathbf{x}$ 的入射光谱能量模型为&lt;/p>
+&lt;p>$$
+E(\lambda,\mathbf{x}) = e(\lambda, \mathbf{x})\left((1-i(\mathbf{x}))^2R_\infty(\lambda,\mathbf{x})+i(\mathbf{x})\right)\text{.}\tag{1}
+$$&lt;/p>
+&lt;p>其中，$e(\lambda, \mathbf{x})$ 表示光源光谱，$i(\mathbf{x})$ 表示镜面反射，$R_\infty(\lambda,\mathbf{x})$ 表示材料反射率。当物体是无光泽的时候，即 $i(\mathbf{x}) \approx 0$，式 (1) 可以简化为&lt;/p>
+&lt;p>$$
+E(\lambda,\mathbf{x}) = e(\lambda, \mathbf{x})R_\infty(\lambda,\mathbf{x})\text{,}\tag{2}
+$$&lt;/p>
+&lt;p>和 Retinex 模型相同。也就是说，Retinex 理论可以看作是 Kubelka-Munk 理论的一个特例。&lt;/p>
+&lt;p>首先，为了简便起见，我们将一些变量表示为&lt;/p>
+&lt;p>$$
+E^{\lambda} = \frac {\partial E(\lambda,\mathbf{x})} {\partial \lambda}, ;
+R_\infty^{\lambda} = \frac {\partial R_\infty(\lambda,\mathbf{x})} {\partial \lambda}\text{,} \tag{3}
+$$
+$$
+E^{\lambda\lambda} = \frac {\partial^2 E(\lambda,\mathbf{x})} {\partial \lambda^2}, ;
+R_\infty^{\lambda\lambda} = \frac {\partial^2 R_\infty(\lambda,\mathbf{x})} {\partial \lambda^2}\text{.} \tag{4}
+$$&lt;/p>
+&lt;p>直观地，$E$ 表示光谱强度，$E^\lambda$ 表示光谱斜率，$E^{\lambda\lambda}$ 表示光谱曲率。&lt;/p>
+&lt;p>根据 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，通过简化假设，我们可以从式 (1) 得到一系列不变量。主要思路是，去掉 $i$ 和 $e$ 的影响，只保留 $R_\infty$ 的影响。由于 $R_\infty$ 是材料的固有属性，因此在不同光照条件下，$R_\infty$ 是不变的。因此导出的变量可以表现出光照不变性。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>假设等能量照明，即 $e(\lambda, \mathbf{x})$ 被简化为与 $\lambda$ 无关的 $e(\mathbf{x})$，那么式 (1) 可以简化为&lt;/p>
+&lt;p>$$
+E(\lambda,\mathbf{x}) = \tilde{e}(\mathbf{x})\left((1-i(\mathbf{x}))^2R_\infty(\lambda,\mathbf{x})+i(\mathbf{x})\right)\text{,}\tag{5}
+$$&lt;/p>
+&lt;p>将式 (5) 代入 $E^{\lambda}/E^{\lambda\lambda}$ 可得&lt;/p>
+&lt;p>$$
+\frac{E^{\lambda}} {E^{\lambda\lambda}} = \frac {\tilde{e}(\mathbf{x})(1-i(\mathbf{x}))^2R_\infty^{\lambda}} {\tilde{e}(\mathbf{x})(1-i(\mathbf{x}))^2R_\infty^{\lambda\lambda}} = \frac{R_\infty^{\lambda}} {R_\infty^{\lambda\lambda}}\text{,}\tag{6}
+$$&lt;/p>
+&lt;p>其中照明属性 $i$ 和 $e$ 被消除，只剩下材料属性 $R_\infty$。由于它和光照无关，因此它建立了 $E^{\lambda}/E^{\lambda\lambda}$ 的光照不变性。这样，第一个光照不变量是&lt;/p>
+&lt;p>$$
+H = \arctan \left( {E^{\lambda}} / {E^{\lambda\lambda}} \right) \text{.}\tag{7}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>再假设表面是无光泽的，即 $i(\mathbf{x}) \approx 0$，那么式 (1) 可以简化为&lt;/p>
+&lt;p>$$
+E(\lambda,\mathbf{x}) = \tilde{e}(\mathbf{x})R_\infty(\lambda,\mathbf{x})\text{,}\tag{8}
+$$&lt;/p>
+&lt;p>类似地，我们可以推导出第二个光照不变量&lt;/p>
+&lt;p>$$
+C = \log \left( \frac { (E^{\lambda})^2 + (E^{\lambda\lambda})^2} {E(\lambda,\mathbf{x})^2} \right) \nonumber \
+= \log \left( \frac { (R_\infty^{\lambda})^2 + (R_\infty^{\lambda\lambda})^2} {R_\infty(\lambda,\mathbf{x})^2} \right) \text{.}\tag{9}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>进一步假设光照均匀，即 $\tilde{e}(\mathbf{x})$ 简化为 $\bar{e}$，那么式 (1) 可以简化为&lt;/p>
+&lt;p>$$
+E(\lambda,\mathbf{x}) = \bar{e}R_\infty(\lambda,\mathbf{x})\text{,}\tag{10}
+$$&lt;/p>
+&lt;p>类似地，我们可以推导出第三个光照不变量&lt;/p>
+&lt;p>$$
+W = \tan \left( \bigg| \frac {\partial E(\lambda,\mathbf{x})} {\partial \mathbf{x}} \frac 1 {E(\lambda,\mathbf{x})} \bigg| \right) \nonumber \
+= \tan \left( \bigg| \frac {\partial R_\infty(\lambda,\mathbf{x})} {\partial \mathbf{x}} \frac 1 {R_\infty(\lambda,\mathbf{x})} \bigg| \right) \text{.}\tag{11}
+$$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Kubelka-Munk 理论对灰度图像很有效，但在色彩的解释上有一定的局限性。上述的三个光照不变式丢失了部分色彩信息。因此对于第四个光照不变式，我们描述了 RGB 三个通道像素值之间的相对关系。&lt;/p>
+&lt;ul>
+&lt;li>假设光照会保持颜色的顺序，我们将 RGB 三个通道的顺序作为基本的光照不变特征，记为 $O$。&lt;/li>
+&lt;/ul>
+&lt;h4 id="通过神经网络学习">通过神经网络学习
+&lt;/h4>&lt;p>我们通过高斯色彩模型&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>和 CIConv&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup> 来从 RGB 图像中获取先验。首先，我们通过线性映射估计观测到的能量 $\hat{E}$ 和它的导数 $\hat{E}^\lambda$、$\hat{E}^{\lambda\lambda}$&lt;/p>
+&lt;p>$$
+\begin{bmatrix}
+\hat{E}(x,y) \newline \hat{E}^\lambda(x,y) \newline \hat{E}^{\lambda\lambda}(x,y) \newline \end{bmatrix} = \mathcal{W}
+\begin{bmatrix} R(x,y) \newline G(x,y) \newline B(x,y) \end{bmatrix}
+\text{,}\tag{12}
+$$&lt;/p>
+&lt;p>其中，$x$ 和 $y$ 分别表示图像中的位置，$\mathcal{W}$ 是 $3\times 3$ 的矩阵。在 &lt;sup id="fnref1:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> &lt;sup id="fnref1:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup> 中，$\mathcal{W}$ 是手动设计的，而我们用我们的先验到图像框架通过自然图像的分布来学习它。&lt;/p>
+&lt;p>公式 (11) 中的空间导数 $\partial E / \partial \mathbf{x}$ 是在 x 和 y 方向上计算的，表示为 $\partial E / \partial \mathbf{x}=(E_x, E_y)$ ，其大小由 $|\partial E / \partial \mathbf{x}| = \sqrt{E_x^2 + E_y^2}$ 给出。最终，通过将 $\hat{E}$ 与高斯颜色平滑和尺度为 $\sigma$ 的导数滤波器进行卷积来估计 $E$、$E_x$ 和 $E_y$ 。$\sigma$ 是从输入图像中预测得出的。类似地，$E^{\lambda}$ 是从 $\hat{E}^{\lambda}$ 获得的，$E^{\lambda\lambda}$ 是从 $\hat{E}^{\lambda\lambda}$ 获得的。现在我们可以从输入图像中计算$H$、$C$ 和 $W$。&lt;/p>
+&lt;p>我们的最后一个光照不变量，即 RGB 通道的顺序，定义为如下三个通道&lt;/p>
+&lt;p>$$
+O(x,y) = \left[ O_R(x,y), O_G(x,y), O_B(x,y) \right]\text{,}\tag{13}
+$$&lt;/p>
+&lt;p>其中，$O_R$ 表示 RGB 图像中 $R$ 通道的顺序，标准化为 $[-1,1]$。$O_G$ 和 $O_B$ 同理。&lt;/p>
+&lt;p>最后，$H$、$C$、$W$ 和 $O$ 在通道维度上连接在一起，形成我们的物理四元先验。&lt;/p>
+&lt;h4 id="物理解释">物理解释
+&lt;/h4>&lt;p>首先，数学形式表示 $W$ 代表光谱强度的强度归一化空间导数。至于 $H$，根据&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，它和材料的色调有关，即材料的 $\arctan(\lambda_\text{max})$。而对于 $C$，在基于光谱波长的色环内，色调代表角度，而色度则是距离中心的距离。此外，当将笛卡尔坐标 $(a, b)$ 转换为极坐标时，角度变为 $\arctan(b/a)$ ，半径变为 $\sqrt{(a)^2+(b)^2}$ 。将这与方程 (7) 和方程 (9) 连接起来，我们发现 C 与色度相关联。&lt;/p>
+&lt;h3 id="通过扩散模型构建先验到图像的框架">通过扩散模型构建先验到图像的框架
+&lt;/h3>&lt;p>理想情况下，我们希望保留所有与光照无关的信息，同时舍弃与光照相关的信息。然而，实现这种分解具有挑战性，仍然是图像建模中尚未解决的问题。尽管我们的物理四元先验（即 $H$、$C$、$W$ 和 $O$）从不同角度捕捉了与光照无关的信息，但仍会丢失一些信息。因此，根据先验重建图像并不容易。&lt;/p>
+&lt;p>我们建议使用大模型来直接补全缺失的信息，而不是专注于改进光照不变先验。我们使用 Stable Diffusion v1-5 并使用 ControlNet 框架将其转为条件生成模式。将四个物理先验作为条件来控制生成模型。&lt;/p>
+&lt;p>&lt;img src="https://github.com/daooshee/QuadPrior/raw/main/Framework.jpg"
+loading="lazy"
+alt="QUAD_PRIOR_CVPR24"
+>&lt;/p>
+&lt;p>在训练过程中，使用一个冻结的 SD 编码器将图像 $I$ 映射到压缩的潜在表示 $z_0$ 中。然后，我们在随机时间步长 $t\in{1,&amp;hellip;,T}$ 处对 $z_t$ 进行采样，通过&lt;/p>
+&lt;p>$$
+z_{t}=\sqrt{\bar{\alpha}_t}z_0+\sqrt{1-\bar{\alpha}_t} \epsilon\text{,}\tag{14}
+$$&lt;/p>
+&lt;p>其中 ${\bar{\alpha}_t}$ 是一个预定义参数序列。训练目标是根据 $z_t$ 和我们的先验预测 $\epsilon$。起初，SD 利用 U-Net 来从 $z_t$ 预测 $\epsilon$，但 U-Net 现在被我们冻结了。我们添加了一组编码模块，以从我们的四重先验中提取特征。然后将这些特征纳入 SD U-Net 中。我们采用了零卷积策略&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>，以确保在训练开始时，新的层不会影响原始 SD。在测试过程中，给定输入图像 $I$，我们提取物理四元先验，并将其作为反向扩散过程中预测 $z_0$ 的条件。随后，通过解码器将 $z_0$ 投影回图像空间。&lt;/p>
+&lt;p>虽然 ControlNet 在各种应用中都取得了成功，但直接应用它却存在收敛速度慢、细节退化和依赖文本提示等问题。为了解决这些问题，使其更适合我们的图像修复任务，我们进行了以下改进。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>在典型的扩散模型中，训练目标是预测高斯噪声项：&lt;/p>
+&lt;p>$$
+\mathcal{L}_{\text{noise}} = ||\epsilon-\hat{\epsilon}||^2_2\text{.}\tag{15}
+$$&lt;/p>
+&lt;p>我们额外将 $z_0$ 的差值最小化，这可以加快收敛速度。结合公式 (14)，可以得出&lt;/p>
+&lt;p>$$
+\mathcal{L}_{z_0} = ||z_0-\hat{z}_0||^2_2 =
+||z_0 - \frac{z_t-\sqrt{1-\bar{\alpha}_t}\hat{\epsilon}} {\sqrt{\bar{\alpha}_t}} ||^2_2\text{.}\tag{16}
+$$&lt;/p>
+&lt;p>我们简单地将这两种损失合并为最终损失&lt;/p>
+&lt;div>$$
+\mathcal{L}_{\text{DIFF}} = \mathcal{L}_{z_0} + \mathcal{L}_{\text{noise}}\text{.}\tag{17}
+$$&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>SD 采用自动编码器将图像 $I$ 压缩成潜在表示 $z_0$，从而降低了计算成本。但是，自动编码器会带来严重的细节失真。为了缓解这一问题，我们利用编码器的特征为解码器提供支持，并设计了一种有效的微调策略。&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE.png"
+width="2545"
+height="971"
+srcset="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE_huf47b2858d96a0a74c5310bf9429d84c9_627378_480x0_resize_box_3.png 480w, https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE_huf47b2858d96a0a74c5310bf9429d84c9_627378_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="The training strategy of our bypass decoder."
+class="gallery-image"
+data-flex-grow="262"
+data-flex-basis="629px"
+>&lt;/p>
+&lt;p>如上图所示，在训练过程中，我们用随机光照抖动和噪声扭曲输入图像 $I$，得到 $\tilde{I}$。然后解码器结合从 $\tilde{I}$ 中提取的特征 $z^1$、$z^2$、$z^3$ 还原 $z_0$。我们引入了几个用于特征融合的卷积层和一个用于后处理的残差块。这些附加层初始化为零或 &lt;code>self&lt;/code>，确保在训练开始时对原始解码过程的影响最小。新的解码器被命名为旁路解码器。&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE-train-comparison.png"
+width="2553"
+height="1097"
+srcset="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE-train-comparison_hubfe0036cfb27cb4dbfab28af1c86e332_3151154_480x0_resize_box_3.png 480w, https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/AE-train-comparison_hubfe0036cfb27cb4dbfab28af1c86e332_3151154_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Image restoration effect of the SD decoder and ours."
+class="gallery-image"
+data-flex-grow="232"
+data-flex-basis="558px"
+>&lt;/p>
+&lt;p>如上图所示，我们的旁路解码器实现了明显的细节还原。如下图所示，在测试过程中，输入图像中的特征会辅助潜解码过程。我们的旁路解码器利用从输入图像中提取的 $z^1$、$z^2$ 和 $z^3$ 来重建细节，并在 $\hat{z}_0$ 中保持增强的光照度。&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Inference.png"
+width="918"
+height="363"
+srcset="https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Inference_hub68ec3184f89234b1d28c8e09c6abbc5_45995_480x0_resize_box_3.png 480w, https://jrhim.com/p/cvpr24-zero-reference-low-light-enhancement-via-physical-quadruple-priors/imgs/Inference_hub68ec3184f89234b1d28c8e09c6abbc5_45995_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="The inference pipeline of our overall framework."
+class="gallery-image"
+data-flex-grow="252"
+data-flex-basis="606px"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Stable Diffusion 最开始是作为文本到图像模型设计的。然而，要求用户为低照度增强提供文本并不方便。为了解决这个问题，我们将文本输入设置为始终为空字符串。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="去噪">去噪
+&lt;/h4>&lt;p>噪声是弱光增强中的一个重大挑战。虽然我们的先验并不是为去噪目的而设计的，但我们采用了一种简单的策略来抑制噪声。在训练过程中，我们对输入图像 $I$ 应用随机高斯 - 泊松复合噪声，同时提取物理四元先验。这种方法可以引导模型忽略高频细节，只关注低频与光照无关的信息。&lt;/p>
+&lt;h4 id="蒸馏提高效率">蒸馏提高效率
+&lt;/h4>&lt;p>扩散模型在推理中需要多步优化。即使使用 DPM-Solver++&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>，10 个步骤仍然非常繁琐。为了追求实用性，我们的框架可以创建一个更轻量级的版本。简而言之，我们构建了一个由残差块组成的轻量级 U-Net，并在瓶颈处集成了 Restormer&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup> 的 Transformer 块。事实证明，Transformer 在低级视觉中非常有效。然后，我们使用我们的框架制作 1.7k 个样本来训练轻量级模型。训练目标仅为 L1 损失。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Jan-Mark Geusebroek, Rein van den Boomgaard, Arnold W. M. Smeulders, and Hugo Geerts. Color invariance. IEEE TPAMI, 23(12):1338–1350, 2001.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Theo Gevers, Arjan Gijsenij, Joost Van de Weijer, and Jan-Mark Geusebroek. Color in computer vision: Fundamentals and applications. John Wiley &amp;amp; Sons, 2012.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Attila Lengyel, Sourav Garg, Michael Milford, and Jan C. van Gemert. Zero-shot domain adaptation with a physics prior. In ICCV, 2021.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>Lvmin Zhang and Maneesh Agrawala. Adding conditional control to text-to-image diffusion models. In ICCV, 2023.&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>Cheng Lu, Yuhao Zhou, Fan Bao, Jianfei Chen, Chongxuan Li, and Jun Zhu. Dpm-solver++: Fast solver for guided sampling of diffusion probabilistic models. arXiv, 2022.&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>Syed Waqas Zamir, Aditya Arora, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, and Ming-Hsuan Yang. Restormer: Efficient transformer for high-resolution image restoration. In CVPR, 2022.&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>一个自用的 Typst 作业报告模板</title><link>https://jrhim.com/p/a-typst-template/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/a-typst-template/</guid><description>&lt;img src="https://jrhim.com/p/a-typst-template/image.jpg" alt="Featured image of post 一个自用的 Typst 作业报告模板" />&lt;p>第一次用 Typst 写作业报告，感觉还不错，编译速度比 $\LaTeX$ 不知道高到哪里去了。然而&lt;a class="link" href="https://github.com/gRox167/typst-assignment-template" target="_blank" rel="noopener"
+>原模板&lt;/a>不支持中文，所以我稍微按我自己的习惯改了一下。&lt;/p>
+&lt;p>这是一个自用的 Typst 作业报告模板，适用于各种作业报告。&lt;/p>
+&lt;h2 id="预览">预览
+&lt;/h2>&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1_hu54d91a2bab3bb3210b563591de8feb7d_186266_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_1_hu54d91a2bab3bb3210b563591de8feb7d_186266_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="1"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2_hu54d91a2bab3bb3210b563591de8feb7d_193615_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_2_hu54d91a2bab3bb3210b563591de8feb7d_193615_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="2"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3_hu54d91a2bab3bb3210b563591de8feb7d_199091_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_3_hu54d91a2bab3bb3210b563591de8feb7d_199091_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="3"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;p>&lt;img src="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4.jpg"
+width="1654"
+height="2339"
+srcset="https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4_hu54d91a2bab3bb3210b563591de8feb7d_239997_480x0_resize_q75_box.jpg 480w, https://jrhim.com/p/a-typst-template/imgs/example_%E9%A1%B5%E9%9D%A2_4_hu54d91a2bab3bb3210b563591de8feb7d_239997_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="4"
+class="gallery-image"
+data-flex-grow="70"
+data-flex-basis="169px"
+>&lt;/p>
+&lt;h2 id="repo">Repo
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://github.com/hongjr03/typst-assignment-template">
+&lt;div class="article-details">
+&lt;div class="article-title">我的修改&lt;/div>
+&lt;div class="article-preview">https://github.com/hongjr03/typst-assignment-template&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://github.com/gRox167/typst-assignment-template">
+&lt;div class="article-details">
+&lt;div class="article-title">原模板 by gRox167&lt;/div>
+&lt;div class="article-preview">https://github.com/gRox167/typst-assignment-template&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p></description></item><item><title>CVPR04 Clear Underwater Vision</title><link>https://jrhim.com/p/cvpr04-clear-underwater-vision/</link><pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/cvpr04-clear-underwater-vision/</guid><description>&lt;blockquote>
+&lt;p>&lt;del>妈呀我说怎么怪怪的原来我一开始把标题写成了 IEEE04&lt;/del>&lt;/p>
+&lt;/blockquote>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://ieeexplore.ieee.org/abstract/document/1315078">
+&lt;div class="article-details">
+&lt;div class="article-title">Clear underwater vision&lt;/div>
+&lt;div class="article-preview">https://ieeexplore.ieee.org/abstract/document/1315078&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;h2 id="物理模型">物理模型
+&lt;/h2>&lt;h3 id="光信号模型">光信号模型
+&lt;/h3>&lt;h4 id="直接透射">直接透射
+&lt;/h4>&lt;p>光信号由直接透射和前向散射两部分组成。当光线从物体射向摄像机时，部分能量会因散射和吸收而损失。到达相机的部分是直接透射。&lt;/p>
+&lt;p>$$
+D = L_{object}e^{-\eta z}
+$$&lt;/p>
+&lt;p>其中，$\eta$ 是光在水中的衰减系数。这里的 $L$ 指的是物体无散射、吸收介质下我们本应观察到的光强。$z$ 是物体到相机的距离。&lt;/p>
+&lt;p>衰减系数是 $\eta = \alpha + \beta$，其中 $\alpha$ 是吸收系数，$\beta$ 是散射系数。散射系数 $\beta$ 表示无限小的水体向所有方向散射能量的能力。可以对所有固体角度 $\Theta$ 积分得到 $\beta$。&lt;/p>
+&lt;p>$$
+\beta = \int_{\Theta} \beta(\Theta) d\Omega= 2\pi \int_{0}^{\pi} \beta(\theta) \sin(\theta) d\theta
+$$&lt;/p>
+&lt;p>其中，$\theta$ 是相对于光传播方向的散射角，$\beta(\theta)$ 是角散射系数。$\alpha$, $\beta$, $\eta$ 和 $L_{object}$ 都是与波长 $\lambda$ 有关的。&lt;/p>
+&lt;h4 id="前向散射">前向散射
+&lt;/h4>&lt;p>前向散射的组成与直接透射类似。不过，它代表的是相对于观察视角的小角度前向散射光。这就造成了图像模糊，其卷积结果为&lt;/p>
+&lt;p>$$
+F = D \ast g_z
+$$&lt;/p>
+&lt;p>其中，$D$ 由&lt;a class="link" href="#%e7%9b%b4%e6%8e%a5%e9%80%8f%e5%b0%84" >直接透射&lt;/a>得到。$g_z$ 是受距离 $z$ 影响的点扩散函数 (PSF)，也就是说物体越远，模糊核就越大。&lt;/p>
+&lt;p>有许多模型可以用来给出水下 PSF 的形式。由于 PSF 取决于悬浮在水中的水溶胶，因此模型通常采用各种经验常数作为参数。比如在这篇文献中&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>的形式是这样的：&lt;/p>
+&lt;p>$$
+g_z = (e^{-\gamma z}-e^{-\eta z}) \mathcal{F}^{-1} { G_z }, \
+\text{其中} G_z = e^{-Kz\omega}
+$$&lt;/p>
+&lt;p>其中，$K&amp;gt;0$ 和 $\gamma&amp;gt;0$ 是经验常数。$\mathcal{F}^{-1}$ 是傅里叶逆变换，$\omega$ 是图像层面的空间频率。滤波器 $G_z$ 是一个低通滤波器，它的频率响应随着距离 $z$ 的增加而减小。这反映了水下图像的模糊程度随着距离的增加而增加。常数 $\gamma$ 被限制为 $|\gamma| \le \eta$。请注意，根据经验和数值模拟 所得到的 PSF 模型在光沿 $z$ 方向传播时并不保存能量。因此，前向散射是一个模糊和衰减的 $D$。&lt;/p>
+&lt;blockquote>
+&lt;p>思路：PSF&lt;/p>
+&lt;/blockquote>
+&lt;p>同时考虑直接透射和前向散射，我们可以得到&lt;/p>
+&lt;p>$$
+S = D + F
+$$&lt;/p>
+&lt;p>我们将有效物体辐射度 $L^\text{effective}_\text{object}$ 定义为&lt;/p>
+&lt;div>$$
+L^\text{effective}_\text{object} = L_\text{object} + L_\text{object} \ast g_z
+$$&lt;/div>
+&lt;p>这是 $L$ 物体的模糊版本。结合上述两式，信号 $S$ 可以写成&lt;/p>
+&lt;p>$$
+S = e^{-\eta z}L^\text{effective}_\text{object}
+$$&lt;/p>
+&lt;h3 id="后向散射光">后向散射光
+&lt;/h3>&lt;p>后向散射光并非源于我们观察的物体，反之，它是由光源被水体散射后到达相机的光。在综合分析所有照明的影响之前，先分析单个远处光源的影响。这里的光源从相对于观察方向的角度 $r=(\theta,\eta)$照射到物体上，它的光强是 $L_{source}$。光源到物体的距离是 $z_s$。根据&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>和&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，这个光源对后向散射的贡献是：&lt;/p>
+&lt;p>$$
+B(r) = \int_0^z \beta(\theta) I^\text{source}(r) e^{-\eta l} [1-f/(l+l_0)]^2 dl
+$$&lt;/p>
+&lt;p>其中，$f$ 是摄像机的焦距，$l_0$ 是镜头与 underwater housing window 的距离。这个积分考虑了在一定距离 $l$ 处散射到物体表面，然后衰减直到到达相机的情况。它还通过 $f/(l+l_0)$ 考虑了辐照度的几何投影。&lt;/p>
+&lt;p>上式可以改写成&lt;/p>
+&lt;p>$$
+B(r) = B_\infty(r)(1-e^{-\eta z}),
+$$&lt;/p>
+&lt;p>其中，&lt;/p>
+&lt;p>$$
+B_\infty(r) \equiv \kappa I^\text{source}(r) \beta(\theta)/\eta
+$$&lt;/p>
+&lt;p>表示延伸到水中无限远处的光源的后向散射光。将所有方向的光源的后向散射光加起来，总的后向散射光是&lt;/p>
+&lt;div>$$
+B = \int_{r} B(r) dr = B_\infty(1-e^{-\eta z}),
+$$&lt;/div>
+&lt;p>其中&lt;/p>
+&lt;div>$$
+B_\infty = \int_{r} B_\infty(r) dr
+$$&lt;/div>
+&lt;p>是一个与 $\lambda$ 有关的标量。&lt;/p>
+&lt;p>以上推导的前提是光线是水平的，此时光照沿光源到物体的方向传播的变化可以忽略。&lt;/p>
+&lt;blockquote>
+&lt;p>有一说一，看到这感觉就和之前的那篇 APSF 连上了。&lt;/p>
+&lt;/blockquote>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/mm23-enhancing-visibility-in-nighttime-haze-images-using-guided-apsf-and-gradient-adaptive-convolution/">
+&lt;div class="article-details">
+&lt;div class="article-title">MM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2023-10-22T00:00:00Z'>Oct 22, 2023&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;h3 id="heading">
+&lt;/h3>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/0208/0000/A-Computer-Model-For-Underwater-Camera-Systems/10.1117/12.958279.short" target="_blank" rel="noopener"
+>B. L. McGlamery, &amp;ldquo;A computer model for underwater camera system,&amp;rdquo; Proc. SPIE 208, 221-231 (1979).&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a class="link" href="https://ieeexplore.ieee.org/abstract/document/100051" target="_blank" rel="noopener"
+>J. S. Jaffe, &amp;ldquo;Computer modeling and the design of optimal underwater imaging systems,&amp;rdquo; IEEE J. Oceanic Engin. 15, 101-111 (1990).&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Worse is Better</title><link>https://jrhim.com/p/2024/cse/worse-is-better/</link><pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2024/cse/worse-is-better/</guid><description>&lt;h2 id="text">Text
+&lt;/h2>
+&lt;div class="article-list--compact">
+&lt;article>
+&lt;a href="https://www.dreamsongs.com/RiseOfWorseIsBetter.html">
+&lt;div class="article-details">
+&lt;div class="article-title">The Rise of Worse is Better&lt;/div>
+&lt;div class="article-preview">https://www.dreamsongs.com/RiseOfWorseIsBetter.html&lt;/div>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/div>
+&lt;p>&lt;/p>
+&lt;div align="center">
+&lt;h2>“更差即更好”的提出&lt;/h2>
+Richard P. Gabriel
+&lt;/div>
+&lt;p>我和几乎所有的 Common Lisp 和 CLOS 的设计者都深受 MIT/Stanford 风格的设计的影响。这种风格的本质可以用&lt;em>正确的东西&lt;/em>这个词来概括。对于这样的设计者来说，重要的是要把以下所有的特性都做对：&lt;/p>
+&lt;ul>
+&lt;li>简洁 &amp;ndash; 无论是实现还是接口，设计都必须简洁。而且接口比实现更需要简洁。&lt;/li>
+&lt;li>正确 &amp;ndash; 在所有观察得到的方面，设计都必须是正确的。当然，不能出错。&lt;/li>
+&lt;li>一致 &amp;ndash; 设计不能不一致。设计可以稍微不那么简洁和完整以实现一致。一致性和正确性一样重要。&lt;/li>
+&lt;li>完整 &amp;ndash; 设计必须覆盖尽可能多的重要情况。所有合理预期的情况都必须被覆盖。不能为了简洁而过度减少完整性。&lt;/li>
+&lt;/ul>
+&lt;p>我相信大多数人都会同意这些是好的特性。我将这种设计哲学的使用称为&lt;em>MIT 方法&lt;/em>。Common Lisp（和 CLOS）和 Scheme 代表了设计和实现的 MIT 方法。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>的哲学只是略有不同：&lt;/p>
+&lt;ul>
+&lt;li>简洁 &amp;ndash; 无论是实现还是接口，设计都必须简洁。而且接口比实现更需要简洁。简洁是设计中最需要考虑的。&lt;/li>
+&lt;li>正确 &amp;ndash; 在所有观察得到的方面，设计都必须是正确的。简洁比正确更好一点。&lt;/li>
+&lt;li>一致 &amp;ndash; 设计不能太不一致。在某些情况下，一致性可以为简洁而牺牲，但是最好是放弃那些处理不太常见情况的设计的部分，而不是引入复杂或者不一致的实现。&lt;/li>
+&lt;li>完整 &amp;ndash; 设计必须覆盖尽可能多的重要情况。所有合理预期的情况都应该被覆盖。完整性可以为了其他任何质量而牺牲。实际上，只要实现不够简洁的时候，就必须对完整性作出取舍。如果是为了更简洁，要更完整可以不那么一致；而特别没必要的是接口的一致性。&lt;/li>
+&lt;/ul>
+&lt;p>早期的 Unix 和 C 是这种设计方法的例子，我将这种设计策略的使用称为&lt;em>新泽西&lt;/em>方法。我有意贬低了&lt;em>更差即更好&lt;/em>，来说服你，这显然是一种很烂的设计模式，新泽西方法也是一种糟糕的方法。&lt;/p>
+&lt;p>让我先对你讲个故事，来证明 MIT/新泽西方法的区别是实实在在的，而且谁也说服不了对方。&lt;/p>
+&lt;p>故事从两个著名的人开始，一个来自 MIT，另一个来自伯克利（但是在 Unix 里工作）。他们曾经会面讨论操作系统问题。来自 MIT 的人对 ITS（MIT 人工智能实验室的操作系统）很了解，并且一直在阅读 Unix 的源代码。他对 Unix 是如何解决 PC loser-ing 问题很感兴趣。PC loser-ing 问题发生在用户程序调用系统例程执行一个可能有重要状态的长时间操作时，比如 IO 缓冲区。如果在操作过程中发生中断，用户程序的状态必须被保存。因为调用系统例程通常是一个单指令，用户程序的 PC 不能充分地捕获进程的状态。系统例程必须要么回退，要么继续。正确的做法是回退，并将用户程序的 PC 恢复到调用系统例程的指令，这样才能够在中断后恢复用户程序，例如，重新进入系统例程。它被称为 PC &lt;em>loser-ing&lt;/em>，因为 PC 被强制进入&lt;em>loser 模式&lt;/em>，在 MIT，loser 是对用户的昵称。&lt;/p>
+&lt;p>MIT 的人没有看到任何处理这种情况的代码，于是问新泽西的人这个问题是如何处理的。新泽西的人说 Unix 的人意识到了这个问题，但是解决办法是系统例程总是完成，但有时会返回一个错误代码，表明系统例程未能完成它的动作。这样，一个合理的用户程序必须检查错误代码，以确定是否要再次尝试系统例程。MIT 的人不喜欢这个解决办法，因为这不是正确的东西。&lt;/p>
+&lt;p>新泽西的人说 Unix 的解决办法是正确的，因为 Unix 的设计哲学是简洁，而正确的东西太复杂了。此外，程序员可以很容易地插入这个额外的测试和循环。MIT 的人指出，实现是简单的，但是功能的接口是复杂的。新泽西的人说，在 Unix 中选择了正确的权衡，即实现的简单性比接口的简单性更重要。&lt;/p>
+&lt;p>然后 MIT 的人嘟囔着说，有时候硬汉才能做出鲜嫩的鸡肉，但新泽西的人不明白他什么意思（我也不确定我明白）。&lt;/p>
+&lt;p>讲完这个故事，我来证明&lt;em>更差即更好&lt;/em>是更好的。C 是一种为编写 Unix 而设计的编程语言，它是使用新泽西方法设计的。因此，C 是一种编程语言，很容易写出一个像样的编译器，并且它要求程序员写出对编译器来说容易解释的文本。有人称 C 为一种高级汇编语言。早期的 Unix 和 C 编译器都有简单的结构，易于移植，只需要很少的机器资源就能运行，并且提供了大约 50%-80% 的操作系统和编程语言所需的功能。&lt;/p>
+&lt;p>任何时候存在的计算机中有一半是比中位数差的（更小或更慢）。Unix 和 C 在它们上面运行得很好。&lt;em>更差即更好&lt;/em>的哲学意味着实现的简单性是最重要的，这意味着 Unix 和 C 很容易在这样的机器上移植。因此，人们就会作出期望，如果 Unix 和 C 支持的 50% 的功能是令人满意的，它们将开始出现在任何地方。它们确实出现了，不是吗？&lt;/p>
+&lt;p>Unix 和 C 是终极计算机病毒。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>的哲学的另一个好处是，程序员学着去牺牲一些安全性、便利性和麻烦，以获得良好的性能和适度的资源使用。使用新泽西方法编写的程序在小型机器和大型机器上都能很好地工作，而且代码是可移植的，因为它是在一个病毒之上编写的。&lt;/p>
+&lt;p>重要的是要记住，最初的病毒必须基本上是好的。如果是这样，只要病毒便于携带，就能确保病毒的传播。病毒一旦传播开来，就会有改进的压力，可能会将其功能提高到接近 90%，但用户已经习惯于接受比正确的东西更差的东西。因此，&lt;em>更差即更好&lt;/em>的软件首先会得到接受，其次会让用户习惯于期望更少，第三才会改进到接近正确的成都。具体来说，尽管 1987 年的 Lisp 编译器和 C 编译器一样好，但是想让 C 语言编译器变得更好的编译器专家比想让 Lisp 编译器变得更好的专家要多得多。&lt;/p>
+&lt;p>好消息是，到 1995 年，我们将拥有一个好的操作系统和编程语言；坏消息是，它们是 Unix 和 C++。&lt;/p>
+&lt;p>&lt;em>更差即更好&lt;/em>还有一个好处。由于新泽西语言和系统的功能不足以构建复杂的单体软件，大型系统的设计必须重用组件。因此，集成传统应运而生。&lt;/p>
+&lt;p>那么&lt;em>正确的东西&lt;/em>是怎么样的呢？有两种基本的情景：&lt;em>大型复杂系统&lt;/em>情景和&lt;em>钻石般的宝石&lt;/em>情景。&lt;/p>
+&lt;p>&lt;em>大型复杂系统&lt;/em>情景是这样的：&lt;/p>
+&lt;p>首先，需要设计正确的东西。然后需要设计它的实现。最后实现它。因为它是正确的东西，它几乎有 100% 的期望功能，而实现的简单性从来不是一个问题，所以实现它需要很长时间。它又大又复杂。使用它需要复杂的工具。最后的 20% 需要 80% 的努力，所以正确的东西需要很长时间才能出来，而且只能在最复杂的硬件上运行得令人满意。&lt;/p>
+&lt;p>&lt;em>钻石般的宝石&lt;/em>情景是这样的：&lt;/p>
+&lt;p>正确的东西需要很长时间来设计，但设计过程中的每一个环节都非常小。要实现快速运行，要么是不可能的，要么是超出了大多数实现者的能力范围。&lt;/p>
+&lt;p>这两种情景对应于 Common Lisp 和 Scheme。&lt;/p>
+&lt;p>第一种情景也是经典人工智能软件的情景。&lt;/p>
+&lt;p>正确的东西往往是一个单一的软件，但原因无他，因为正确的东西往往是单一设计的。也就是说，这种特性是一种偶然。&lt;/p>
+&lt;p>从中得到的教训是，先做正确的东西往往是不可取的。最好的办法是，先让这个东西有一半是正确的就够了，这样它就会像病毒一样传播开来。一旦人们迷上了它，就花时间将其改进为 90% 的正确事物。&lt;/p>
+&lt;p>错误的教训是，将寓言理解为字面意思，并得出结论，C 是人工智能软件的正确载体。50% 的解决方案是要基本正确的，但在这种情况下并不是。&lt;/p>
+&lt;p>但是，我们只能得出这样的结论，即 Lisp 社区需要认真重新考虑 Lisp 设计的立场。我之后会再说。&lt;/p>
+&lt;h2 id="task">Task
+&lt;/h2>&lt;h3 id="mit-派和新泽西派的差别主要是什么">MIT 派和新泽西派的差别主要是什么？
+&lt;/h3>&lt;p>MIT 派要求设计正确、一致且完整，最后才是简单，而且接口的简单比实现的简单更重要。而新泽西派将简单置于首位，为了简单可以让设计有一点不正确、不一致，最后才是完整；而如果保证了简单，要更完整一些，也可以不那么一致。所以，它们的差别主要在于设计简单的地位。&lt;/p>
+&lt;p>这也反映了两派对软件质量的不同评估方式。对于一款软件而言，使用 MIT 派的设计更有一种程序设计者的偏执和完美主义所在，他们更看重产品本身的质量如何；而新泽西派的设计则从实用主义的角度出发，更侧重于其能否以其活力而被用户和市场所接纳。&lt;/p>
+&lt;h3 id="两个派别有什么代表性的学者或工程师">两个派别有什么代表性的学者或工程师？
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>MIT 派：Common Lisp 开发者 Scott Fahlman 和本文作者 Richard P. Gabriel（不过显然在提出本文的时候已经改变想法了），BasisTech 的首席科学家 Simson Garfinkel（&lt;em>The UNIX-HATERS Handbook&lt;/em>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>作者），哈佛大学首席技术官、前 Sun Microsystems(Oracle) 杰出工程师 Jim Waldo（&lt;em>Worse is Worse&lt;/em>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>作者）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>新泽西派：C 的创造者 Dennis Ritchie，C++ 的创造者 Bjarne Stroustrup，Unix 创建者 Ken Thompson 和 Dennis Ritchie，负责 Linux 内核中 ext2、ext3 与 ext4 文件系统开发与维护的曹子德（Theodore Ts&amp;rsquo;o），&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="讨论的系统调用遇中断两派的考虑和做法分别是什么">讨论的&amp;quot;系统调用遇中断&amp;quot;，两派的考虑和做法分别是什么？
+&lt;/h3>&lt;p>MIT 派希望接口尽可能简单（把用户当 loser 来设计系统），所以他们认为当系统例程执行中断时，应该回退到调用系统例程的指令，以确保在中断后可以恢复用户程序的状态。而新泽西派则认为实现简单更重要，所以 Unix 的解决方案是让系统例程始终完成，但通过返回错误代码来表明操作未能成功完成，用户程序需要检查错误代码并决定是否重试系统例程。&lt;/p>
+&lt;h3 id="结论或讨论">结论或讨论
+&lt;/h3>&lt;p>作者认为&amp;quot;更差即更好&amp;quot;是出于效率考虑的，如果能尽快做出一个让用户基本满意、让开发者简单实现的软件，其效益显然是大于开发一个几近完美的软件的。诚然，这样的开发有益于用户、社区和开发者的交流和相互促进。但是正如文中举的系统调用遇中断的例子，这样的开发设计模式有益于开发者更高效地开发，却给用户徒增了使用成本。过了足够久的时间之后，这些&amp;quot;浪费&amp;quot;的用户的时间成本甚至复杂度变高之后的开发成本终会膨胀，导致无法达到其降本增效的目的。但同时也不可否认，the-right-thing 设计模式难度、复杂度也相当高，一味追求显得死板。&lt;/p>
+&lt;p>在这两者之间权衡，我觉得更好的设计模式应该是确定一套最小的规范，在这套最小的规范上保证有 the-right-thing 的面面俱到，而又因为规模小而不至于不简单。然后后续工作都基于这套最小规范发展，有点像面向对象的思想，对其进行组合、派生，保证其高度的灵活性，又能有在模块层面上的简单。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;em>The UNIX-HATERS Handbook&lt;/em>:
+&lt;code>https://en.wikipedia.org/wiki/The_UNIX-HATERS_Handbook&lt;/code>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;em>Worse is Worse&lt;/em>:
+&lt;code>https://www.artima.com/weblogs/viewpost.jsp?thread=24807&lt;/code>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>汇总 | 2023 秋</title><link>https://jrhim.com/p/2023/summary/</link><pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/2023/summary/</guid><description>&lt;h2 id="课程">课程
+&lt;/h2>
+&lt;section class="article-list">
+&lt;article class="article-list" style="background-image: url('/p/2023/dm/cover.png'); background-blend-mode: lighten;">
+&lt;a href="https://jrhim.com/p/2023/dm/">
+&lt;div class="article-details">
+&lt;div class="article-title">离散数学Ⅱ 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-15T00:00:00Z'>Jan 15, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list" style="background-image: url('/p/2023/ics/cover.png'); background-blend-mode: lighten;">
+&lt;a href="https://jrhim.com/p/2023/ics/">
+&lt;div class="article-details">
+&lt;div class="article-title">计算机系统基础 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2023-12-31T00:00:00Z'>Dec 31, 2023&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/marx/">
+&lt;div class="article-details">
+&lt;div class="article-title">马克思主义基本原理 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-26T00:00:00Z'>Jan 26, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/physics/">
+&lt;div class="article-details">
+&lt;div class="article-title">大学物理Ⅲ-2 2023 秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-26T00:00:00Z'>Jan 26, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p>
+&lt;section class="article-list">
+&lt;article class="article-list">
+&lt;a href="https://jrhim.com/p/2023/espanol/">
+&lt;div class="article-details">
+&lt;div class="article-title">西班牙语Ⅰ 2023秋&lt;/div>
+&lt;footer class="article-time">
+&lt;time datetime='2024-01-18T00:00:00Z'>Jan 18, 2024&lt;/time>
+&lt;/footer>
+&lt;/div>
+&lt;/a>
+&lt;/article>
+&lt;/section>
+&lt;p>&lt;/p></description></item><item><title>TIP23 PUGAN: A Physics-Guided Generative Adversarial Network for Underwater Image Enhancement</title><link>https://jrhim.com/p/tip23-pugan-a-physics-guided-generative-adversarial-network-for-underwater-image-enhancement/</link><pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/tip23-pugan-a-physics-guided-generative-adversarial-network-for-underwater-image-enhancement/</guid><description>&lt;img src="https://jrhim.com/p/tip23-pugan-a-physics-guided-generative-adversarial-network-for-underwater-image-enhancement/cover.png" alt="Featured image of post TIP23 PUGAN: A Physics-Guided Generative Adversarial Network for Underwater Image Enhancement" />&lt;p>Runmin Cong, Senior Member, IEEE, Wenyu Yang, Wei Zhang, Senior Member, IEEE, Chongyi Li, Senior Member, IEEE, Chun-Le Guo, Qingming Huang, Fellow, IEEE, and Sam Kwong, Fellow, IEEE&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/cong2-3286263-large.gif"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;h2 id="proposed-method">Proposed Method
+&lt;/h2>&lt;h3 id="a-物理模型指导的生成器phy-g">A. 物理模型指导的生成器（Phy-G）
+&lt;/h3>&lt;h4 id="1-参数估计子网络par-subnet">1) 参数估计子网络（Par-subnet）
+&lt;/h4>&lt;p>$$I(x) = J(x)t(x) + A(1-t(x))$$&lt;/p>
+&lt;p>其中，$I(x)$表示接收到的图像，$J(x)$是期望的复原结果。$t(x)$是光线的传播图，而$A$表示环境背景光。更进一步表示，$t(x) = e^{-\beta d(x)}$，其中$\beta$表示光在水中的衰减系数。&lt;/p>
+&lt;p>通过以上物理模型，可以推导出期望的复原结果的表达式：&lt;/p>
+&lt;p>$$J(x) = \frac{1}{t(x)}I(x) - A(\frac{1}{t(x)}-1)$$&lt;/p>
+&lt;p>若使用传统方法估计物理参数，可能有参数复杂、鲁棒性不足等问题。因此文章使用学习的方式估计模型的参数以提高准确性。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/cong3-3286263-large.gif"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;h5 id="衰减系数">衰减系数
+&lt;/h5>&lt;p>分别将原图像的${r,g,b}$三个通道进行两次$3 \times 3$的卷积并池化，然后经过线性回归-ReLU激活-线性回归的过程得到各个通道的衰减系数$\beta ^c$。将三通道的张量$\beta ^ c$进行通道拼接即可得到衰减系数$\beta$。&lt;/p>
+&lt;h5 id="深度估计">深度估计
+&lt;/h5>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231204154208091.png" alt="image-20231204154208091" style="zoom:33%;" />
+&lt;p>在这里用到了一个&lt;a class="link" href="https://doi.org/10.15607/rss.2020.xvi.018" target="_blank" rel="noopener"
+>2020年提出的RBD模块&lt;/a>，其中这种密集的跳接结构有助于分层特征的学习。在RBD模块前后分别经过一次和两次卷积、使用Sigmoid函数激活即可得到深度图张量$d_1$。&lt;/p>
+&lt;p>由$t(x) = e^{-\beta d(x)}$，将深度图和衰减系数进行点积即可估计光线的传播图。得到传播图后再对其求反函数得到深度图$d_2 = -\frac{\ln t}{\beta}$。使用GT计算得的深度图约束$d_1$和$d_2$进而得到更精确的深度图。&lt;/p>
+&lt;p>参数估计后，即可计算得经过物理模型的复原图像$J^\prime$。&lt;/p>
+&lt;h4 id="2-双流交互增强子网络tsie-subnet">2) 双流交互增强子网络（TSIE-subnet）
+&lt;/h4>&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/cong4-3286263-large.gif"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;p>在 1) 中仍未解决的是背景光$A$的影响。所以为了进一步增强水下图像，作者提出了使用一个输入原图像$I$和初步增强图像$J^\prime$的双流交互增强子网络。首先使用一系列的卷积残差块进行不同规模的特征的提取。对于不同层级的特征，再分别输入到退化量化（DQ）模块中。&lt;/p>
+&lt;p>原图像和初步增强图像的差$e^t_k - e^m_k$可以初步量化图像上某一些区域的退化程度，因此DQ中的其中一个结果$\text{dif}_k$通过作差、卷积来衡量这种彩色图像退化中的图像特征退化程度。这个值越大，表示该区域需要复原的程度更大。&lt;/p>
+&lt;p>而在光线传播过程中的衰减同样影响着图像质量。因此作者对第一步中预测的光线传播图进行最大值池化，进而得出一个结果$t_k$，这个值越大表示在这个区域的严重衰减越多，因此在这个区域的信息的解码（decoding）需要强化更多。&lt;/p>
+&lt;p>如此操作，在最后提取的特征中跳接地加入这部分权重，&lt;/p>
+&lt;p>$$\hat{e_k} = e^t_k + e^t_k \otimes w_k $$&lt;/p>
+&lt;p>其中$w_k$即$\text{dif}_k + t_k$经过卷积后的变换特征。这样做能够让网络后面的增强中更注重图像严重退化的区域的复原。&lt;/p>
+&lt;h3 id="b-双鉴别器dual-d">B. 双鉴别器（Dual-D）
+&lt;/h3>&lt;p>在基于GAN的水下图像增强方法中，负责水下图像增强的是生成器，而鉴别器负责的是判断生成图像的真伪。如果被鉴别出是假的（即增强不足），则继续送回生成器进行训练。因此，这个过程可以由一个对抗性损失约束：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231204165500470.png"
+loading="lazy"
+alt="image-20231204165500470"
+>&lt;/p>
+&lt;p>作者提出的双鉴别器中，第一个鉴别器仅用来鉴别增强后的图像全局是不是像一张高质量的水下图像，而不注重局部区域的增强效果。也就是说，能通过第一次鉴别的图像可能存在一些过增强或者欠增强的区域。作者指出，人类视觉在关注水下图像的时候实际上有一些更偏好的区域，比如前景区域，而如果不使用分区域的方式进行增强显然不符合人类视觉美学。所以第二个鉴别器用于注重不同深度的结构，进而约束A中的TSIE-subnet，更好地鉴别增强结果。这两个鉴别器相互补充，以实现对增强结果的风格和内容的约束。&lt;/p>
+&lt;p>也正是因为对局部区域不同增强程度的关注，作者更倾向选择将图像分为几个块而非关注图像全局的鉴别器，以此观察局部区域不同的增强程度，而不是注重于图像全局的模糊、色彩平衡和对比度等等。因此作者选用马尔可夫PatchGAN作为鉴别器，对图像中各个$N \times N$的块进行鉴别。
+&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231204170550294.png"
+loading="lazy"
+alt="image-20231204170550294"
+>&lt;/p>
+&lt;h3 id="c-训练策略和损失函数">C. 训练策略和损失函数
+&lt;/h3>&lt;h4 id="par-subnet的训练">Par-subnet的训练
+&lt;/h4>&lt;p>交替训练两个参数。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231204170848035.png"
+loading="lazy"
+alt="image-20231204170848035"
+>&lt;/p>
+&lt;h4 id="pugan的训练">PUGAN的训练
+&lt;/h4>&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231204170939645.png"
+loading="lazy"
+alt="image-20231204170939645"
+>&lt;/p>
+&lt;p>$L_1$是全局相似度损失，$L_{gdl}$是感知损失。&lt;/p></description></item><item><title>MM23 Enhancing Visibility in Nighttime Haze Images Using Guided APSF and Gradient Adaptive Convolution</title><link>https://jrhim.com/p/mm23-enhancing-visibility-in-nighttime-haze-images-using-guided-apsf-and-gradient-adaptive-convolution/</link><pubDate>Sun, 22 Oct 2023 00:00:00 +0000</pubDate><guid>https://jrhim.com/p/mm23-enhancing-visibility-in-nighttime-haze-images-using-guided-apsf-and-gradient-adaptive-convolution/</guid><description>&lt;p>[&lt;a class="link" href="https://arxiv.org/abs/2308.01738" target="_blank" rel="noopener"
+>Paper&lt;/a>] [&lt;a class="link" href="https://github.com/jinyeying/nighttime_dehaze" target="_blank" rel="noopener"
+>Code&lt;/a>]&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/1.png"
+loading="lazy"
+alt="1"
+>&lt;/p>
+&lt;h2 id="abstract">Abstract
+&lt;/h2>&lt;p>在有雾的夜间场景中，可见度通常受到低光强、强光、光线散射和多种颜色的光源存在的影响。现有的方法对光源或低光场景表现不好。在本文中作者提出了一种抑制辉光并增强低光区域的方法来增强夜间有雾图像。&lt;/p>
+&lt;p>为&lt;strong>处理辉光&lt;/strong>，作者提出了一个光源感知网络来检测夜间图像的光源，然后进行由 &lt;strong>APSF&lt;/strong> (角点扩散函数) 指导的辉光渲染。然后网络框架根据辉光渲染图像进行训练从而达到抑制辉光的效果。作者还利用了&lt;strong>梯度自适应卷积&lt;/strong>来捕捉朦胧场景中的边缘和纹理。通过利用提取的边缘和纹理，网络能在不丢失重要结构细节的情况下增强场景的对比度。&lt;/p>
+&lt;p>为&lt;strong>增强低光区域&lt;/strong>，网络对一张感知图进行学习，然后利用感知图进行伽马校正。这个感知在低光区域的值较高，而在朦胧区域和辉光区域的值较低。这样的感知图能够帮助网络在低光区域进行增强，而不会对辉光区域进行增强。&lt;/p>
+&lt;h2 id="introduction">Introduction
+&lt;/h2>&lt;p>&amp;hellip;传统的非基于学习的白天去雾方法依赖于雾霾成像模型。然而，由于人工光源的存在和照明颜色的复杂性，该模型在夜间无效。因此，与白天不同，我们不能假设均匀的大气光颜色。此外，这种白天的雾霾模型没有考虑辉光的影响，因此在夜间也不适用。&lt;/p>
+&lt;blockquote>
+&lt;p>类比到 UIE 上，光线充足的情况下，比如浅水，应该可以类比成白天的去雾方法对光在水中的衰减进行建模，而在深水中，光线衰减严重，应该类比成夜间的去雾方法。&lt;/p>
+&lt;/blockquote>
+&lt;p>贡献：&lt;/p>
+&lt;ul>
+&lt;li>第一个基于机器学习的一次性处理夜间辉光和低光强度图像的方法。&lt;/li>
+&lt;li>提出了光源感知网络和 APSF 指导的辉光渲染来抑制辉光。&lt;/li>
+&lt;li>提出了梯度自适应卷积来进行边缘增强，并使用双边核 (bilateral kernel) 来进行纹理增强。&lt;/li>
+&lt;/ul>
+&lt;h2 id="proposed-method">Proposed Method
+&lt;/h2>&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030112306502.png"
+loading="lazy"
+alt="image-20231030112306502"
+>&lt;/p>
+&lt;h3 id="光源感知网络">光源感知网络
+&lt;/h3>&lt;p>夜间辉光可以这样建模：&lt;/p>
+&lt;p>$$
+I_h(x) = I_c(x)t(x) + A(x)(1-t(x)) + L_s(X)*\text{APSF},
+$$&lt;/p>
+&lt;p>其中，$I_h$ 是观测到的朦胧图像，它由场景中的光（无雾状态下的）$I_c$经过传播$t$、大气光$A$经过传播$(1-t)$和光源$L_s$经过$\text{APSF}$大气角点扩散函数卷积操作三部分组成。光线传播$t$可建模为$t(x) = e^{-\beta d(x)}$，其中$\beta$指消光系数。&lt;/p>
+&lt;blockquote>
+&lt;p>Q: 为什么是$(1-t)$？&lt;/p>
+&lt;/blockquote>
+&lt;p>光源有重要的作用：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>给$G_c$提供光源位置信息&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>指导$G_h$输出$O_h$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>结合$\text{APSF}$渲染光照图片&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>对于1，论文定义了光源一致性损失（consistency loss）：&lt;/p>
+&lt;p>$$
+\mathcal{L}_{ls}=\left|O_c \odot M - L_s\right|,
+$$&lt;/p>
+&lt;p>其中$L_s$是光源，$O_c$是输出的干净图像，$M$是软抠图（soft matting）后的图像。要获得光源图，论文提出算法1：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030161007297.png"
+loading="lazy"
+alt="image-20231030161007297"
+>&lt;/p>
+&lt;ol>
+&lt;li>通过对输入进行阈值处理来生成初始的光源掩码&lt;/li>
+&lt;li>使用透明度抠图算法处理光源掩码进而获得光源亮度图&lt;/li>
+&lt;li>将原始图片和光源图作element–wise乘积，获得光源图&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030161618242.png"
+loading="lazy"
+alt="image-20231030161618242"
+>&lt;/p>
+&lt;h3 id="apsf-指导的夜间辉光渲染">APSF 指导的夜间辉光渲染
+&lt;/h3>&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030161751522.png"
+loading="lazy"
+alt="image-20231030161751522"
+>&lt;/p>
+&lt;p>在获取光源图之后，作者使用APSF渲染夜间辉光。首先计算 APSF 函数并将其转换为 2D 格式使其实现2D卷积，从而产生辉光图片。然后将干净图像和发光图像结合起来，在最终图像中渲染出逼真的发光效果。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030175809723.png"
+loading="lazy"
+alt="image-20231030175809723"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>这边应该是一个把2DAPSF函数转换成卷积核权重的一个算法？&lt;/p>
+&lt;p>angle (-180◦ to 180◦) , 光学厚度 optical thickness , 前向散射参数 forward scattering parameter&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="梯度自适应卷积">梯度自适应卷积
+&lt;/h3>&lt;p>夜间朦胧图像存在&lt;strong>对比度低&lt;/strong>、&lt;strong>纹理缺失&lt;/strong>和&lt;strong>照明不均匀&lt;/strong>的问题。&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/v2-53ce3efea1f418c56566c6a9f58e4b51_1440w.webp"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030182849477.png"
+loading="lazy"
+alt="image-20231030182849477"
+>&lt;/p>
+&lt;h4 id="使用梯度卷积进行边缘捕获">使用梯度卷积进行边缘捕获
+&lt;/h4>&lt;p>主要的想法是用局部二值模式（LBP, local binary patterns）在$k \times k$邻域中进行梯度卷积。和传统卷积的区别在于，LBP注重的是一片邻域内的像素和中心像素的差。它将中心像素的值作为阈值，如果超过了就记为$1$，否则记为$0$。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/OIP.bbwAQ0tsPfLCH62YbYBQgQHaEJ"
+loading="lazy"
+alt="局部二值模式(Local Binary Patterns)进行纹理分类 - 走看看"
+>&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030182203940.png"
+loading="lazy"
+alt="image-20231030182203940"
+>&lt;/p>
+&lt;p>然后论文使用一个预训练的模型来建立一致性损失：
+$$
+\mathcal{L}_g=\left|D(O_c)-D(I_h)\right|.
+$$&lt;/p>
+&lt;h4 id="使用双边内核进行纹理捕获">使用双边内核进行纹理捕获
+&lt;/h4>&lt;p>使用单独的卷积网络可能会丢失纹理信息，因此论文使用双边内核进行卷积以捕获纹理信息。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/image-20231030182834409.png"
+loading="lazy"
+alt="image-20231030182834409"
+>&lt;/p>
+&lt;p>在这个式子中，$K$是双边卷积核。&lt;/p>
+&lt;blockquote>
+&lt;p>tbc&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="低光区域增强">低光区域增强
+&lt;/h3>&lt;p>论文使用低光增强模块来提高低光区域的可见度，这个模块生成低光区域的注意力图以专注增强可见度。注意力图 A 在物体区域表现出高值，在均匀区域（例如天空）表现出低值。因此，我们可以区分物体和雾区域。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/hongjr03/img/main/v2-0d6ad415ffacfd3af9bd43ac9adf5412_1440w.webp"
+loading="lazy"
+alt="img"
+>&lt;/p>
+&lt;p>其中$\gamma=0.3$是增强参数， $O_c$是去雾后的图像， $O_e$是增强后的图像，$A$是注意力图。&lt;/p>
+&lt;h3 id="网络和损失">网络和损失
+&lt;/h3></description></item></channel></rss>
