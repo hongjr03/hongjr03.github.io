@@ -10,4 +10,4 @@ categories:
 
 ## 课程
 
-{{<hlink "图像处理与分析" "https://shiroa.jrhim.com/">}}
+{{<hlink "2024 春" "https://www.jrhim.com/shiroa-page/">}}
